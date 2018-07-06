@@ -1,7 +1,7 @@
 import os
 
 __version__ = "0.1"
-github_url = 'https://raw.githubusercontent.com/choldgraf/sphinx-copybutton/master/_static/'
+github_url = 'https://cdn.rawgit.com/choldgraf/sphinx-copybutton/master/_static/'
 
 def setup(app):
     # Add relevant code to headers
