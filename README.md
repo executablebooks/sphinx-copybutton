@@ -9,7 +9,7 @@ A small sphinx extension to add a "copy" button to code blocks.
 You can install `sphinx-copybutton` with `pip`:
 
 ```
-pip install sphinx-copybutton`
+pip install sphinx-copybutton
 ```
 
 ## Usage

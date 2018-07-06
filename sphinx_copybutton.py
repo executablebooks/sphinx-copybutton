@@ -1,7 +1,7 @@
 """A small sphinx extension to add "copy" buttons to code blocks."""
 import os
 
-__version__ = "0.1"
+__version__ = "0.1.1"
 github_url = 'https://cdn.rawgit.com/choldgraf/sphinx-copybutton/master/_static/'
 
 def setup(app):
