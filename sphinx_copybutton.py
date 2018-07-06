@@ -1,3 +1,4 @@
+"""A small sphinx extension to add "copy" buttons to code blocks."""
 import os
 
 __version__ = "0.1"
