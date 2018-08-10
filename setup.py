@@ -8,6 +8,6 @@ setup(
     author_email='choldgraf@gmail.com',
     license='BSD',
     packages=find_packages(),
-    package_data={'sphinx_copybutton': ['_static/copybutton.css', '_static/copybutton.js']},
+    package_data={'sphinx_copybutton': ['sphinx_copybutton/_static/copybutton.css', 'sphinx_copybutton/_static/copybutton.js']},
     include_package_data=True,
 )
