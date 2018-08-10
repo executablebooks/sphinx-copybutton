@@ -2,7 +2,7 @@
 
 A small sphinx extension to add a "copy" button to code blocks.
 
-![](copybutton.gif)
+![](doc/_static/copybutton.gif)
 
 ## Installation
 

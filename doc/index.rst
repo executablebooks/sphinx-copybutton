@@ -7,7 +7,7 @@ of your code blocks. That's it!
 
 **Here's an example**
 
-.. image:: ../copybutton.gif
+.. image:: _static/copybutton.gif
 
 And here's a code block, note the copy button to the right!
 
