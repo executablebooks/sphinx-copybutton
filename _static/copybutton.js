@@ -28,7 +28,7 @@ function addCopyButtonToCode(){
     }, 800);
   }
 
-  $('btn').tooltip({
+  $('.btn').tooltip({
     trigger: 'click',
     placement: 'bottom'
   });
