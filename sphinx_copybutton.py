@@ -1,7 +1,7 @@
 """A small sphinx extension to add "copy" buttons to code blocks."""
 import os
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 github_url = 'https://cdn.rawgit.com/choldgraf/sphinx-copybutton/master/_static/'
 fa_url = 'https://use.fontawesome.com/releases/v5.2.0/css/all.css'
 boot_css_url = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -20,7 +20,7 @@ def setup(app):
     app.add_stylesheet('copybutton.css')
     app.add_stylesheet(fa_url)
     app.add_stylesheet(boot_css_url)
-    
+
     app.add_javascript("copybutton.js")
     app.add_javascript("https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js")
     app.add_javascript(pop_js_url)
