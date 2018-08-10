@@ -1,18 +1,15 @@
 /* Copy buttons */
 button.copybtn {
-  webkit-transition: opacity .3s ease-in-out;
-  -o-transition: opacity .3s ease-in-out;
-  transition: opacity .3s ease-in-out;
-  opacity: 0;
-  padding: 2px 6px;
+  padding: 0px 10px 0px 10px;
+  height: 100%;
+  max-height: 2em;
   position: absolute;
-  right: 4px;
-  top: 4px;
+  right: -1px;
+  top: 0px;
+  background-color: rgb(238, 238, 238);
 }
-div.highlight:hover .copybtn, div.highlight .copybtn:focus {
-    opacity: .3;
-}
-div.highlight .copybtn:hover {
+
+div.highlight .copybtn {
     opacity: 1;
 }
 div.highlight {
