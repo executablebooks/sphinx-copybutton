@@ -47,3 +47,10 @@ extensions list. E.g.:
 
 When you build your site, your code blocks should now have little copy buttons to their
 right. Clicking the button will copy the code inside!
+
+Customization
+=============
+
+To customize the display of the copy button, you can add your own CSS files
+that overwrite the CSS in the
+`sphinx-copybutton CSS rules <https://github.com/choldgraf/sphinx-copybutton/blob/master/_static/copybutton.css>`_.
