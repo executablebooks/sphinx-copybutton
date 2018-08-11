@@ -31,6 +31,8 @@ You can install ``sphinx-copybutton`` with ``pip``:
 
    pip install sphinx-copybutton
 
+`Here's a link to the sphinx-copybutton GitHub repository <https://github.com/choldgraf/sphinx-copybutton>`_.
+
 Usage
 =====
 
@@ -51,6 +53,27 @@ right. Clicking the button will copy the code inside!
 Customization
 =============
 
+Sphinx-copybutton was designed to work with the default Sphinx theme,
+`Alabaster <https://alabaster.readthedocs.io/en/latest/>`_. If you use a theme
+that doesn't play nicely with sphinx-copybutton's CSS, you can always add
+your own CSS rules!
+
 To customize the display of the copy button, you can add your own CSS files
 that overwrite the CSS in the
 `sphinx-copybutton CSS rules <https://github.com/choldgraf/sphinx-copybutton/blob/master/_static/copybutton.css>`_.
+Just add these files to `_static` in your documentation folder, and it should
+overwrite sphinx-copybutton's behavior.
+
+Development
+===========
+
+If you'd like to develop or make contributions for sphinx-copybutton, fork
+the repository here:
+
+https://github.com/choldgraf/sphinx-copybutton
+
+pull to your computer and install locally with ``pip``::
+
+    pip install -e /path/to/sphinx_copybutton
+
+**Pull requests** and **Issues** are absolutely welcome!
