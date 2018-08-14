@@ -3,8 +3,12 @@ requires = ["flit", "setuptools", "wheel"]
 build-backend = "flit.buildapi"
 
 [tool.flit.metadata]
-module = "sphinx_copybutton"
+module = "sphinx-copybutton"
 author = "Chris Holdgraf"
 author-email = "choldgraf@berkeley.edu"
-home-page = "https://github.com/choldgraf/sphinx_copybutton"
+home-page = "https://github.com/choldgraf/sphinx-copybutton"
 classifiers = ["License :: OSI Approved :: MIT License"]
+description-file = "README.md"
+
+[tool.flit.metadata.urls]
+Documentation = "http://predictablynoisy.com/sphinx-copybutton"
