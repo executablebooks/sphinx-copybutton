@@ -28,3 +28,4 @@ def setup(app):
     app.add_javascript(clipboard_js_url)
     app.add_javascript(pop_js_url)
     app.add_javascript(boot_js_url)
+    return {"version": __version__}
