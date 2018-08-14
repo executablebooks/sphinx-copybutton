@@ -3,7 +3,7 @@ requires = ["flit", "setuptools", "wheel"]
 build-backend = "flit.buildapi"
 
 [tool.flit.metadata]
-module = "sphinx-copybutton"
+module = "sphinx_copybutton"
 author = "Chris Holdgraf"
 author-email = "choldgraf@berkeley.edu"
 home-page = "https://github.com/choldgraf/sphinx-copybutton"
