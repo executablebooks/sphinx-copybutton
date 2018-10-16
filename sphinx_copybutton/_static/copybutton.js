@@ -1,59 +1,66 @@
-function addCopyButtonToCode(){
-  // get all code elements
-  var allCodeBlocksElements = $( "div.highlight pre" );
+/**
+ * Set up copy/paste for code blocks
+ */
 
-  // For each element, do the following steps
-  allCodeBlocksElements.each(function(ii) {
-  // define a unique id for this element and add it
-  var currentId = "codeblock" + (ii + 1);
-  $(this).attr('id', currentId);
-
-  // create a button that's configured for clipboard.js
-  // point it to the text that's in this code block
-  // add the button just after the text in the code block w/ jquery
-  var clipButton = '<button class="btn copybtn" data-clipboard-target="#' + currentId + '"><i class="far fa-copy" alt="Copy to clipboard"></i></button>';
-     $(this).after(clipButton);
-  });
-
-  // Tooltip functions
-  function setTooltip(btn, message) {
-    $(btn).tooltip('hide')
-      .attr('data-original-title', message)
-      .tooltip('show');
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
   }
-
-  function hideTooltip(btn) {
-    setTimeout(function() {
-      $(btn).tooltip('hide');
-    }, 800);
-  }
-
-  $('.btn').tooltip({
-    trigger: 'click',
-    placement: 'bottom'
-  });
-
-  // tell clipboard.js to look for clicks that match this query
-  var clipboard = new Clipboard('.btn');
-
-  function clearSelection() {
-   if (window.getSelection) {window.getSelection().removeAllRanges();}
-   else if (document.selection) {document.selection.empty();}
-  }
-
-  clipboard.on('success', function(e) {
-    clearSelection();
-    setTooltip(e.trigger, 'Copied!');
-    hideTooltip(e.trigger);
-  });
-
-  clipboard.on('error', function(e) {
-    setTooltip(e.trigger, 'Failed!');
-    hideTooltip(e.trigger);
-  });
-
 }
-$(document).ready(function () {
-// Once the DOM is loaded for the page, attach clipboard buttons
-addCopyButtonToCode();
-});
+
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="_static/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.highlight pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    codeCell.insertAdjacentHTML('afterend', clipboardButton(id))
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+}
+
+runWhenDOMLoaded(addCopyButtonToCodeCells)
