@@ -1,0 +1,4 @@
+sphinx
+
+# Install ourselves
+-e .

@@ -1,5 +1,7 @@
 # sphinx-copybutton
 
+[![PyPI](https://img.shields.io/pypi/v/sphinx-copybutton.svg)](https://pypi.org/project/sphinx_copybutton/) | [![Documentation](https://readthedocs.org/projects/sphinx-copybutton/badge/?version=latest)](https://sphinx-copybutton.readthedocs.io/en/latest/?badge=latest)
+
 A small sphinx extension to add a "copy" button to code blocks.
 
 ![](doc/_static/copybutton.gif)

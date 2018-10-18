@@ -2,6 +2,14 @@
 Sphinx-copybutton
 =================
 
+.. image:: https://readthedocs.org/projects/sphinx-copybutton/badge/?version=latest
+   :target: https://sphinx-copybutton.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation
+   
+.. image:: https://img.shields.io/pypi/v/sphinx-copybutton.svg 
+   :target: https://pypi.org/project/sphinx_copybutton
+   :alt: PyPi page
+
 Sphinx-copybutton does one thing: add little "copy" button to the right
 of your code blocks. That's it!
 
