@@ -1,4 +1,1 @@
 sphinx
-
-# Install ourselves
--e .
