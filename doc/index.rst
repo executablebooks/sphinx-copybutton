@@ -85,3 +85,9 @@ pull to your computer and install locally with ``pip``::
     pip install -e /path/to/sphinx_copybutton
 
 **Pull requests** and **Issues** are absolutely welcome!
+
+.. toctree::
+   :maxdepth: 1
+
+   second/second_page
+   
