@@ -1,7 +1,7 @@
 """A small sphinx extension to add "copy" buttons to code blocks."""
 import os
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 def scb_static_path(app):
     static_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '_static'))
