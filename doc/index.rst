@@ -16,6 +16,7 @@ of your code blocks. That's it!
 **Here's an example**
 
 .. image:: _static/copybutton.gif
+   :width: 500px
 
 And here's a code block, note the copy button to the right!
 
@@ -66,11 +67,48 @@ Sphinx-copybutton was designed to work with the default Sphinx theme,
 that doesn't play nicely with sphinx-copybutton's CSS, you can always add
 your own CSS rules!
 
+Customize the CSS
+-----------------
+
 To customize the display of the copy button, you can add your own CSS files
 that overwrite the CSS in the
 `sphinx-copybutton CSS rules <https://github.com/choldgraf/sphinx-copybutton/blob/master/_static/copybutton.css>`_.
 Just add these files to `_static` in your documentation folder, and it should
 overwrite sphinx-copybutton's behavior.
+
+Use a different copy button image
+---------------------------------
+
+To use a different image for your copy buttons, the easiest thing to do is
+to add a small bit of javascript to your Sphinx build that points the image
+to something new. Follow these steps:
+
+1. Create a new javascript file in your site's static folder (e.g., `_static/js/custom.js`).
+   In it, put the following code:
+
+   .. code-block:: javascript
+    
+      const updateCopyButtonImages = () => {
+          const copybuttonimages = document.querySelectorAll('a.copybtn img')
+          copybuttonimages.forEach((img, index) => {
+          img.setAttribute('src', 'path-to-new-image.svg')
+          })
+      }
+  
+      runWhenDOMLoaded(updateCopyButtonImages)
+
+
+2. Add this javascript file to your `conf.py` configuration like so:
+
+   .. code-block:: python
+      
+      def setup(app):
+         app.add_javascript('js/custom.js');
+
+This will replace the copybutton images each time the page loads!
+
+**If you know of a better way to do this with sphinx, please don't hesitate to
+recommend something!**
 
 Development
 ===========
