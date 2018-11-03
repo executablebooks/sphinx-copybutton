@@ -4,6 +4,8 @@
 
 A small sphinx extension to add a "copy" button to code blocks.
 
+See [the sphinx-copybutton documentation](https://readthedocs.org/projects/sphinx-copybutton/badge/?version=latest) for more details!
+
 ![](doc/_static/copybutton.gif)
 
 ## Installation
