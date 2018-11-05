@@ -17,7 +17,7 @@ const runWhenDOMLoaded = cb => {
 const codeCellId = index => `codecell${index}`
 
 const clipboardButton = id =>
-  `<a class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+  `<a class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
     <img src="https://gitcdn.xyz/repo/choldgraf/sphinx-copybutton/master/sphinx_copybutton/_static/copy-button.svg" alt="Copy to clipboard">
   </a>`
 
