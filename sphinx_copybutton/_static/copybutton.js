@@ -1,5 +1,5 @@
 // Localization support
-const locale = document.documentElement.lang
+const locale = document.documentElement.lang || 'en'
 const messages = {
   'en': {
     'copy': 'Copy',
