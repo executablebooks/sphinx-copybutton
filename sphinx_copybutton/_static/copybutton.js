@@ -1,3 +1,25 @@
+// Localization support
+const messages = {
+  'en': {
+    'copy': 'Copy',
+    'copy_to_clipboard': 'Copy to clipboard',
+    'copy_success': 'Copied!',
+    'copy_failure': 'Failed to copy',
+  },
+  'es' : {
+    'copy': 'Copiar',
+    'copy_to_clipboard': 'Copiar al portapapeles',
+    'copy_success': '¡Copiado!',
+    'copy_failure': 'Error al copiar',
+  }
+}
+
+let locale = 'en'
+if( document.documentElement.lang !== undefined
+    && messages[document.documentElement.lang] !== undefined ) {
+  locale = document.documentElement.lang
+}
+
 /**
  * Set up copy/paste for code blocks
  */
@@ -17,8 +39,8 @@ const runWhenDOMLoaded = cb => {
 const codeCellId = index => `codecell${index}`
 
 const clipboardButton = id =>
-  `<a class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="https://gitcdn.xyz/repo/choldgraf/sphinx-copybutton/master/sphinx_copybutton/_static/copy-button.svg" alt="Copy to clipboard">
+  `<a class="copybtn o-tooltip--left" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
+    <img src="https://gitcdn.xyz/repo/choldgraf/sphinx-copybutton/master/sphinx_copybutton/_static/copy-button.svg" alt="${messages[locale]['copy_to_clipboard']}">
   </a>`
 
 // Clears selected text since ClipboardJS will select the text when copying
@@ -55,11 +77,11 @@ const addCopyButtonToCodeCells = () => {
   const clipboard = new ClipboardJS('.copybtn')
   clipboard.on('success', event => {
     clearSelection()
-    temporarilyChangeTooltip(event.trigger, 'Copied!')
+    temporarilyChangeTooltip(event.trigger, messages[locale]['copy_success'])
   })
 
   clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+    temporarilyChangeTooltip(event.trigger, messages[locale]['copy_failure'])
   })
 }
 
