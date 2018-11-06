@@ -1,5 +1,4 @@
 // Localization support
-const locale = document.documentElement.lang || 'en'
 const messages = {
   'en': {
     'copy': 'Copy',
@@ -13,6 +12,12 @@ const messages = {
     'copy_success': '¡Copiado!',
     'copy_failure': 'Error al copiar',
   }
+}
+
+let locale = 'en'
+if( document.documentElement.lang !== undefined
+    && messages[document.documentElement.lang] !== undefined ) {
+  locale = document.documentElement.lang
 }
 
 /**
