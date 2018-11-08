@@ -38,11 +38,6 @@ const runWhenDOMLoaded = cb => {
 
 const codeCellId = index => `codecell${index}`
 
-const clipboardButton = id =>
-  `<a class="copybtn o-tooltip--left" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
-    <img src="https://gitcdn.xyz/repo/choldgraf/sphinx-copybutton/master/sphinx_copybutton/_static/copy-button.svg" alt="${messages[locale]['copy_to_clipboard']}">
-  </a>`
-
 // Clears selected text since ClipboardJS will select the text when copying
 const clearSelection = () => {
   if (window.getSelection) {
@@ -71,6 +66,12 @@ const addCopyButtonToCodeCells = () => {
   codeCells.forEach((codeCell, index) => {
     const id = codeCellId(index)
     codeCell.setAttribute('id', id)
+    const pre_bg = getComputedStyle(codeCell).backgroundColor;
+
+    const clipboardButton = id =>
+    `<a class="copybtn o-tooltip--left" style="background-color: ${pre_bg}" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
+      <img src="https://gitcdn.xyz/repo/choldgraf/sphinx-copybutton/master/sphinx_copybutton/_static/copy-button.svg" alt="${messages[locale]['copy_to_clipboard']}">
+    </a>`
     codeCell.insertAdjacentHTML('afterend', clipboardButton(id))
   })
 
