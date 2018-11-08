@@ -67,22 +67,47 @@ const addCopyButtonToCodeCells = () => {
     return
   }
 
-  const codeCells = document.querySelectorAll('div.highlight pre')
+const codeCells = document.querySelectorAll('div.highlight pre')
   codeCells.forEach((codeCell, index) => {
     const id = codeCellId(index)
     codeCell.setAttribute('id', id)
     codeCell.insertAdjacentHTML('afterend', clipboardButton(id))
   })
 
-  const clipboard = new ClipboardJS('.copybtn')
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, messages[locale]['copy_success'])
-  })
+function toggle_prompt_output(codeblock,class_to_remove,state){
+  var subs = codeblock.getElementsByClassName(class_to_remove);
+  for(var i = 0; i < subs.length; i++){
+    var a = subs[i];
+    a.style.display = state;
+    }
+  }
 
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, messages[locale]['copy_failure'])
-  })
+const clipboard = new ClipboardJS('.copybtn', {
+  text: function(trigger) {
+  const query = trigger.getAttribute('data-clipboard-target');
+  var htmlBlock = document.querySelectorAll('div.highlight pre'+query)[0]
+  //Hide Outputs and Prompts
+  toggle_prompt_output(htmlBlock,'go','none')
+  toggle_prompt_output(htmlBlock,'gt','none')
+  toggle_prompt_output(htmlBlock,'gp','none')
+  return htmlBlock.innerText
+    }
+  });
+
+clipboard.on('success', event => {
+  const query = event.trigger.getAttribute('data-clipboard-target');
+  var htmlBlock = document.querySelectorAll('div.highlight pre'+query)[0]
+  //Show Outputs and Prompts
+  toggle_prompt_output(htmlBlock,'gp','inline')
+  toggle_prompt_output(htmlBlock,'go','inline')
+  toggle_prompt_output(htmlBlock,'gt','inline')
+  clearSelection()
+  temporarilyChangeTooltip(event.trigger, messages[locale]['copy_success'])
+})
+
+clipboard.on('error', event => {
+  temporarilyChangeTooltip(event.trigger, messages[locale]['copy_failure'])
+})
 }
 
 runWhenDOMLoaded(addCopyButtonToCodeCells)
