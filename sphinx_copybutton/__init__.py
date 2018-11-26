@@ -19,4 +19,6 @@ def setup(app):
     app.add_stylesheet('copybutton.css')
     app.add_javascript(clipboard_js_url)
     app.add_javascript("copybutton.js")
-    return {"version": __version__}
+    return {"version": __version__,
+            "parallel_read_safe": True,
+            "parallel_write_safe": True}
