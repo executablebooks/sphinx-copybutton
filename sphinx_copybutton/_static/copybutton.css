@@ -1,8 +1,8 @@
 /* Copy buttons */
 a.copybtn {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 2px;
+    right: 2px;
     width: 1em;
     height: 1em;
     padding: .3em;
