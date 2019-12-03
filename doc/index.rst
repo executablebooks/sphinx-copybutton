@@ -5,8 +5,8 @@ Sphinx-copybutton
 .. image:: https://readthedocs.org/projects/sphinx-copybutton/badge/?version=latest
    :target: https://sphinx-copybutton.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation
-   
-.. image:: https://img.shields.io/pypi/v/sphinx-copybutton.svg 
+
+.. image:: https://img.shields.io/pypi/v/sphinx-copybutton.svg
    :target: https://pypi.org/project/sphinx_copybutton
    :alt: PyPi page
 
@@ -87,21 +87,21 @@ to something new. Follow these steps:
    In it, put the following code:
 
    .. code-block:: javascript
-    
+
       const updateCopyButtonImages = () => {
           const copybuttonimages = document.querySelectorAll('a.copybtn img')
           copybuttonimages.forEach((img, index) => {
           img.setAttribute('src', 'path-to-new-image.svg')
           })
       }
-  
+
       runWhenDOMLoaded(updateCopyButtonImages)
 
 
 2. Add this javascript file to your `conf.py` configuration like so:
 
    .. code-block:: python
-      
+
       def setup(app):
          app.add_javascript('js/custom.js');
 
@@ -128,4 +128,3 @@ pull to your computer and install locally with ``pip``::
    :maxdepth: 1
 
    second/second_page
-   
