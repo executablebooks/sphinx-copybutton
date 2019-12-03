@@ -7,7 +7,6 @@ def scb_static_path(app):
     static_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '_static'))
     app.config.html_static_path.append(static_path)
 
-github_url = 'https://cdn.rawgit.com/choldgraf/sphinx-copybutton/master/_static/'
 clipboard_js_url = "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"
 
 def setup(app):
