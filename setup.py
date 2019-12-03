@@ -9,6 +9,7 @@ setup(
     version=__version__,
     description="Add a copy button to each of your code cells.",
     long_description=readme_text,
+    long_description_content_type='text/markdown',
     author='Chris Holdgraf',
     author_email='choldgraf@berkeley.edu',
     url="https://github.com/choldgraf/sphinx-copybutton",
