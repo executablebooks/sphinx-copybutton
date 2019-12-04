@@ -13,7 +13,7 @@ setup(
     author='Chris Holdgraf',
     author_email='choldgraf@berkeley.edu',
     url="https://github.com/choldgraf/sphinx-copybutton",
-    license='BSD',
+    license='MIT License',
     packages=find_packages(),
     package_data={'sphinx_copybutton': ['_static/copybutton.css',
                                         '_static/copybutton.js',
