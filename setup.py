@@ -18,7 +18,6 @@ setup(
     package_data={'sphinx_copybutton': ['_static/copybutton.css',
                                         '_static/copybutton.js',
                                         '_static/copy-button.svg']},
-    include_package_data=True,
     install_requires=["flit", "setuptools", "wheel", "sphinx"],
     classifiers=["License :: OSI Approved :: MIT License"]
 )
