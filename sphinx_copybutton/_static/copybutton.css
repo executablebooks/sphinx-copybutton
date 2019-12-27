@@ -13,6 +13,10 @@ div.highlight  {
     position: relative;
 }
 
+a.copybtn > img {
+    vertical-align: top;
+}
+
 .highlight:hover .copybtn {
 	opacity: 1;
 }
