@@ -1,17 +1,20 @@
 /* Copy buttons */
 a.copybtn {
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: .2em;
+    right: .2em;
     width: 1em;
     height: 1em;
-    padding: .1em;
 	opacity: .3;
 	transition: opacity 0.5s;
 }
 
 div.highlight  {
     position: relative;
+}
+
+a.copybtn > img {
+    vertical-align: top;
 }
 
 .highlight:hover .copybtn {
