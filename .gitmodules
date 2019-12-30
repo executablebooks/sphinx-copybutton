@@ -1,0 +1,3 @@
+[submodule "clipboard.js"]
+	path = clipboard.js
+	url = https://github.com/zenorocha/clipboard.js.git
