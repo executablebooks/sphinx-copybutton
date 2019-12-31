@@ -40,7 +40,7 @@ a.copybtn > img {
     content: attr(data-tooltip);
     padding: 2px;
     top: 0;
-    left: 0;
+    left: -.2em;
     background: grey;
     font-size: 1rem;
     color: white;
@@ -57,4 +57,5 @@ a.copybtn > img {
     visibility: visible;
     transform: translateX(-100%) translateY(0);
     transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+    transition-delay: .5s;
 }
