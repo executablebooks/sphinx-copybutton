@@ -11,7 +11,9 @@ Sphinx-copybutton
    :alt: PyPi page
 
 Sphinx-copybutton does one thing: add little "copy" button to the right
-of your code blocks. That's it!
+of your code blocks. That's it! It is a lightweight wrapper around the
+excellent (and also lightweight) Javascript library
+`ClipboardJS <https://clipboardjs.com/>`.
 
 **Here's an example**
 
@@ -23,6 +25,18 @@ And here's a code block, note the copy button to the right!
 .. code-block:: bash
 
    copy me!
+
+By default, ``sphinx-copybutton`` will remove Python prompts from
+each line that begins with them. For example, try copying the text
+below:
+
+.. code-block:: python
+
+   >>> a = 2
+   >>> print(a)
+
+The text that ``sphinx-copybutton`` uses can be configured as well. See
+:ref:`configure_copy_text` for more information.
 
 If the code block overlaps to the right of the text area, you can just click
 the button to get the whole thing.
@@ -73,8 +87,23 @@ Customize the CSS
 To customize the display of the copy button, you can add your own CSS files
 that overwrite the CSS in the
 `sphinx-copybutton CSS rules <https://github.com/choldgraf/sphinx-copybutton/blob/master/_static/copybutton.css>`_.
-Just add these files to `_static` in your documentation folder, and it should
+Just add these files to ``_static`` in your documentation folder, and it should
 overwrite sphinx-copybutton's behavior.
+
+.. _configure_copy_text:
+
+Customize the text that is removed during copying
+-------------------------------------------------
+
+By default, ``sphinx-copybutton`` will remove Python prompts (">>> ") from
+the beginning of each line. To change the text that is removed (or to remove
+no text at all), add the following configuration to your ``conf.py`` file:
+
+.. code:: python
+
+    copybutton_skip_text
+
+Note that this text will only be removed from lines that *begin* with the text.
 
 Use a different copy button image
 ---------------------------------
