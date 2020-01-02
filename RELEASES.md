@@ -8,10 +8,6 @@ To create a new release of Sphinx-Copybutton, you need to do these things:
 1. Ensure that you have push access to the [Sphinx-Copybutton pypi repository](https://pypi.org/project/sphinx-copybutton/)
 2. Install [the twine package](https://twine.readthedocs.io/en/latest/). This is a package that helps you
    bundle and push new Python package distributions to pip.
-3. Make sure you have checked out the `clipboard.js` submodule.  If not, run
-   ```
-   git submodule update --init
-   ```
 
 ## To create the release
 

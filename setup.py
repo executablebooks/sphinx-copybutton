@@ -1,5 +1,15 @@
+import os
+
 from setuptools import setup, find_packages
 from sphinx_copybutton import __version__
+
+if (os.path.isdir('clipboard.js') and
+        not os.path.isfile('clipboard.js/dist/clipboard.min.js')):
+    raise SystemExit(
+        """Error: clipboard.js submodule not available, run
+
+        git submodule update --init
+        """)
 
 with open('./README.md', 'r') as ff:
     readme_text = ff.read()
