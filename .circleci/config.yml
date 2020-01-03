@@ -9,6 +9,7 @@ jobs:
       # Get our data and merge with upstream
       - run: sudo apt-get update
       - checkout
+      - run: git submodule update --init
       # Update our path
       - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
       # Restore cached files to speed things up
