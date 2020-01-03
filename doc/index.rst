@@ -101,7 +101,7 @@ no text at all), add the following configuration to your ``conf.py`` file:
 
 .. code:: python
 
-    copybutton_skip_text
+    copybutton_skip_text = "sometexttoskip"
 
 Note that this text will only be removed from lines that *begin* with the text.
 
