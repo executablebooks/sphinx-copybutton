@@ -21,7 +21,7 @@ def setup(app):
     app.add_config_value("copybutton_skip_text", ">>> ", "html")
 
     # Add relevant code to headers
-    app.add_stylesheet('copybutton.css')
+    app.add_css_file('copybutton.css')
     app.add_js_file('clipboard.min.js')
     app.add_js_file("copybutton.js")
     return {"version": __version__,
