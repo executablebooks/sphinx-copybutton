@@ -65,9 +65,18 @@ const temporarilyChangeTooltip = (el, newText) => {
 var copyTargetText = (trigger) => {
   var target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
   var textContent = target.textContent.split('\n');
-  if(copybuttonSkipText === undefined){
-    var copybuttonSkipText = "";
+  // Prevent breaking of the copy functionality, for themes which don't
+  // set copybuttonSkipText properly.
+  if(! ("copybuttonSkipText" in window)){
+    var copybuttonSkipText = ">>> ";
+    console.warn(`sphinx_copybutton:
+    The theme that was used to generate this document, does not support the setting for 'copybutton_skip_text',
+    which is why its default of '>>> ' was used.
+    Please tell the theme developers to include javascript files with the template tag 'js_tag' for sphinx>=1.8.
+    Example: https://github.com/readthedocs/sphinx_rtd_theme/blob/ab7d388448258a24f8f4fa96dccb69d24f571736/sphinx_rtd_theme/layout.html#L30
+    `);
   }
+
   textContent.forEach((line, index) => {
     if (line.startsWith(copybuttonSkipText)) {
       textContent[index] = line.slice(copybuttonSkipText.length)
