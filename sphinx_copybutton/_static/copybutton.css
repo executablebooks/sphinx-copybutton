@@ -6,7 +6,8 @@ a.copybtn {
     width: 1em;
     height: 1em;
 	opacity: .3;
-	transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    border: none;
 }
 
 div.highlight  {
