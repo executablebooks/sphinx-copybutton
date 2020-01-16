@@ -65,6 +65,9 @@ const temporarilyChangeTooltip = (el, newText) => {
 var copyTargetText = (trigger) => {
   var target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
   var textContent = target.textContent.split('\n');
+  if(copybuttonSkipText === undefined){
+    var copybuttonSkipText = "";
+  }
   textContent.forEach((line, index) => {
     if (line.startsWith(copybuttonSkipText)) {
       textContent[index] = line.slice(copybuttonSkipText.length)
