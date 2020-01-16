@@ -105,3 +105,6 @@ venv.bak/
 
 # Docs
 _build/
+
+# VS code config
+.vscode
