@@ -15,6 +15,7 @@ div.highlight  {
 
 a.copybtn > img {
     vertical-align: top;
+    margin: 0;
 }
 
 .highlight:hover .copybtn {
