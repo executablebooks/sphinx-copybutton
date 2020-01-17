@@ -33,6 +33,5 @@ setup(
                                         '_static/copybutton.js',
                                         '_static/copy-button.svg',
                                         '_static/clipboard.min.js']},
-    install_requires=["flit", "setuptools", "wheel", "sphinx"],
     classifiers=["License :: OSI Approved :: MIT License"]
 )
