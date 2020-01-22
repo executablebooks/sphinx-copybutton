@@ -70,7 +70,7 @@ var copyTargetText = (trigger) => {
       textContent[index] = line.slice(copybuttonSkipText.length)
     }
   });
-  return textContent.join('\n')
+  return textContent.slice(0, -1).join('\n') + textContent.slice(-1)
 }
 
 const addCopyButtonToCodeCells = () => {
