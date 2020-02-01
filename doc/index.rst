@@ -96,14 +96,20 @@ Customize the text that is removed during copying
 -------------------------------------------------
 
 By default, ``sphinx-copybutton`` will remove Python prompts (">>> ") from
-the beginning of each line. To change the text that is removed (or to remove
-no text at all), add the following configuration to your ``conf.py`` file:
+the beginning of each line. To change the text that is removed, add the
+following configuration to your ``conf.py`` file:
 
 .. code:: python
 
     copybutton_skip_text = "sometexttoskip"
 
 Note that this text will only be removed from lines that *begin* with the text.
+
+To skip this behavior and remove *no* text, use an empty string:
+
+.. code:: python
+
+    copybutton_skip_text = ""
 
 Use a different copy button image
 ---------------------------------
