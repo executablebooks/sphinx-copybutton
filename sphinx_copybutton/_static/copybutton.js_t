@@ -92,7 +92,7 @@ var copyTargetText = (trigger) => {
       });
     }
   }
-  return textContent.join('\n')
+  return textContent.slice(0, -1).join('\n') + textContent.slice(-1)
 }
 
 const addCopyButtonToCodeCells = () => {
