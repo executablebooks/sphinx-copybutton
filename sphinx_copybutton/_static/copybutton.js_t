@@ -92,7 +92,12 @@ var copyTargetText = (trigger) => {
       });
     }
   }
-  return textContent.slice(0, -1).join('\n') + textContent.slice(-1)
+  textContent = textContent.join('\n');
+  // Remove a trailing newline to avoid auto-running when pasting
+  if (textContent.endsWith("\n")) {
+     textContent = textContent.slice(0, -1)
+  }
+  return textContent
 }
 
 const addCopyButtonToCodeCells = () => {
