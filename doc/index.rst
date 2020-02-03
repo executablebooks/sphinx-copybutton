@@ -102,7 +102,7 @@ overwrite sphinx-copybutton's behavior.
 Strip and configure input prompts for code cells
 ------------------------------------------------
 
-By default, ``sphinx-copybutton`` will remove Python prompts (">>> ") from
+By default, ``sphinx-copybutton`` will remove Python prompts (``>>>``) from
 the beginning of each copied line. If it detects these prompts, then *only*
 the lines that contain prompts will be copied (after removing the prompt text).
 If no lines with prompts are found, then the full contents of the cell will be
@@ -111,7 +111,7 @@ copied.
 To change the text that is removed, add the
 following configuration to your ``conf.py`` file:
 
-.. code:: python
+.. code-block:: python
 
     copybutton_prompt_text = "sometexttoskip"
 
@@ -119,12 +119,12 @@ Note that this text will only be removed from lines that *begin* with the text.
 
 To skip this behavior and remove *no* text, use an empty string:
 
-.. code:: python
+.. code-block:: python
 
     copybutton_prompt_text = ""
 
 Configure whether *only* lines with prompts are copied
-------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, if sphinx-copybutton detects lines that begin with code prompts,
 it will *only* copy the text in those lines (after stripping the prompts).
@@ -133,9 +133,23 @@ be copied.
 
 To disable this behavior, use the following configuration in ``conf.py``:
 
-.. code:: python
+.. code-block:: python
 
     copybutton_only_copy_prompt_lines = False
+
+Configure whether the input prompts should be stripped
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+according to the value of ``copybutton_prompt_text`` (by default,
+this value is ``>>>``).
+
+To disable this behavior and copy the full text of lines with prompts
+(for example, if you'd like to copy *only* the lines with prompts, but not
+strip the prompts), use the following configuration in ``conf.py``:
+
+.. code-block:: python
+
+    copybutton_remove_prompts = False
 
 Use a different copy button image
 ---------------------------------
@@ -144,8 +158,8 @@ To use a different image for your copy buttons, the easiest thing to do is
 to add a small bit of javascript to your Sphinx build that points the image
 to something new. Follow these steps:
 
-1. Create a new javascript file in your site's static folder (e.g., `_static/js/custom.js`).
-   In it, put the following code:
+1. Create a new javascript file in your site's static folder
+   (e.g., ``_static/js/custom.js``). In it, put the following code:
 
    .. code-block:: javascript
 
