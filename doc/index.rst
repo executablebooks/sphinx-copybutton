@@ -13,7 +13,7 @@ Sphinx-copybutton
 Sphinx-copybutton does one thing: add little "copy" button to the right
 of your code blocks. That's it! It is a lightweight wrapper around the
 excellent (and also lightweight) Javascript library
-`ClipboardJS <https://clipboardjs.com/>`.
+`ClipboardJS <https://clipboardjs.com/>`_.
 
 **Here's an example**
 
@@ -27,13 +27,20 @@ And here's a code block, note the copy button to the right!
    copy me!
 
 By default, ``sphinx-copybutton`` will remove Python prompts from
-each line that begins with them. For example, try copying the text
+each line that begins with them. If it finds lines that start with the
+prompt text, all *other* lines will not be copied.
+For example, try copying the text
 below:
 
 .. code-block:: python
 
    >>> a = 2
    >>> print(a)
+   2
+
+   >>> b = 'wow'
+   >>> print(b)
+   wow
 
 The text that ``sphinx-copybutton`` uses can be configured as well. See
 :ref:`configure_copy_text` for more information.
@@ -70,8 +77,8 @@ extensions list. E.g.:
        ...
    ]
 
-When you build your site, your code blocks should now have little copy buttons to their
-right. Clicking the button will copy the code inside!
+When you build your site, your code blocks should now have little copy buttons
+to their right. Clicking the button will copy the code inside!
 
 Customization
 =============
@@ -92,16 +99,21 @@ overwrite sphinx-copybutton's behavior.
 
 .. _configure_copy_text:
 
-Customize the text that is removed during copying
--------------------------------------------------
+Strip and configure input prompts for code cells
+------------------------------------------------
 
 By default, ``sphinx-copybutton`` will remove Python prompts (">>> ") from
-the beginning of each line. To change the text that is removed, add the
+the beginning of each copied line. If it detects these prompts, then *only*
+the lines that contain prompts will be copied (after removing the prompt text).
+If no lines with prompts are found, then the full contents of the cell will be
+copied.
+
+To change the text that is removed, add the
 following configuration to your ``conf.py`` file:
 
 .. code:: python
 
-    copybutton_skip_text = "sometexttoskip"
+    copybutton_prompt_text = "sometexttoskip"
 
 Note that this text will only be removed from lines that *begin* with the text.
 
@@ -109,7 +121,21 @@ To skip this behavior and remove *no* text, use an empty string:
 
 .. code:: python
 
-    copybutton_skip_text = ""
+    copybutton_prompt_text = ""
+
+Configure whether *only* lines with prompts are copied
+------------------------------------------------------
+
+By default, if sphinx-copybutton detects lines that begin with code prompts,
+it will *only* copy the text in those lines (after stripping the prompts).
+This assumes that the rest of the code block contains outputs that shouldn't
+be copied.
+
+To disable this behavior, use the following configuration in ``conf.py``:
+
+.. code:: python
+
+    copybutton_only_copy_prompt_lines = False
 
 Use a different copy button image
 ---------------------------------
