@@ -102,7 +102,7 @@ overwrite sphinx-copybutton's behavior.
 Strip and configure input prompts for code cells
 ------------------------------------------------
 
-By default, ``sphinx-copybutton`` will remove Python prompts (``>>>``) from
+By default, ``sphinx-copybutton`` will remove Python prompts (">>> ") from
 the beginning of each copied line. If it detects these prompts, then *only*
 the lines that contain prompts will be copied (after removing the prompt text).
 If no lines with prompts are found, then the full contents of the cell will be
@@ -140,8 +140,9 @@ To disable this behavior, use the following configuration in ``conf.py``:
 Configure whether the input prompts should be stripped
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+By default, sphinx-copybutton will remove the prompt text from lines
 according to the value of ``copybutton_prompt_text`` (by default,
-this value is ``>>>``).
+this value is ">>> ").
 
 To disable this behavior and copy the full text of lines with prompts
 (for example, if you'd like to copy *only* the lines with prompts, but not
@@ -154,36 +155,11 @@ strip the prompts), use the following configuration in ``conf.py``:
 Use a different copy button image
 ---------------------------------
 
-To use a different image for your copy buttons, the easiest thing to do is
-to add a small bit of javascript to your Sphinx build that points the image
-to something new. Follow these steps:
+To use a different image for your copy buttons, do the following:
 
-1. Create a new javascript file in your site's static folder
-   (e.g., ``_static/js/custom.js``). In it, put the following code:
-
-   .. code-block:: javascript
-
-      const updateCopyButtonImages = () => {
-          const copybuttonimages = document.querySelectorAll('a.copybtn img')
-          copybuttonimages.forEach((img, index) => {
-          img.setAttribute('src', 'path-to-new-image.svg')
-          })
-      }
-
-      runWhenDOMLoaded(updateCopyButtonImages)
-
-
-2. Add this javascript file to your `conf.py` configuration like so:
-
-   .. code-block:: python
-
-      def setup(app):
-         app.add_javascript('js/custom.js');
-
-This will replace the copybutton images each time the page loads!
-
-**If you know of a better way to do this with sphinx, please don't hesitate to
-recommend something!**
+1. Place the image in the ``_static/`` folder of your site.
+2. Set the ``copybutton_image_path`` variable in your ``conf.py`` to be the
+   path to your image file, **relative to** ``_static/``.
 
 Development
 ===========

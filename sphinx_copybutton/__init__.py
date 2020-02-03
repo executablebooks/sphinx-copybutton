@@ -12,6 +12,7 @@ def add_to_context(app, config):
     config.html_context.update({'copybutton_prompt_text': config.copybutton_prompt_text})
     config.html_context.update({'copybutton_only_copy_prompt_lines': config.copybutton_only_copy_prompt_lines})
     config.html_context.update({'copybutton_remove_prompts': config.copybutton_remove_prompts})
+    config.html_context.update({'copybutton_image_path': config.copybutton_image_path})
 
 def setup(app):
     print('Adding copy buttons to code blocks...')
@@ -22,6 +23,7 @@ def setup(app):
     app.add_config_value("copybutton_prompt_text", ">>> ", "html")
     app.add_config_value("copybutton_only_copy_prompt_lines", True, "html")
     app.add_config_value("copybutton_remove_prompts", True, "html")
+    app.add_config_value("copybutton_image_path", "copy-button.svg", "html")
 
     # Add configuration value to the template
     app.connect("config-inited", add_to_context)
