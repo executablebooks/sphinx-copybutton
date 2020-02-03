@@ -102,26 +102,35 @@ overwrite sphinx-copybutton's behavior.
 Strip and configure input prompts for code cells
 ------------------------------------------------
 
-By default, ``sphinx-copybutton`` will remove Python prompts (">>> ") from
-the beginning of each copied line. If it detects these prompts, then *only*
-the lines that contain prompts will be copied (after removing the prompt text).
-If no lines with prompts are found, then the full contents of the cell will be
-copied.
+By default, ``sphinx-copybutton`` will copy the entire contents of a code
+block when the button is clicked. For many languages, it is common to
+include **input prompts** with your examples, along with the outputs from
+running the code.
 
-To change the text that is removed, add the
-following configuration to your ``conf.py`` file:
+``sphinx-copybutton`` provides functionality to both
+strip input prompts, as well as *only* select lines that begin with a prompt.
+This allows users to click the button and *only* copy the input text,
+excluding the prompts and outputs.
 
-.. code-block:: python
+To define the prompt text that you'd like removed from copied text in your code
+blocks, use the following configuration value in your ``conf.py`` file:
 
-    copybutton_prompt_text = "sometexttoskip"
+.. code-block::
 
-Note that this text will only be removed from lines that *begin* with the text.
+    copybutton_prompt_text = "myinputprompt"
 
-To skip this behavior and remove *no* text, use an empty string:
+When this variable is set, ``sphinx-copybutton`` will remove the prompt from
+the beginning of any lines that start with the text you specify. In
+addition, *only* the lines that contain prompts will be copied if any are
+discovered. If no lines with prompts are found, then the full contents of
+the cell will be copied.
 
-.. code-block:: python
+For example, to exclude traditional Python prompts from your copied code,
+use the following configuration:
 
-    copybutton_prompt_text = ""
+.. code-block::
+
+    copybutton_prompt_text = ">>> "
 
 Configure whether *only* lines with prompts are copied
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -137,12 +146,14 @@ To disable this behavior, use the following configuration in ``conf.py``:
 
     copybutton_only_copy_prompt_lines = False
 
+In this case, all lines of the code blocks will be copied after the prompts
+are stripped.
+
 Configure whether the input prompts should be stripped
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, sphinx-copybutton will remove the prompt text from lines
-according to the value of ``copybutton_prompt_text`` (by default,
-this value is ">>> ").
+according to the value of ``copybutton_prompt_text``.
 
 To disable this behavior and copy the full text of lines with prompts
 (for example, if you'd like to copy *only* the lines with prompts, but not
