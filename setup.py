@@ -33,5 +33,8 @@ setup(
                                         '_static/copybutton.js',
                                         '_static/copy-button.svg',
                                         '_static/clipboard.min.js']},
-    classifiers=["License :: OSI Approved :: MIT License"]
+    classifiers=["License :: OSI Approved :: MIT License"],
+    install_requires=[
+        "sphinx>=1.8"
+    ]
 )
