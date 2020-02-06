@@ -1,4 +1,4 @@
-sphinx>=2
+sphinx
 
 # Install ourselves
 .
