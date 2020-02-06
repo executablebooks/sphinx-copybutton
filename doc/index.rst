@@ -114,7 +114,7 @@ excluding the prompts and outputs.
 To define the prompt text that you'd like removed from copied text in your code
 blocks, use the following configuration value in your ``conf.py`` file:
 
-.. code-block::
+.. code-block:: python
 
     copybutton_prompt_text = "myinputprompt"
 
@@ -127,7 +127,7 @@ the cell will be copied.
 For example, to exclude traditional Python prompts from your copied code,
 use the following configuration:
 
-.. code-block::
+.. code-block:: python
 
     copybutton_prompt_text = ">>> "
 
