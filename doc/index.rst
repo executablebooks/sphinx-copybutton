@@ -26,11 +26,20 @@ And here's a code block, note the copy button to the right!
 
    copy me!
 
-By default, ``sphinx-copybutton`` will remove Python prompts from
-each line that begins with them. If it finds lines that start with the
-prompt text, all *other* lines will not be copied.
-For example, try copying the text
-below:
+
+If the code block overlaps to the right of the text area, you can just click
+the button to get the whole thing.
+
+.. code-block:: bash
+
+   123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789
+
+You can configure ``sphinx-copybutton`` to detect *input prompts* in code
+cells, and then both remove these prompts before copying, as well as skip
+lines that *don't* start with prompts (in case they are output lines).
+
+For example, this site has been configured to strip Python prompts (">>> ").
+Try copy-pasting the code block below.
 
 .. code-block:: python
 
@@ -41,16 +50,6 @@ below:
    >>> b = 'wow'
    >>> print(b)
    wow
-
-The text that ``sphinx-copybutton`` uses can be configured as well. See
-:ref:`configure_copy_text` for more information.
-
-If the code block overlaps to the right of the text area, you can just click
-the button to get the whole thing.
-
-.. code-block:: bash
-
-   123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789
 
 Installation
 ============
