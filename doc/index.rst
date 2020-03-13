@@ -163,13 +163,34 @@ strip the prompts), use the following configuration in ``conf.py``:
     copybutton_remove_prompts = False
 
 Use a different copy button image
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To use a different image for your copy buttons, do the following:
 
 1. Place the image in the ``_static/`` folder of your site.
 2. Set the ``copybutton_image_path`` variable in your ``conf.py`` to be the
    path to your image file, **relative to** ``_static/``.
+
+
+Configure the CSS selector used to add copy buttons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, ``sphinx-copybutton`` will add a copy button to all elements
+that match the following selection:
+
+.. code-block:: css
+
+    div.highlight pre
+
+To change this selector, use the following configuration in ``conf.py``:
+
+.. code-block:: python
+
+    copybutton_selector = "your.selector"
+
+In this case, all elements that match ``your.selector`` will have a copy button
+added to them.
+
 
 Development
 ===========
