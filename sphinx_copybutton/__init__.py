@@ -1,7 +1,10 @@
 """A small sphinx extension to add "copy" buttons to code blocks."""
 import os
+from sphinx.util import logging
 
 __version__ = "0.2.11dev0"
+
+logger = logging.getLogger(__name__)
 
 def scb_static_path(app):
     static_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '_static'))
@@ -16,7 +19,7 @@ def add_to_context(app, config):
     config.html_context.update({'copybutton_selector': config.copybutton_selector})
 
 def setup(app):
-    print('Adding copy buttons to code blocks...')
+    logger.verbose('Adding copy buttons to code blocks...')
     # Add our static path
     app.connect('builder-inited', scb_static_path)
 

@@ -10,7 +10,7 @@ Sphinx-copybutton
    :target: https://pypi.org/project/sphinx_copybutton
    :alt: PyPi page
 
-Sphinx-copybutton does one thing: add little "copy" button to the right
+Sphinx-copybutton does one thing: add a little "copy" button to the right
 of your code blocks. That's it! It is a lightweight wrapper around the
 excellent (and also lightweight) Javascript library
 `ClipboardJS <https://clipboardjs.com/>`_.
