@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sphinx-copybutton &#8212; Sphinx Copybutton  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="A deeper page" href="second/second_page.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sphinx-copybutton">
+<h1>Sphinx-copybutton<a class="headerlink" href="#sphinx-copybutton" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://sphinx-copybutton.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation" src="https://readthedocs.org/projects/sphinx-copybutton/badge/?version=latest" /></a>
+<a class="reference external image-reference" href="https://pypi.org/project/sphinx_copybutton"><img alt="PyPi page" src="https://img.shields.io/pypi/v/sphinx-copybutton.svg" /></a>
+<p>Sphinx-copybutton does one thing: add a little “copy” button to the right
+of your code blocks. That’s it! It is a lightweight wrapper around the
+excellent (and also lightweight) Javascript library
+<a class="reference external" href="https://clipboardjs.com/">ClipboardJS</a>.</p>
+<p><strong>Here’s an example</strong></p>
+<a class="reference internal image-reference" href="_images/copybutton.gif"><img alt="_images/copybutton.gif" src="_images/copybutton.gif" style="width: 500px;" /></a>
+<p>And here’s a code block, note the copy button to the right!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>copy me!
+</pre></div>
+</div>
+<p>If the code block overlaps to the right of the text area, you can just click
+the button to get the whole thing.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789</span>
+</pre></div>
+</div>
+<p>You can configure <code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> to detect <em>input prompts</em> in code
+cells, and then both remove these prompts before copying, as well as skip
+lines that <em>don’t</em> start with prompts (in case they are output lines).</p>
+<p>For example, this site has been configured to strip Python prompts (“&gt;&gt;&gt; “).
+Try copy-pasting the code block below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;wow&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">wow</span>
+</pre></div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>You can install <code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install sphinx-copybutton
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/choldgraf/sphinx-copybutton">Here’s a link to the sphinx-copybutton GitHub repository</a>.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>In your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> configuration file, add <code class="docutils literal notranslate"><span class="pre">sphinx_copybutton</span></code> to your
+extensions list. E.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;sphinx_copybutton&#39;</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>When you build your site, your code blocks should now have little copy buttons
+to their right. Clicking the button will copy the code inside!</p>
+</div>
+<div class="section" id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h2>
+<p>Sphinx-copybutton was designed to work with the default Sphinx theme,
+<a class="reference external" href="https://alabaster.readthedocs.io/en/latest/">Alabaster</a>. If you use a theme
+that doesn’t play nicely with sphinx-copybutton’s CSS, you can always add
+your own CSS rules!</p>
+<div class="section" id="customize-the-css">
+<h3>Customize the CSS<a class="headerlink" href="#customize-the-css" title="Permalink to this headline">¶</a></h3>
+<p>To customize the display of the copy button, you can add your own CSS files
+that overwrite the CSS in the
+<a class="reference external" href="https://github.com/choldgraf/sphinx-copybutton/blob/master/_static/copybutton.css">sphinx-copybutton CSS rules</a>.
+Just add these files to <code class="docutils literal notranslate"><span class="pre">_static</span></code> in your documentation folder, and it should
+overwrite sphinx-copybutton’s behavior.</p>
+</div>
+<div class="section" id="strip-and-configure-input-prompts-for-code-cells">
+<span id="configure-copy-text"></span><h3>Strip and configure input prompts for code cells<a class="headerlink" href="#strip-and-configure-input-prompts-for-code-cells" title="Permalink to this headline">¶</a></h3>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> will copy the entire contents of a code
+block when the button is clicked. For many languages, it is common to
+include <strong>input prompts</strong> with your examples, along with the outputs from
+running the code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> provides functionality to both
+strip input prompts, as well as <em>only</em> select lines that begin with a prompt.
+This allows users to click the button and <em>only</em> copy the input text,
+excluding the prompts and outputs.</p>
+<p>To define the prompt text that you’d like removed from copied text in your code
+blocks, use the following configuration value in your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">copybutton_prompt_text</span> <span class="o">=</span> <span class="s2">&quot;myinputprompt&quot;</span>
+</pre></div>
+</div>
+<p>When this variable is set, <code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> will remove the prompt from
+the beginning of any lines that start with the text you specify. In
+addition, <em>only</em> the lines that contain prompts will be copied if any are
+discovered. If no lines with prompts are found, then the full contents of
+the cell will be copied.</p>
+<p>For example, to exclude traditional Python prompts from your copied code,
+use the following configuration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">copybutton_prompt_text</span> <span class="o">=</span> <span class="s2">&quot;&gt;&gt;&gt; &quot;</span>
+</pre></div>
+</div>
+<div class="section" id="configure-whether-only-lines-with-prompts-are-copied">
+<h4>Configure whether <em>only</em> lines with prompts are copied<a class="headerlink" href="#configure-whether-only-lines-with-prompts-are-copied" title="Permalink to this headline">¶</a></h4>
+<p>By default, if sphinx-copybutton detects lines that begin with code prompts,
+it will <em>only</em> copy the text in those lines (after stripping the prompts).
+This assumes that the rest of the code block contains outputs that shouldn’t
+be copied.</p>
+<p>To disable this behavior, use the following configuration in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">copybutton_only_copy_prompt_lines</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>In this case, all lines of the code blocks will be copied after the prompts
+are stripped.</p>
+</div>
+<div class="section" id="configure-whether-the-input-prompts-should-be-stripped">
+<h4>Configure whether the input prompts should be stripped<a class="headerlink" href="#configure-whether-the-input-prompts-should-be-stripped" title="Permalink to this headline">¶</a></h4>
+<p>By default, sphinx-copybutton will remove the prompt text from lines
+according to the value of <code class="docutils literal notranslate"><span class="pre">copybutton_prompt_text</span></code>.</p>
+<p>To disable this behavior and copy the full text of lines with prompts
+(for example, if you’d like to copy <em>only</em> the lines with prompts, but not
+strip the prompts), use the following configuration in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">copybutton_remove_prompts</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-a-different-copy-button-image">
+<h4>Use a different copy button image<a class="headerlink" href="#use-a-different-copy-button-image" title="Permalink to this headline">¶</a></h4>
+<p>To use a different image for your copy buttons, do the following:</p>
+<ol class="arabic simple">
+<li><p>Place the image in the <code class="docutils literal notranslate"><span class="pre">_static/</span></code> folder of your site.</p></li>
+<li><p>Set the <code class="docutils literal notranslate"><span class="pre">copybutton_image_path</span></code> variable in your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> to be the
+path to your image file, <strong>relative to</strong> <code class="docutils literal notranslate"><span class="pre">_static/</span></code>.</p></li>
+</ol>
+</div>
+<div class="section" id="configure-the-css-selector-used-to-add-copy-buttons">
+<h4>Configure the CSS selector used to add copy buttons<a class="headerlink" href="#configure-the-css-selector-used-to-add-copy-buttons" title="Permalink to this headline">¶</a></h4>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">sphinx-copybutton</span></code> will add a copy button to all elements
+that match the following selection:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">div</span><span class="p">.</span><span class="nc">highlight</span> <span class="nt">pre</span>
+</pre></div>
+</div>
+<p>To change this selector, use the following configuration in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">copybutton_selector</span> <span class="o">=</span> <span class="s2">&quot;your.selector&quot;</span>
+</pre></div>
+</div>
+<p>In this case, all elements that match <code class="docutils literal notranslate"><span class="pre">your.selector</span></code> will have a copy button
+added to them.</p>
+</div>
+</div>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>If you’d like to develop or make contributions for sphinx-copybutton, fork
+the repository here:</p>
+<p><a class="reference external" href="https://github.com/choldgraf/sphinx-copybutton">https://github.com/choldgraf/sphinx-copybutton</a></p>
+<p>pull to your computer and install locally with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sphinx_copybutton</span>
+</pre></div>
+</div>
+<p><strong>Pull requests</strong> and <strong>Issues</strong> are absolutely welcome!</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="second/second_page.html">A deeper page</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Sphinx Copybutton</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="second/second_page.html">A deeper page</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="second/second_page.html" title="next chapter">A deeper page</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Chris Holdgraf.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
