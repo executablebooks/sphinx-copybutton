@@ -1,7 +1,13 @@
 import os
+from pathlib import Path
 
 from setuptools import setup, find_packages
-from sphinx_copybutton import __version__
+
+lines = Path(__file__).parent.joinpath("sphinx_copybutton", "__init__.py").read_text()
+for line in lines.split('\n'):
+    if line.startswith("__version__"):
+        break
+version = line.split(" = ")[-1].strip('"')
 
 if (os.path.isdir('clipboard.js') and
         not os.path.islink('sphinx_copybutton/_static/clipboard.min.js')):
@@ -20,7 +26,7 @@ with open('./README.md', 'r') as ff:
 
 setup(
     name='sphinx-copybutton',
-    version=__version__,
+    version=version,
     description="Add a copy button to each of your code cells.",
     long_description=readme_text,
     long_description_content_type='text/markdown',
