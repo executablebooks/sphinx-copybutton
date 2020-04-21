@@ -3,12 +3,6 @@ from pathlib import Path
 
 from setuptools import setup, find_packages
 
-lines = Path(__file__).parent.joinpath("sphinx_copybutton", "__init__.py").read_text()
-for line in lines.split('\n'):
-    if line.startswith("__version__"):
-        break
-version = line.split(" = ")[-1].strip('"')
-
 if (os.path.isdir('clipboard.js') and
         not os.path.islink('sphinx_copybutton/_static/clipboard.min.js')):
     raise SystemExit("Error: Support for symbolic links is required")
