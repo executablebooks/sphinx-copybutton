@@ -11,19 +11,19 @@ To create a new release of Sphinx-Copybutton, you need to do these things:
 
 ## To create the release
 
-To create a new release, [open an issue](https://github.com/choldgraf/sphinx-copybutton/issues/new) to keep
+To create a new release, [open an issue](https://github.com/ExecutableBookProject/sphinx-copybutton/issues/new) to keep
 track of the to-do list for the release. Copy/paste the following markdown into the issue
 and check off the boxes as you complete items:
 
 
 ```
-- [ ] Ensure that the [Sphinx-Copybutton version number](https://github.com/choldgraf/sphinx-copybutton/blob/master/jupyter_book/__init__.py)
+- [ ] Ensure that the [Sphinx-Copybutton version number](https://github.com/ExecutableBookProject/sphinx-copybutton/blob/master/jupyter_book/__init__.py)
    is correct, and remove the `dev0` part of the version number.
    Make a PR with the new number and merge into master.
 - [ ] Create a new distribution for Sphinx-Copybutton by
    [following the twine release instructions](https://twine.readthedocs.io/en/latest/#using-twine)
 - [ ] Confirm that the new version of Sphinx-Copybutton [is posted to pypi](https://pypi.org/project/sphinx-copybutton/)
-- [ ] Bump the [Sphinx-Copybutton version number](https://github.com/choldgraf/sphinx-copybutton/blob/master/jupyter_book/__init__.py) to
+- [ ] Bump the [Sphinx-Copybutton version number](https://github.com/ExecutableBookProject/sphinx-copybutton/blob/master/jupyter_book/__init__.py) to
    the next minor (or major) release and append `dev0` to the end.
 - [ ] Celebrate! You've just released a new version of Sphinx-Copybutton!
 ```

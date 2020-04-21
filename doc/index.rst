@@ -60,7 +60,7 @@ You can install ``sphinx-copybutton`` with ``pip``:
 
    pip install sphinx-copybutton
 
-`Here's a link to the sphinx-copybutton GitHub repository <https://github.com/choldgraf/sphinx-copybutton>`_.
+`Here's a link to the sphinx-copybutton GitHub repository <https://github.com/ExecutableBookProject/sphinx-copybutton>`_.
 
 Usage
 =====
@@ -92,7 +92,7 @@ Customize the CSS
 
 To customize the display of the copy button, you can add your own CSS files
 that overwrite the CSS in the
-`sphinx-copybutton CSS rules <https://github.com/choldgraf/sphinx-copybutton/blob/master/_static/copybutton.css>`_.
+`sphinx-copybutton CSS rules <https://github.com/ExecutableBookProject/sphinx-copybutton/blob/master/_static/copybutton.css>`_.
 Just add these files to ``_static`` in your documentation folder, and it should
 overwrite sphinx-copybutton's behavior.
 
@@ -198,7 +198,7 @@ Development
 If you'd like to develop or make contributions for sphinx-copybutton, fork
 the repository here:
 
-https://github.com/choldgraf/sphinx-copybutton
+https://github.com/ExecutableBookProject/sphinx-copybutton
 
 pull to your computer and install locally with ``pip``::
 

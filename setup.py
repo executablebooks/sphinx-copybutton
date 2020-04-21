@@ -24,15 +24,21 @@ if (os.path.isdir('clipboard.js') and
 with open('./README.md', 'r') as ff:
     readme_text = ff.read()
 
+# Parse version
+init = Path(__file__).parent.joinpath("sphinx_copybutton", "__init__.py")
+for line in init.read_text().split("\n"):
+    if line.startswith("__version__ ="):
+        break
+version = line.split(" = ")[-1].strip('"')
+
 setup(
     name='sphinx-copybutton',
     version=version,
     description="Add a copy button to each of your code cells.",
     long_description=readme_text,
     long_description_content_type='text/markdown',
-    author='Chris Holdgraf',
-    author_email='choldgraf@berkeley.edu',
-    url="https://github.com/choldgraf/sphinx-copybutton",
+    author='Executable Book Project',
+    url="https://github.com/ExecutableBookProject/sphinx-copybutton",
     license='MIT License',
     packages=find_packages(),
     package_data={'sphinx_copybutton': ['_static/copybutton.css',
