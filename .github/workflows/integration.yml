@@ -45,6 +45,7 @@ jobs:
       - name: Build package
         run: |
           pip install wheel
+          git submodule update --init
           python setup.py sdist bdist_wheel
       - name: Publish
         uses: pypa/gh-action-pypi-publish@v1.1.0
