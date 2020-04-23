@@ -2,7 +2,7 @@
 import os
 from sphinx.util import logging
 
-__version__ = "0.2.11dev0"
+__version__ = "0.2.11"
 
 logger = logging.getLogger(__name__)
 
