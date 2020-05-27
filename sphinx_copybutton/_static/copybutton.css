@@ -12,7 +12,7 @@ a.copybtn {
     text-decoration: none;
 }
 
-div.highlight  {
+div.highlight, pre.literal-block  {
     position: relative;
 }
 
@@ -24,8 +24,8 @@ a.copybtn > img {
     position: absolute;
 }
 
-.highlight:hover .copybtn {
-	opacity: 1;
+.highlight:hover .copybtn, .literal-block:hover .copybtn {
+    opacity: 1;
 }
 
 /**

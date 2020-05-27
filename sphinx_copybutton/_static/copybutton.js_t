@@ -63,8 +63,8 @@ const temporarilyChangeTooltip = (el, newText) => {
 // Callback when a copy button is clicked. Will be passed the node that was clicked
 // should then grab the text and replace pieces of text that shouldn't be used in output
 var copyTargetText = (trigger) => {
-  var target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
-  var textContent = target.innerText.split('\n');
+  var pre_target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
+  var textContent = pre_target.lastChild.previousSibling.textContent.split('\n');
   var copybuttonPromptText = '{{ copybutton_prompt_text }}'; // Inserted from config
   var onlyCopyPromptLines = {{ copybutton_only_copy_prompt_lines | lower }}; // Inserted from config
   var removePrompts = {{ copybutton_remove_prompts | lower }}; // Inserted from config
@@ -119,7 +119,7 @@ const addCopyButtonToCodeCells = () => {
     `<a class="copybtn o-tooltip--left" style="background-color: ${pre_bg}" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
       <img src="${DOCUMENTATION_OPTIONS.URL_ROOT}_static/{{ copybutton_image_path }}" alt="${messages[locale]['copy_to_clipboard']}">
     </a>`
-    codeCell.insertAdjacentHTML('afterend', clipboardButton(id))
+    codeCell.insertAdjacentHTML('beforeend', clipboardButton(id))
   })
 
   // Initialize with a callback so we can modify the text before copy
