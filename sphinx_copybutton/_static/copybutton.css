@@ -9,6 +9,7 @@ a.copybtn {
     transition: opacity 0.2s;
     border: none;
     user-select: none;
+    text-decoration: none;
 }
 
 div.highlight  {
