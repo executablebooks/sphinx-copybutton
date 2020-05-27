@@ -5,8 +5,8 @@ a.copybtn {
     right: .2em;
     width: 1em;
     height: 1em;
-	opacity: .3;
-    transition: opacity 0.5s;
+    opacity: .3;
+    transition: opacity 0.2s;
     border: none;
     user-select: none;
 }
