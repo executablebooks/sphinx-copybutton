@@ -54,6 +54,10 @@ Try copy-pasting the code block below.
 Installation
 ============
 
+.. note::
+
+   ``sphinx-copybutton`` only works on Python >= 3.4
+
 You can install ``sphinx-copybutton`` with ``pip``:
 
 .. code-block:: bash
