@@ -100,6 +100,12 @@ var copyTargetText = (trigger) => {
   return textContent
 }
 
+const changeButtonImage = aButtonElement => {
+  imgElement = aButtonElement.firstElementChild;
+  imgElement.src = imgElement.src.replace('copy-button.svg', 'checkmark-yes.svg');
+  return
+}
+
 const addCopyButtonToCodeCells = () => {
   // If ClipboardJS hasn't loaded, wait a bit and try again. This
   // happens because we load ClipboardJS asynchronously.
@@ -116,7 +122,7 @@ const addCopyButtonToCodeCells = () => {
     const pre_bg = getComputedStyle(codeCell).backgroundColor;
 
     const clipboardButton = id =>
-    `<a class="copybtn o-tooltip--left" style="background-color: ${pre_bg}" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
+    `<a class="copybtn o-tooltip--left" style="background-color: ${pre_bg}" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}" onclick="changeButtonImage(this)";>
       <img src="${DOCUMENTATION_OPTIONS.URL_ROOT}_static/{{ copybutton_image_path }}" alt="${messages[locale]['copy_to_clipboard']}">
     </a>`
     codeCell.insertAdjacentHTML('beforeend', clipboardButton(id))
