@@ -1,5 +1,3 @@
-import { formatCopyText } from "./copybutton_funcs";
-
 // Localization support
 const messages = {
   'en': {
@@ -83,6 +81,8 @@ const addCopyButtonToCodeCells = () => {
     </a>`
     codeCell.insertAdjacentHTML('afterend', clipboardButton(id))
   })
+
+{{ copybutton_format_func }}
 
 var copyTargetText = (target) => {
   var target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
