@@ -31,6 +31,7 @@ def add_to_context(app, config):
             "copybutton_format_func": Path(__file__)
             .parent.joinpath("_static", "copybutton_funcs.js")
             .read_text()
+            .replace("export function", "function")
         }
     )
 

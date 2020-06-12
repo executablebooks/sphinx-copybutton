@@ -1,11 +1,11 @@
 // Callback when a copy button is clicked. Will be passed the node that was clicked
 // should then grab the text and replace pieces of text that shouldn't be used in output
-function formatCopyText(textContent, copybuttonPromptText, onlyCopyPromptLines, removePrompts) {
+export function formatCopyText(textContent, copybuttonPromptText, onlyCopyPromptLines=true, removePrompts=true) {
     // Text content line filtering based on prompts (if a prompt text is given)
     if (copybuttonPromptText.length > 0) {
         // If only copying prompt lines, remove all lines that don't start w/ prompt
         if (onlyCopyPromptLines) {
-            linesWithPrompt = textContent.filter((line) => {
+            var linesWithPrompt = textContent.filter((line) => {
                 return line.startsWith(copybuttonPromptText) || (line.length == 0); // Keep newlines
             });
             // Check to make sure we have at least one non-empty line
