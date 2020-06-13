@@ -10,7 +10,7 @@
     "esm": "^3.2.25"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava -v"
   },
   "ava": {
     "files": [

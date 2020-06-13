@@ -18,7 +18,7 @@ const parameters = [
 
 parameters.forEach((parameter) => {
 	test(parameter.description, t => {
-		const text = formatCopyText(parameter.text.split('\n'), parameter.prompt);
+		const text = formatCopyText(parameter.text, parameter.prompt);
 		t.is(text, parameter.expected)
 	});
 })

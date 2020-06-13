@@ -86,11 +86,7 @@ const addCopyButtonToCodeCells = () => {
 
 var copyTargetText = (target) => {
   var target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
-  var textContent = target.innerText.split('\n');
-  var copybuttonPromptText = '{{ copybutton_prompt_text }}'; // Inserted from config
-  var onlyCopyPromptLines = {{ copybutton_only_copy_prompt_lines | lower }}; // Inserted from config
-  var removePrompts = {{ copybutton_remove_prompts | lower }}; // Inserted from config
-  return formatCopyText(textContent, copybuttonPromptText, onlyCopyPromptLines, removePrompts)
+  return formatCopyText(target.innerText, '{{ copybutton_prompt_text }}', {{ copybutton_only_copy_prompt_lines | lower }},  {{ copybutton_remove_prompts | lower }})
 }
 
   // Initialize with a callback so we can modify the text before copy
