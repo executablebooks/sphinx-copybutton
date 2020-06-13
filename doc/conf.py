@@ -38,7 +38,7 @@ release = ""
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx_copybutton"]
+extensions = ["sphinx_copybutton", "IPython.sphinxext.ipython_directive"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -98,7 +98,8 @@ html_static_path = ["_static"]
 # html_sidebars = {}
 
 # CopyButton configuration
-copybutton_prompt_text = ">>> "
+copybutton_prompt_text = ">>> |\\\\$ |\\[\\d*\\]: |\\.\\.\\.: "
+copybutton_prompt_is_regexp = True
 # Switches for testing but shouldn't be activated in the live docs
 # copybutton_only_copy_prompt_lines = False
 # copybutton_remove_prompts = False

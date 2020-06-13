@@ -19,6 +19,9 @@ def add_to_context(app, config):
         {"copybutton_prompt_text": config.copybutton_prompt_text}
     )
     config.html_context.update(
+        {"copybutton_prompt_is_regexp": config.copybutton_prompt_is_regexp}
+    )
+    config.html_context.update(
         {"copybutton_only_copy_prompt_lines": config.copybutton_only_copy_prompt_lines}
     )
     config.html_context.update(
@@ -37,12 +40,14 @@ def add_to_context(app, config):
 
 
 def setup(app):
+
     logger.verbose("Adding copy buttons to code blocks...")
     # Add our static path
     app.connect("builder-inited", scb_static_path)
 
     # configuration for this tool
     app.add_config_value("copybutton_prompt_text", "", "html")
+    app.add_config_value("copybutton_prompt_is_regexp", False, "html")
     app.add_config_value("copybutton_only_copy_prompt_lines", True, "html")
     app.add_config_value("copybutton_remove_prompts", True, "html")
     app.add_config_value("copybutton_image_path", "copy-button.svg", "html")

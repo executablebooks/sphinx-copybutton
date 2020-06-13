@@ -135,6 +135,34 @@ use the following configuration:
 
     copybutton_prompt_text = ">>> "
 
+Using regexp prompt identifiers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your prompts are more complex than a single string, then you can use a regexp to match with.
+
+.. code-block:: python
+
+   copybutton_prompt_text = "\\[\\d*\\]: |\\.\\.\\.: "
+   copybutton_prompt_is_regexp = True
+
+For example when using ipython prompts with continuations:
+
+.. code-block:: restructuredtext
+
+   .. code-block:: ipython
+
+      [1]: first
+      ...: continuation
+      output
+      [2]: second
+
+.. code-block:: ipython
+
+   [1]: first
+   ...: continuation
+   output
+   [2]: second
+
 Configure whether *only* lines with prompts are copied
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -265,7 +293,7 @@ Then run the docs build:
 
 .. code-block:: console
 
-   $ cd docs
+   $ cd doc
    $ make html
 
 .. toctree::
