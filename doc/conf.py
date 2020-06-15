@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = "Sphinx Copybutton"
-copyright = "2018, Chris Holdgraf"
-author = "Chris Holdgraf"
+copyright = "2018, Executable Books Project"
+author = "Executable Books Project"
 
 # The short X.Y version
 version = ""
@@ -138,7 +138,7 @@ latex_documents = [
         master_doc,
         "SphinxCopybutton.tex",
         "Sphinx Copybutton Documentation",
-        "Chris Holdgraf",
+        "Executable Books Project",
         "manual",
     )
 ]
