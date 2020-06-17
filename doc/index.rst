@@ -135,6 +135,34 @@ use the following configuration:
 
     copybutton_prompt_text = ">>> "
 
+Using regexp prompt identifiers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your prompts are more complex than a single string, then you can use a regexp to match with.
+
+.. code-block:: python
+
+   copybutton_prompt_text = "\\[\\d*\\]: |\\.\\.\\.: "
+   copybutton_prompt_is_regexp = True
+
+For example when using ipython prompts with continuations:
+
+.. code-block:: restructuredtext
+
+   .. code-block:: ipython
+
+      [1]: first
+      ...: continuation
+      output
+      [2]: second
+
+.. code-block:: ipython
+
+   [1]: first
+   ...: continuation
+   output
+   [2]: second
+
 Configure whether *only* lines with prompts are copied
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -209,6 +237,64 @@ pull to your computer and install locally with ``pip``::
     pip install -e /path/to/sphinx_copybutton
 
 **Pull requests** and **Issues** are absolutely welcome!
+
+The package is tested for three things (see ``.github/workflows/integration.yml``):
+
+code style
+----------
+
+To adhere to this code style install the package with `pre-commit <https://pre-commit.com/>`__:
+
+.. code-block:: console
+
+   $ pip install .[code_style]
+
+Then you can run:
+
+.. code-block:: console
+
+   $ pre-commit run --all
+
+Or setup pre-commit to run on code commits:
+
+.. code-block:: console
+
+   $ pre-commit install
+
+JavaScript unit testing
+-----------------------
+
+Install the test dependencies with `npm <https://www.npmjs.com/>`__:
+
+.. code-block:: console
+
+   $ npm install ci
+
+Then run the tests:
+
+.. code-block:: console
+
+   $ npm test
+
+.. note::
+
+   NodeJS >= 12 is required
+
+Documentation builds
+--------------------
+
+Install the package:
+
+.. code-block:: console
+
+   $ pip install .
+
+Then run the docs build:
+
+.. code-block:: console
+
+   $ cd doc
+   $ make html
 
 .. toctree::
    :maxdepth: 1

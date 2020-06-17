@@ -1,0 +1,23 @@
+{
+  "name": "sphinx-copybutton",
+  "description": "test requirements for sphinx-copybutton",
+  "engines": {
+    "node": ">=0.12"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^3.7.1",
+    "esm": "^3.2.25"
+  },
+  "scripts": {
+    "test": "ava -v"
+  },
+  "ava": {
+    "files": [
+      "sphinx_copybutton/_static/test.js"
+    ],
+    "require": [
+      "esm"
+    ]
+  }
+}

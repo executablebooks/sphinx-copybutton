@@ -108,3 +108,5 @@ _build/
 
 # VS code config
 .vscode
+
+node_modules/
