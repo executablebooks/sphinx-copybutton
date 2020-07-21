@@ -140,14 +140,31 @@ Using regexp prompt identifiers
 
 If your prompts are more complex than a single string, then you can use a regexp to match with.
 
+.. note::
+
+   Keep in mind that the
+   `RegExp <https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp>`_
+   you are writing is
+   `evaluated in JavaScript <https://github.com/executablebooks/sphinx-copybutton/blob/a58da090dae6f4d38870929e0258a0c8ee626f8f/sphinx_copybutton/_static/copybutton_funcs.js#L7>`_
+   and not in Python.
+   In some edge cases this might lead to different results.
+
+If you enclose your regexp in a raw string (``r""``),
+you can easily test that your RegExp matches all the wanted prompts,
+i.e. at `RegEx101 <https://regex101.com>`_.
+
+For example this documentation uses the following configuration:
+
 .. code-block:: python
 
-   copybutton_prompt_text = "\\[\\d*\\]: |\\.\\.\\.: "
+   copybutton_prompt_text = r">>> |\$ |\[\d*\]: |In \[\d*\]: |\.\.\.: "
    copybutton_prompt_is_regexp = True
 
-For example when using ipython prompts with continuations:
+Which also matches the prompts when using ipython prompts with continuations:
 
 .. code-block:: restructuredtext
+
+   Old style:
 
    .. code-block:: ipython
 
@@ -156,12 +173,32 @@ For example when using ipython prompts with continuations:
       output
       [2]: second
 
+   New style:
+
+   .. code-block:: ipython
+
+      In [1]: first
+      ...: continuation
+      output
+      In [2]: second
+
+Old style:
+
 .. code-block:: ipython
 
    [1]: first
    ...: continuation
    output
    [2]: second
+
+New style:
+
+.. code-block:: ipython
+
+   In [1]: first
+   ...: continuation
+   output
+   In [2]: second
 
 Configure whether *only* lines with prompts are copied
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
