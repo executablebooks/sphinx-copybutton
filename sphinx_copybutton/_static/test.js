@@ -105,38 +105,6 @@ $ second`,
 		expected: 'first\nsecond'
 	},
 	{
-	/* false positive regex test see:
-	https://github.com/executablebooks/sphinx-copybutton/issues/86
-	*/
-		description: 'with ipython prompt regexp (false positive)',
-		text: `
-[1]: first
-...: continuation
-output
-[2]: second`,
-		prompt: '[\d*]: |\.\.\.: ',
-		isRegexp: true,
-		onlyCopyPromptLines: true,
-		removePrompts: true,
-		expected: 'first\ncontinuation\nsecond'
-	},
-	{
-		description: 'with ipython prompt regexp, keep prompts (false positive)',
-		text: `
-[1]: first
-...: continuation
-output
-[2]: second`,
-		prompt: '[\d*]: |\.\.\.: ',
-		isRegexp: true,
-		onlyCopyPromptLines: true,
-		removePrompts: false,
-		expected: '[1]: first\n...: continuation\n[2]: second'
-	},
-	{
-	/* proper regex test see:
-	https://github.com/executablebooks/sphinx-copybutton/issues/86
-	*/
 		description: 'with ipython prompt (old and new style) regexp',
 		text: `
 [1]: first
@@ -163,6 +131,23 @@ In [3]: jupyter`,
 		onlyCopyPromptLines: true,
 		removePrompts: false,
 		expected: '[1]: first\n...: continuation\n[2]: second\nIn [3]: jupyter',
+	},
+	{
+	/* The following is included to demonstrate an example of a false positive regex test.
+	As noted in https://github.com/executablebooks/sphinx-copybutton/issues/86,
+	JS RegEx in some cases "fixes" incorrect regexes rather than failing on them.
+	*/
+		description: 'with ipython prompt regexp (false positive)',
+		text: `
+[1]: first
+...: continuation
+output
+[2]: second`,
+		prompt: '[\d*]: |\.\.\.: ',
+		isRegexp: true,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		expected: 'first\ncontinuation\nsecond'
 	}
 ]
 
