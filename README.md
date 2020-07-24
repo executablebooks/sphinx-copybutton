@@ -36,3 +36,23 @@ right. Clicking the button will copy the code inside!
 
 If you'd like to customize the look of the copy buttons, you can over-write any of the
 CSS rules specified in the Sphinx-CopyButton CSS file ([link](sphinx_copybutton/_static/copybutton.css))
+
+## Development
+
+Development should principally adhere to the [EBP Developer Conventions](https://executablebooks.org/en/latest/dev-conventions.html)
+
+### Instructions for creating a new release
+
+Spinx-Copybutton is [hosted on the pypi repository](https://pypi.org/project/sphinx-copybutton/).
+
+To create a new release:
+
+- [ ] Ensure that the [Sphinx-Copybutton version number](https://github.com/ExecutableBookProject/sphinx-copybutton/blob/master/jupyter_book/__init__.py)
+   is correct, and remove the `dev0` part of the version number.
+   Make a PR with the new number and merge into master.
+- [ ] Create a new distribution for Sphinx-Copybutton by
+   [following the EBP release instructions](https://executablebooks.org/en/latest/dev-conventions.html#releases-and-change-logs)
+- [ ] Confirm that the new version of Sphinx-Copybutton [is posted to pypi](https://pypi.org/project/sphinx-copybutton/)
+- [ ] Bump the [Sphinx-Copybutton version number](https://github.com/ExecutableBookProject/sphinx-copybutton/blob/master/jupyter_book/__init__.py) to the next minor (or major) release and append `dev0` to the end.
+
+You may wish to [open an issue](https://github.com/ExecutableBookProject/sphinx-copybutton/issues/new) and copy/paste this to-do list before a release.
