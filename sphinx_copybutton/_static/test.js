@@ -105,7 +105,39 @@ $ second`,
 		expected: 'first\nsecond'
 	},
 	{
-		description: 'with ipython prompt regexp',
+		description: 'with ipython prompt (old and new style) regexp',
+		text: `
+[1]: first
+...: continuation
+output
+[2]: second
+In [3]: jupyter`,
+		prompt: '\\[\\d*\\]: |In \\[\\d*\\]: |\\.\\.\\.: ',
+		isRegexp: true,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		expected: 'first\ncontinuation\nsecond\njupyter',
+	},
+	{
+		description: 'with ipython prompt (old and new style) regexp, keep prompts',
+		text: `
+[1]: first
+...: continuation
+output
+[2]: second
+In [3]: jupyter`,
+		prompt: '\\[\\d*\\]: |In \\[\\d*\\]: |\\.\\.\\.: ',
+		isRegexp: true,
+		onlyCopyPromptLines: true,
+		removePrompts: false,
+		expected: '[1]: first\n...: continuation\n[2]: second\nIn [3]: jupyter',
+	},
+	{
+	/* The following is included to demonstrate an example of a false positive regex test.
+	As noted in https://github.com/executablebooks/sphinx-copybutton/issues/86,
+	JS RegEx in some cases "fixes" incorrect regexes rather than failing on them.
+	*/
+		description: 'with ipython prompt regexp (false positive)',
 		text: `
 [1]: first
 ...: continuation
@@ -116,19 +148,6 @@ output
 		onlyCopyPromptLines: true,
 		removePrompts: true,
 		expected: 'first\ncontinuation\nsecond'
-	},
-	{
-		description: 'with ipython prompt regexp, keep prompts',
-		text: `
-[1]: first
-...: continuation
-output
-[2]: second`,
-		prompt: '[\d*]: |\.\.\.: ',
-		isRegexp: true,
-		onlyCopyPromptLines: true,
-		removePrompts: false,
-		expected: '[1]: first\n...: continuation\n[2]: second'
 	}
 ]
 

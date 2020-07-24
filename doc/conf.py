@@ -98,7 +98,7 @@ html_static_path = ["_static"]
 # html_sidebars = {}
 
 # CopyButton configuration
-copybutton_prompt_text = ">>> |\\\\$ |\\[\\d*\\]: |\\.\\.\\.: "
+copybutton_prompt_text = r">>> |\$ |\[\d*\]: |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
 copybutton_prompt_is_regexp = True
 # Switches for testing but shouldn't be activated in the live docs
 # copybutton_only_copy_prompt_lines = False
