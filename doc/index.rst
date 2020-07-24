@@ -157,48 +157,49 @@ For example this documentation uses the following configuration:
 
 .. code-block:: python
 
-   copybutton_prompt_text = r">>> |\$ |\[\d*\]: |In \[\d*\]: |\.\.\.: "
+   copybutton_prompt_text = r">>> |\$ |\[\d*\]: |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
    copybutton_prompt_is_regexp = True
 
-Which also matches the prompts when using ipython prompts with continuations:
+Which also matches the prompts when using prompts with continuations:
 
 .. code-block:: restructuredtext
 
-   Old style:
-
-   .. code-block:: ipython
-
-      [1]: first
-      ...: continuation
-      output
-      [2]: second
-
-   New style:
+   ``ipython`` and ``qtconsole`` style:
 
    .. code-block:: ipython
 
       In [1]: first
-      ...: continuation
+         ...: continuation
       output
       In [2]: second
 
-Old style:
+   ``jupyter`` style:
 
-.. code-block:: ipython
+   .. code-block:: ipython
 
-   [1]: first
-   ...: continuation
-   output
-   [2]: second
+      In [1]: first
+            : continuation
+      output
+      In [2]: second
 
-New style:
+``ipython`` and ``qtconsole`` style:
 
 .. code-block:: ipython
 
    In [1]: first
-   ...: continuation
+      ...: continuation
    output
    In [2]: second
+
+``jupyter`` style:
+
+.. code-block:: ipython
+
+   In [1]: first
+         : continuation
+   output
+   In [2]: second
+
 
 Configure whether *only* lines with prompts are copied
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
