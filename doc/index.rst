@@ -161,16 +161,38 @@ If your prompts are more complex than a single string, then you can use a regexp
 
 If you enclose your regexp in a raw string (``r""``),
 you can easily test that your RegExp matches all the wanted prompts,
-i.e. at `RegEx101 <https://regex101.com>`_.
+i.e. at `RegEx101`_.
 
 For example this documentation uses the following configuration:
 
 .. code-block:: python
 
-   copybutton_prompt_text = r">>> |\$ |\[\d*\]: |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
+   copybutton_prompt_text = r">>> |\.\.\. |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
    copybutton_prompt_is_regexp = True
 
-Which also matches the prompts when using prompts with continuations:
+Which matches the following prompts and their continuations if they exist:
+
+.. list-table::
+   :widths: 30 37 33
+   :header-rows: 1
+
+   * - Prompt Name
+     - RegEx Pattern
+     - Matched String Examples
+   * - Python Repl + continuation
+     - ``r'>>> |\.\.\. '``
+     - ``'>>> '``, ``'... '``
+   * - Bash
+     - ``r'\$ '``
+     - ``'$ '``
+   * - ``ipython`` and ``qtconsole`` + continuation
+     - ``r'In \[\d*\]: | {2,5}\.\.\.: '``
+     - ``'In []: '``, ``'In [999]: '``, ``'  ...: '``, ``'     ...: '``
+   * - ``jupyter-console`` + continuation
+     - ``r'In \[\d*\]: | {5,8}: '``
+     - ``'In []: '``, ``'In [999]: '``, ``'  ...: '``, ``'     ...: '``
+
+An example usage would be the ``ipython``-directive:
 
 .. code-block:: restructuredtext
 
@@ -209,6 +231,10 @@ Which also matches the prompts when using prompts with continuations:
          : continuation
    output
    In [2]: second
+
+If you want a detailed explanation how the RegEx's work you can also use `RegEx101`_ and read the ``Explanation`` sidebar.
+
+.. _RegEx101: https://regex101.com
 
 
 Configure whether *only* lines with prompts are copied
