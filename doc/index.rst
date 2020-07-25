@@ -10,6 +10,10 @@ Sphinx-copybutton
    :target: https://pypi.org/project/sphinx_copybutton
    :alt: PyPi page
 
+.. image:: https://img.shields.io/conda/vn/conda-forge/sphinx-copybutton.svg
+   :target: https://anaconda.org/conda-forge/sphinx-copybutton
+   :alt: Conda Version
+
 Sphinx-copybutton does one thing: add a little "copy" button to the right
 of your code blocks. That's it! It is a lightweight wrapper around the
 excellent (and also lightweight) Javascript library
@@ -63,6 +67,12 @@ You can install ``sphinx-copybutton`` with ``pip``:
 .. code-block:: bash
 
    pip install sphinx-copybutton
+
+Or with ``conda`` via ``conda-forge``:
+
+.. code-block:: bash
+
+   conda install -c conda-forge sphinx-copybutton
 
 `Here's a link to the sphinx-copybutton GitHub repository <https://github.com/ExecutableBookProject/sphinx-copybutton>`_.
 

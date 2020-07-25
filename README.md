@@ -1,6 +1,6 @@
 # sphinx-copybutton
 
-[![PyPI](https://img.shields.io/pypi/v/sphinx-copybutton.svg)](https://pypi.org/project/sphinx_copybutton/) | [![Documentation](https://readthedocs.org/projects/sphinx-copybutton/badge/?version=latest)](https://sphinx-copybutton.readthedocs.io/en/latest/?badge=latest)
+[![PyPI](https://img.shields.io/pypi/v/sphinx-copybutton.svg)](https://pypi.org/project/sphinx_copybutton/) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sphinx-copybutton.svg)](https://anaconda.org/conda-forge/sphinx-copybutton) | [![Documentation](https://readthedocs.org/projects/sphinx-copybutton/badge/?version=latest)](https://sphinx-copybutton.readthedocs.io/en/latest/?badge=latest)
 
 A small sphinx extension to add a "copy" button to code blocks.
 
@@ -12,16 +12,23 @@ See [the sphinx-copybutton documentation](https://sphinx-copybutton.readthedocs.
 
 You can install `sphinx-copybutton` with `pip`:
 
-```
+```bash
 pip install sphinx-copybutton
 ```
+
+Or with `conda` via `conda-forge`:
+
+```bash
+conda install -c conda-forge sphinx-copybutton
+```
+
 
 ## Usage
 
 In your `conf.py` configuration file, add `sphinx_copybutton` to your extensions list.
 E.g.:
 
-```
+```python
 extensions = [
     ...
     'sphinx_copybutton'
