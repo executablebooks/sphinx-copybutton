@@ -46,7 +46,7 @@ CSS rules specified in the Sphinx-CopyButton CSS file ([link](sphinx_copybutton/
 
 ## Development
 
-Development should principally adhere to the [EBP Developer Conventions](https://executablebooks.org/en/latest/dev-conventions.html)
+Development should principally adhere to the [EBP Developer Conventions](https://github.com/executablebooks/.github/blob/master/CONTRIBUTING.md)
 
 Sphinx-Copybutton is [hosted on the pypi repository](https://pypi.org/project/sphinx-copybutton/).
 After a release - following the [EBP release instructions](https://executablebooks.org/en/latest/dev-conventions.html#releases-and-change-logs) - confirm that the new version of Sphinx-Copybutton [is posted to pypi](https://pypi.org/project/sphinx-copybutton/).
