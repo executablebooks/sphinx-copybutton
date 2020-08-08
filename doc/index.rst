@@ -167,7 +167,7 @@ For example this documentation uses the following configuration:
 
 .. code-block:: python
 
-   copybutton_prompt_text = r">>> |\.\.\. |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
+   copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
    copybutton_prompt_is_regexp = True
 
 Which matches the following prompts and their continuations if they exist:
