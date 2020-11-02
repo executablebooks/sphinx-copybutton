@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.3.1 - 2020-11-02
+
+- 👌 Improved copy icon (thanks to (@pradyunsg)[https://github.com/pradyunsg])
+- 📚 Improved examples of regex settings (thanks to [@s-weigand](https://github.com/s-weigand) and [@edmcdonagh](https://github.com/edmcdonagh))
+
+[Full commit list](https://github.com/executablebooks/sphinx-copybutton/compare/v0.3.0...852a9468f1d9e7e12e2c6c90394e8029d571bc14)
+
 ## 0.3.0 - 2020-07-25
 
 ### Breaking
