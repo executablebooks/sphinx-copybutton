@@ -106,7 +106,7 @@ Customize the CSS
 
 To customize the display of the copy button, you can add your own CSS files
 that overwrite the CSS in the
-`sphinx-copybutton CSS rules <https://github.com/ExecutableBookProject/sphinx-copybutton/blob/master/_static/copybutton.css>`_.
+`sphinx-copybutton CSS rules <https://github.com/executablebooks/sphinx-copybutton/blob/master/sphinx_copybutton/_static/copybutton.css>`_.
 Just add these files to ``_static`` in your documentation folder, and it should
 overwrite sphinx-copybutton's behavior.
 
