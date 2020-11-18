@@ -63,33 +63,37 @@ const temporarilyChangeTooltip = (el, newText) => {
 // Callback when a copy button is clicked. Will be passed the node that was clicked
 // should then grab the text and replace pieces of text that shouldn't be used in output
 var copyTargetText = (trigger) => {
-  var target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
-  var textContent = target.innerText.split('\n');
-  var copybuttonPromptText = '{{ copybutton_prompt_text }}'; // Inserted from config
+  var pre_target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
+  var textContent = pre_target.lastChild.previousSibling.textContent.split('\n');
+  var copybuttonPromptText = {{ copybutton_prompt_text }}; // Inserted from config
   var onlyCopyPromptLines = {{ copybutton_only_copy_prompt_lines | lower }}; // Inserted from config
   var removePrompts = {{ copybutton_remove_prompts | lower }}; // Inserted from config
 
   // Text content line filtering based on prompts (if a prompt text is given)
-  if (copybuttonPromptText.length > 0) {
+  if (copybuttonPromptText.some((prompt) => prompt.length > 0)) {
     // If only copying prompt lines, remove all lines that don't start w/ prompt
     if (onlyCopyPromptLines) {
-      linesWithPrompt = textContent.filter((line) => {
-        return line.startsWith(copybuttonPromptText) || (line.length == 0); // Keep newlines
+      let startsWithPrompt = null;
+      let linesWithPrompt = textContent.filter((line) => {
+        return copybuttonPromptText.some((prompt) => {
+          const isStartingWithThisPrompt = line.startsWith(prompt);
+          if (isStartingWithThisPrompt) {
+            startsWithPrompt = prompt;
+          }
+          return isStartingWithThisPrompt;
+        });
       });
       // Check to make sure we have at least one non-empty line
       var nonEmptyLines = linesWithPrompt.filter((line) => {return line.length > 0});
       // If we detected lines w/ prompt, then overwrite textContent w/ those lines
-      if ((linesWithPrompt.length > 0) && (nonEmptyLines.length > 0)) {
-        textContent = linesWithPrompt;
-      }
-    }
-    // Remove the starting prompt from any remaining lines
-    if (removePrompts) {
-      textContent.forEach((line, index) => {
-        if (line.startsWith(copybuttonPromptText)) {
-          textContent[index] = line.slice(copybuttonPromptText.length);
+      if (linesWithPrompt.length > 0 && nonEmptyLines.length > 0) {
+        // Remove the starting prompt from any remaining lines
+        if (removePrompts && startsWithPrompt) {
+          textContent = linesWithPrompt.map((line, index) => {
+            return line.startsWith(startsWithPrompt) ? line.slice(startsWithPrompt.length) : line;
+          });
         }
-      });
+      }
     }
   }
   textContent = textContent.join('\n');
@@ -98,6 +102,12 @@ var copyTargetText = (trigger) => {
      textContent = textContent.slice(0, -1)
   }
   return textContent
+}
+
+const changeButtonImage = aButtonElement => {
+  imgElement = aButtonElement.firstElementChild;
+  imgElement.src = imgElement.src.replace('copy-button.svg', 'checkmark-yes.svg');
+  return
 }
 
 const addCopyButtonToCodeCells = () => {
@@ -116,10 +126,10 @@ const addCopyButtonToCodeCells = () => {
     const pre_bg = getComputedStyle(codeCell).backgroundColor;
 
     const clipboardButton = id =>
-    `<a class="copybtn o-tooltip--left" style="background-color: ${pre_bg}" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
+    `<a class="copybtn o-tooltip--left" style="background-color: ${pre_bg}" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}" onclick="changeButtonImage(this)";>
       <img src="${DOCUMENTATION_OPTIONS.URL_ROOT}_static/{{ copybutton_image_path }}" alt="${messages[locale]['copy_to_clipboard']}">
     </a>`
-    codeCell.insertAdjacentHTML('afterend', clipboardButton(id))
+    codeCell.insertAdjacentHTML('beforeend', clipboardButton(id))
   })
 
   // Initialize with a callback so we can modify the text before copy
