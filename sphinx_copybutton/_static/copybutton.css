@@ -3,8 +3,8 @@ a.copybtn {
     position: absolute;
     top: .2em;
     right: .2em;
-    width: 1em;
-    height: 1em;
+    width: 1.3em;
+    height: 1.3em;
 	opacity: .3;
     transition: opacity 0.5s;
     border: none;
