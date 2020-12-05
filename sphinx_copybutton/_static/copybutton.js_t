@@ -54,8 +54,7 @@ const clearSelection = () => {
 }
 
 // Changes tooltip text for two seconds, then changes it back
-const temporarilyChangeTooltip = (el, newText) => {
-  const oldText = el.getAttribute('data-tooltip')
+const temporarilyChangeTooltip = (el, oldText, newText) => {
   el.setAttribute('data-tooltip', newText)
   setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
 }
@@ -95,11 +94,11 @@ var copyTargetText = (trigger) => {
   // Update UI with error/success messages
   clipboard.on('success', event => {
     clearSelection()
-    temporarilyChangeTooltip(event.trigger, messages[locale]['copy_success'])
+    temporarilyChangeTooltip(event.trigger, messages[locale]['copy'], messages[locale]['copy_success'])
   })
 
   clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, messages[locale]['copy_failure'])
+    temporarilyChangeTooltip(event.trigger, messages[locale]['copy'], messages[locale]['copy_failure'])
   })
 }
 
