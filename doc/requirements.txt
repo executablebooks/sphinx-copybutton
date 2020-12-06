@@ -1,5 +1,7 @@
 sphinx
 ipython
+sphinx-book-theme
+myst-nb
 
 # Install ourselves
 .

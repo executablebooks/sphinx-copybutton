@@ -372,5 +372,7 @@ Then run the docs build:
 
 .. toctree::
    :maxdepth: 1
+   :caption: Reference pages
 
+   notebook
    second/second_page
