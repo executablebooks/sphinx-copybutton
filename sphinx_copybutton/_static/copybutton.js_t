@@ -17,6 +17,12 @@ const messages = {
     'copy_to_clipboard': 'In die Zwischenablage kopieren',
     'copy_success': 'Kopiert!',
     'copy_failure': 'Fehler beim Kopieren',
+  },
+  'fr' : {
+    'copy': 'Copier',
+    'copy_to_clipboard': 'Copié dans le presse-papier',
+    'copy_success': 'Copié !',
+    'copy_failure': 'Échec de la copie',
   }
 }
 
