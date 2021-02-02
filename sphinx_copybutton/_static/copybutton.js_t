@@ -23,6 +23,12 @@ const messages = {
     'copy_to_clipboard': 'Copié dans le presse-papier',
     'copy_success': 'Copié !',
     'copy_failure': 'Échec de la copie',
+  },
+  'zh-CN': {
+    'copy': '复制',
+    'copy_to_clipboard': '复制到剪贴板',
+    'copy_success': '复制成功!',
+    'copy_failure': '复制失败',
   }
 }
 
