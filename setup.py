@@ -47,7 +47,15 @@ setup(
             "_static/clipboard.min.js",
         ]
     },
-    classifiers=["License :: OSI Approved :: MIT License"],
+    classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3 :: Only",
+    ],
     python_requires=">=3.6",
     install_requires=["sphinx>=1.8"],
     extras_require={
