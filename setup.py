@@ -18,7 +18,7 @@ if os.path.isdir("clipboard.js") and not os.path.isfile(
         """
     )
 
-with open("./README.md", "r") as ff:
+with open("./README.md") as ff:
     readme_text = ff.read()
 
 # Parse version
