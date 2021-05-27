@@ -18,15 +18,23 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
 
     const outputLines = [];
     var promptFound = false;
+    var gotBackslash = false;
+    var gotEOT = false;
+    const lineGotPrompt = [];
     for (const line of textContent.split('\n')) {
+        console.log(line)
         match = line.match(regexp)
-        if (match) {
-            promptFound = true
-            if (removePrompts) {
+        if (match || gotBackslash || gotEOT) {
+            promptFound = regexp.test(line)
+            lineGotPrompt.push(promptFound)
+            if (removePrompts && promptFound) {
                 outputLines.push(match[2])
             } else {
                 outputLines.push(line)
             }
+            gotBackslash = line.endsWith('\\')
+            if (line.includes('EOT'))
+                gotEOT = !gotEOT
         } else if (!onlyCopyPromptLines) {
             outputLines.push(line)
         } else if (copyEmptyLines && line.trim() === '') {
@@ -35,7 +43,7 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
     }
 
     // If no lines with the prompt were found then just use original lines
-    if (promptFound) {
+    if (lineGotPrompt.some(v => v === true)) {
         textContent = outputLines.join('\n');
     }
 

@@ -57,6 +57,50 @@ output
 		expected: '\n>>> first\n>>> second'
 	},
 	{
+		description: 'multiline with \\, keep prompt',
+		text: `
+>>> first \\
+output \\
+is \\
+fine
+is it?
+>>> second`,
+		prompt: '>>> ',
+		isRegexp: false,
+		onlyCopyPromptLines: true,
+		removePrompts: false,
+		expected: '>>> first \\\noutput \\\nis \\\nfine\n>>> second'
+	},
+	{
+		description: 'multiline with \\, remove prompt',
+		text: `
+$ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\
+--dataset . \\
+-m "add beginners guide on bash" \\
+-O books/bash_guide.pdf
+		`,
+		prompt: '$ ',
+		isRegexp: false,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		expected: 'datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\\n--dataset . \\\n-m "add beginners guide on bash" \\\n-O books/bash_guide.pdf'
+	},
+	{
+		description: 'multiline with EOT, remove prompt',
+		text: `
+$ cat << EOT > notes.txt
+One can create a new dataset with 'datalad create [--description] PATH'.
+The dataset is created empty
+
+EOT
+		`,
+		prompt: '$ ',
+		isRegexp: false,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		expected: 'cat << EOT > notes.txt\nOne can create a new dataset with \'datalad create [--description] PATH\'.\nThe dataset is created empty\n\nEOT'
+	},
+	{
 		description: 'with non-regexp prompt, keep lines',
 		text: `
 >>> first

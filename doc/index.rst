@@ -30,6 +30,20 @@ And here's a code block, note the copy button to the right!
 
    copy me!
 
+.. code-block:: bash
+
+   $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+     --dataset . \
+     -m "add beginners guide on bash" \
+     -O books/bash_guide.pdf
+
+.. code-block:: bash
+
+   $ cat << EOT > notes.txt
+      One can create a new dataset with 'datalad create [--description] PATH'.
+      The dataset is created empty
+
+      EOT
 
 If the code block overlaps to the right of the text area, you can just click
 the button to get the whole thing.
