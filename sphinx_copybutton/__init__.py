@@ -27,6 +27,9 @@ def add_to_context(app, config):
     config.html_context.update(
         {"copybutton_remove_prompts": config.copybutton_remove_prompts}
     )
+    config.html_context.update(
+        {"copybutton_copy_empty_lines": config.copybutton_copy_empty_lines}
+    )
     config.html_context.update({"copybutton_image_path": config.copybutton_image_path})
     config.html_context.update({"copybutton_selector": config.copybutton_selector})
     config.html_context.update(
@@ -50,6 +53,7 @@ def setup(app):
     app.add_config_value("copybutton_prompt_is_regexp", False, "html")
     app.add_config_value("copybutton_only_copy_prompt_lines", True, "html")
     app.add_config_value("copybutton_remove_prompts", True, "html")
+    app.add_config_value("copybutton_copy_empty_lines", False, "html")
     app.add_config_value("copybutton_image_path", "copy-button.svg", "html")
     app.add_config_value("copybutton_selector", "div.highlight pre", "html")
 

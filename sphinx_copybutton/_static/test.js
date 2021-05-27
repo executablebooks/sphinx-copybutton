@@ -93,6 +93,20 @@ output
 		expected: 'first\nsecond'
 	},
 	{
+		description: 'with regexp python prompt and empty lines',
+		text: `
+>>> first
+output
+
+>>> second`,
+		prompt: '>>> ',
+		isRegexp: true,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		copyEmptyLines: true,
+		expected: '\nfirst\n\nsecond'
+	},
+	{
 		description: 'with regexp console prompt',
 		text: `
 $ first
@@ -153,7 +167,7 @@ output
 
 parameters.forEach((p) => {
 	test(p.description, t => {
-		const text = formatCopyText(p.text, p.prompt, p.isRegexp, p.onlyCopyPromptLines, p.removePrompts);
+		const text = formatCopyText(p.text, p.prompt, p.isRegexp, p.onlyCopyPromptLines, p.removePrompts, p.copyEmptyLines);
 		t.is(text, p.expected)
 	});
 })
