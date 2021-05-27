@@ -22,7 +22,6 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
     var gotEOT = false;
     const lineGotPrompt = [];
     for (const line of textContent.split('\n')) {
-        console.log(line)
         match = line.match(regexp)
         if (match || gotBackslash || gotEOT) {
             promptFound = regexp.test(line)
