@@ -53,7 +53,7 @@ def setup(app):
     app.add_config_value("copybutton_prompt_is_regexp", False, "html")
     app.add_config_value("copybutton_only_copy_prompt_lines", True, "html")
     app.add_config_value("copybutton_remove_prompts", True, "html")
-    app.add_config_value("copybutton_copy_empty_lines", False, "html")
+    app.add_config_value("copybutton_copy_empty_lines", True, "html")
     app.add_config_value("copybutton_image_path", "copy-button.svg", "html")
     app.add_config_value("copybutton_selector", "div.highlight pre", "html")
 
