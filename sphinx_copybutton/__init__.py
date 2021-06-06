@@ -42,6 +42,15 @@ def add_to_context(app, config):
     )
 
 
+def add_static_path_to_js(app, pagename, templatename, context, doctree):
+    """Define the static path to the copybutton image in JS for use in the .js file."""
+    copybutton_image_full_path = context["pathto"](
+        "_static/" + app.config.copybutton_image_path, 1
+    )
+    image_js = f"const copybutton_image_path = '{copybutton_image_full_path}'"
+    app.add_js_file(None, body=image_js)
+
+
 def setup(app):
 
     logger.verbose("Adding copy buttons to code blocks...")
@@ -59,6 +68,9 @@ def setup(app):
 
     # Add configuration value to the template
     app.connect("config-inited", add_to_context)
+
+    # Add variables we'll need in the JS file
+    app.connect("html-page-context", add_static_path_to_js)
 
     # Add relevant code to headers
     app.add_css_file("copybutton.css")
