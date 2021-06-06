@@ -268,6 +268,18 @@ strip the prompts), use the following configuration in ``conf.py``:
 
     copybutton_remove_prompts = False
 
+Configure whether *empty* lines are copied
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, sphinx-copybutton will also copy / pass through empty lines,
+determined by ``line.trim() === ''``.
+
+To disable copying empty lines, use the following configuration in ``conf.py``:
+
+.. code-block:: python
+
+    copybutton_copy_empty_lines = False
+
 Use a different copy button image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

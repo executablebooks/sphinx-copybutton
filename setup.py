@@ -59,6 +59,6 @@ setup(
     python_requires=">=3.6",
     install_requires=["sphinx>=1.8"],
     extras_require={
-        "code_style": ["flake8<3.8.0,>=3.7.0", "black", "pre-commit~=2.9.2"],
+        "code_style": ["pre-commit==2.12.1"],
     },
 )

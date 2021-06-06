@@ -30,7 +30,7 @@ output
 		isRegexp: false,
 		onlyCopyPromptLines: true,
 		removePrompts: true,
-		expected: 'first\nsecond'
+		expected: '\nfirst\nsecond'
 	},
 	{
 		description: 'with non-regexp console prompt',
@@ -42,7 +42,7 @@ $ second`,
 		isRegexp: false,
 		onlyCopyPromptLines: true,
 		removePrompts: true,
-		expected: 'first\nsecond'
+		expected: '\nfirst\nsecond'
 	},
 	{
 		description: 'with non-regexp prompt, keep prompt',
@@ -54,7 +54,7 @@ output
 		isRegexp: false,
 		onlyCopyPromptLines: true,
 		removePrompts: false,
-		expected: '>>> first\n>>> second'
+		expected: '\n>>> first\n>>> second'
 	},
 	{
 		description: 'with non-regexp prompt, keep lines',
@@ -90,6 +90,34 @@ output
 		isRegexp: true,
 		onlyCopyPromptLines: true,
 		removePrompts: true,
+		expected: '\nfirst\nsecond'
+	},
+	{
+		description: 'with regexp python prompt and empty lines',
+		text: `
+>>> first
+output
+
+>>> second`,
+		prompt: '>>> ',
+		isRegexp: true,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		copyEmptyLines: true,
+		expected: '\nfirst\n\nsecond'
+	},
+	{
+		description: 'with regexp python prompt and empty lines, ignore empty lines',
+		text: `
+>>> first
+output
+
+>>> second`,
+		prompt: '>>> ',
+		isRegexp: true,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		copyEmptyLines: false,
 		expected: 'first\nsecond'
 	},
 	{
@@ -102,7 +130,7 @@ $ second`,
 		isRegexp: true,
 		onlyCopyPromptLines: true,
 		removePrompts: true,
-		expected: 'first\nsecond'
+		expected: '\nfirst\nsecond'
 	},
 	{
 		description: 'with ipython prompt (old and new style) regexp',
@@ -116,7 +144,7 @@ In [3]: jupyter`,
 		isRegexp: true,
 		onlyCopyPromptLines: true,
 		removePrompts: true,
-		expected: 'first\ncontinuation\nsecond\njupyter',
+		expected: '\nfirst\ncontinuation\nsecond\njupyter',
 	},
 	{
 		description: 'with ipython prompt (old and new style) regexp, keep prompts',
@@ -130,7 +158,7 @@ In [3]: jupyter`,
 		isRegexp: true,
 		onlyCopyPromptLines: true,
 		removePrompts: false,
-		expected: '[1]: first\n...: continuation\n[2]: second\nIn [3]: jupyter',
+		expected: '\n[1]: first\n...: continuation\n[2]: second\nIn [3]: jupyter',
 	},
 	{
 	/* The following is included to demonstrate an example of a false positive regex test.
@@ -147,13 +175,13 @@ output
 		isRegexp: true,
 		onlyCopyPromptLines: true,
 		removePrompts: true,
-		expected: 'first\ncontinuation\nsecond'
+		expected: '\nfirst\ncontinuation\nsecond'
 	}
 ]
 
 parameters.forEach((p) => {
 	test(p.description, t => {
-		const text = formatCopyText(p.text, p.prompt, p.isRegexp, p.onlyCopyPromptLines, p.removePrompts);
+		const text = formatCopyText(p.text, p.prompt, p.isRegexp, p.onlyCopyPromptLines, p.removePrompts, p.copyEmptyLines);
 		t.is(text, p.expected)
 	});
 })
