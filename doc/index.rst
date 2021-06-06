@@ -60,7 +60,7 @@ Installation
 
 .. note::
 
-   ``sphinx-copybutton`` only works on Python >= 3.4
+   ``sphinx-copybutton`` only works on Python >= 3.6
 
 You can install ``sphinx-copybutton`` with ``pip``:
 
