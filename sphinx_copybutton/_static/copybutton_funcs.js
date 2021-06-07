@@ -4,10 +4,24 @@ function escapeRegExp(string) {
 
 // Callback when a copy button is clicked. Will be passed the node that was clicked
 // should then grab the text and replace pieces of text that shouldn't be used in output
-export function formatCopyText(textContent, copybuttonPromptText, isRegexp = false, onlyCopyPromptLines = true, removePrompts = true, copyEmptyLines = true) {
+export function formatCopyText(textContent, copybuttonPromptText, isRegexp = false, onlyCopyPromptLines = true, removePrompts = true, copyEmptyLines = true, endOfLineChar = null, hereDocDelim = null) {
 
     var regexp;
     var match;
+
+    // Do we check for end of line characters and "here documents"?
+    var useEndOfLine = true
+    if (!endOfLineChar) {
+        endOfLineChar = ''
+        useEndOfLine = false
+    }
+
+    var useHereDoc = true
+    if (!hereDocDelim) {
+        hereDocDelim = ''
+        useHereDoc = false
+    }
+
 
     // create regexp to capture prompt and remaining line
     if (isRegexp) {
@@ -18,12 +32,12 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
 
     const outputLines = [];
     var promptFound = false;
-    var gotBackslash = false;
-    var gotEOT = false;
+    var gotEndOfLine = false;
+    var gotHereDoc = false;
     const lineGotPrompt = [];
     for (const line of textContent.split('\n')) {
         match = line.match(regexp)
-        if (match || gotBackslash || gotEOT) {
+        if (match || gotEndOfLine || gotHereDoc) {
             promptFound = regexp.test(line)
             lineGotPrompt.push(promptFound)
             if (removePrompts && promptFound) {
@@ -31,9 +45,9 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
             } else {
                 outputLines.push(line)
             }
-            gotBackslash = line.endsWith('\\')
-            if (line.includes('EOT'))
-                gotEOT = !gotEOT
+            gotEndOfLine = line.endsWith(endOfLineChar) & useEndOfLine
+            if (line.includes(hereDocDelim) & useHereDoc)
+                gotHereDoc = !gotHereDoc
         } else if (!onlyCopyPromptLines) {
             outputLines.push(line)
         } else if (copyEmptyLines && line.trim() === '') {
