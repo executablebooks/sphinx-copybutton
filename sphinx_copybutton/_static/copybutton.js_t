@@ -91,7 +91,7 @@ const addCopyButtonToCodeCells = () => {
 
 var copyTargetText = (trigger) => {
   var target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
-  return formatCopyText(target.innerText, {{ "{!r}".format(copybutton_prompt_text) }}, {{ copybutton_prompt_is_regexp | lower }}, {{ copybutton_only_copy_prompt_lines | lower }}, {{ copybutton_remove_prompts | lower }}, {{ copybutton_copy_empty_lines | lower }}, {{ copybutton_end_of_line_character }}, {{ copybutton_here_doc_delimiter }})
+  return formatCopyText(target.innerText, {{ "{!r}".format(copybutton_prompt_text) }}, {{ copybutton_prompt_is_regexp | lower }}, {{ copybutton_only_copy_prompt_lines | lower }}, {{ copybutton_remove_prompts | lower }}, {{ copybutton_copy_empty_lines | lower }}, {{ "{!r}".format(copybutton_end_of_line_character) }}, {{ "{!r}".format(copybutton_here_doc_delimiter) }})
 }
 
   // Initialize with a callback so we can modify the text before copy
