@@ -287,9 +287,9 @@ Sometimes you may wish to copy a code block like this one:
 
 .. code-block:: bash
 
-    $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\
-    --dataset . \\
-    -m "add beginners guide on bash" \\
+    $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+    --dataset . \
+    -m "add beginners guide on bash" \
     -O books/bash_guide.pdf
 
 Assuming that you specified ``$`` as your prompt, sphinx-copybutton will only copy
@@ -314,7 +314,13 @@ For example:
        This is an example sentence.
            Put some indentation on this line.
 
-       EOT
+      EOT
+
+Executing this codeblock in the terminal will create a file ``notes.txt`` with the exact
+text from line two of the codeblock until (but not including) the final line containing ``EOT``.
+
+Howver, assuming that you specified ``$`` as your prompt, sphinx-copybutton will only copy
+the first line by default.
 
 sphinx-copybutton can be configured to copy the whole "here document" by using the following
 configuration:
