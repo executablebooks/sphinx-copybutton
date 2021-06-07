@@ -105,6 +105,8 @@ copybutton_prompt_is_regexp = True
 # copybutton_remove_prompts = False
 # copybutton_image_path = "test/TEST_COPYBUTTON.png"
 # copybutton_selector = "div"
+# copybutton_end_of_line_character = "\\"
+# copybutton_here_doc_delimiter = "EOT"
 
 
 # -- Options for HTMLHelp output ---------------------------------------------

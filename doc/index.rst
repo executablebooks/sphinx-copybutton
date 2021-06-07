@@ -320,7 +320,7 @@ configuration:
 
 .. code-block:: python
 
-   copybutton_here_document_delimiter = "EOT"
+   copybutton_here_doc_delimiter = "EOT"
 
 This will continue to look for lines to copy based on the rules above,
 but if one of the lines to be copied contains the defined delimiter (here: ``EOT``),
