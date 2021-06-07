@@ -30,21 +30,6 @@ And here's a code block, note the copy button to the right!
 
    copy me!
 
-.. code-block:: bash
-
-   $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
-     --dataset . \
-     -m "add beginners guide on bash" \
-     -O books/bash_guide.pdf
-
-.. code-block:: bash
-
-   $ cat << EOT > notes.txt
-      One can create a new dataset with 'datalad create [--description] PATH'.
-      The dataset is created empty
-
-      EOT
-
 If the code block overlaps to the right of the text area, you can just click
 the button to get the whole thing.
 
@@ -293,6 +278,54 @@ To disable copying empty lines, use the following configuration in ``conf.py``:
 .. code-block:: python
 
     copybutton_copy_empty_lines = False
+
+Configure whether to copy across end of line characters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Sometimes you may wish to copy a code block like this one:
+
+.. code-block:: bash
+
+    $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\
+    --dataset . \\
+    -m "add beginners guide on bash" \\
+    -O books/bash_guide.pdf
+
+Assuming that you specified ``$`` as your prompt, sphinx-copybutton will only copy
+the first line by default.
+
+To copy all lines above, you can use the following configuration:
+
+.. code-block:: python
+
+    copybutton_end_of_line_character = "\\"
+
+Configure whether to copy across end of line characters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`Here Documents <https://en.wikipedia.org/wiki/Here_document>`_ are a form of multiline string literals
+in which line breaks and other whitespace (including indentation) is preserved.
+For example:
+
+.. code-block:: bash
+
+    $ cat << EOT > notes.txt
+       This is an example sentence.
+           Put some indentation on this line.
+
+       EOT
+
+sphinx-copybutton can be configured to copy the whole "here document" by using the following
+configuration:
+
+.. code-block:: python
+
+   copybutton_here_document_delimiter = "EOT"
+
+This will continue to look for lines to copy based on the rules above,
+but if one of the lines to be copied contains the defined delimiter (here: ``EOT``),
+then all following lines will be copied literally until the next delimiter is
+encountered in a line.
 
 Use a different copy button image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
