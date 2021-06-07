@@ -30,6 +30,7 @@ And here's a code block, note the copy button to the right!
 
    copy me!
 
+
 If the code block overlaps to the right of the text area, you can just click
 the button to get the whole thing.
 
