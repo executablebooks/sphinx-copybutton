@@ -319,7 +319,7 @@ For example:
 Executing this codeblock in the terminal will create a file ``notes.txt`` with the exact
 text from line two of the codeblock until (but not including) the final line containing ``EOT``.
 
-Howver, assuming that you specified ``$`` as your prompt, sphinx-copybutton will only copy
+However, assuming that you specified ``$`` as your prompt, sphinx-copybutton will only copy
 the first line by default.
 
 sphinx-copybutton can be configured to copy the whole "here document" by using the following
