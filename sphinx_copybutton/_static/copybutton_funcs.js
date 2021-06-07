@@ -4,7 +4,7 @@ function escapeRegExp(string) {
 
 // Callback when a copy button is clicked. Will be passed the node that was clicked
 // should then grab the text and replace pieces of text that shouldn't be used in output
-export function formatCopyText(textContent, copybuttonPromptText, isRegexp = false, onlyCopyPromptLines = true, removePrompts = true, copyEmptyLines = true, endOfLineChar = null, hereDocDelim = null) {
+export function formatCopyText(textContent, copybuttonPromptText, isRegexp = false, onlyCopyPromptLines = true, removePrompts = true, copyEmptyLines = true, endOfLineChar = "", hereDocDelim = "") {
 
     var regexp;
     var match;
