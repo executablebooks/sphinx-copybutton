@@ -69,6 +69,7 @@ is it?
 		isRegexp: false,
 		onlyCopyPromptLines: true,
 		removePrompts: false,
+		copyEmptyLines: false,
 		expected: '>>> first \\\noutput \\\nis \\\nfine\n>>> second'
 	},
 	{
@@ -83,6 +84,7 @@ $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginne
 		isRegexp: false,
 		onlyCopyPromptLines: true,
 		removePrompts: true,
+		copyEmptyLines: false,
 		expected: 'datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\\n--dataset . \\\n-m "add beginners guide on bash" \\\n-O books/bash_guide.pdf'
 	},
 	{
@@ -98,6 +100,7 @@ EOT
 		isRegexp: false,
 		onlyCopyPromptLines: true,
 		removePrompts: true,
+		copyEmptyLines: false,
 		expected: 'cat << EOT > notes.txt\nOne can create a new dataset with \'datalad create [--description] PATH\'.\nThe dataset is created empty\n\nEOT'
 	},
 	{
