@@ -57,11 +57,11 @@ output
 		expected: '\n>>> first\n>>> second'
 	},
 	{
-		description: 'multiline with \\, keep prompt',
+		description: 'multiline with |, keep prompt',
 		text: `
->>> first \\
-output \\
-is \\
+>>> first |
+output |
+is |
 fine
 is it?
 >>> second`,
@@ -70,8 +70,8 @@ is it?
 		onlyCopyPromptLines: true,
 		removePrompts: false,
 		copyEmptyLines: false,
-		endOfLineChar: '\\',
-		expected: '>>> first \\\noutput \\\nis \\\nfine\n>>> second'
+		endOfLineChar: '|',
+		expected: '>>> first |\noutput |\nis |\nfine\n>>> second'
 	},
 	{
 		description: 'multiline with \\, remove prompt',
@@ -90,11 +90,11 @@ $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginne
 		expected: 'datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\\n--dataset . \\\n-m "add beginners guide on bash" \\\n-O books/bash_guide.pdf'
 	},
 	{
-		description: 'multiline with EOT, remove prompt',
+		description: 'multiline with "here document", remove prompt',
 		text: `
 $ cat << EOT > notes.txt
-One can create a new dataset with 'datalad create [--description] PATH'.
-The dataset is created empty
+One can hear a joke.
+And laugh.
 
 EOT
 		`,
@@ -104,7 +104,7 @@ EOT
 		removePrompts: true,
 		copyEmptyLines: false,
 		hereDocDelim: "EOT",
-		expected: 'cat << EOT > notes.txt\nOne can create a new dataset with \'datalad create [--description] PATH\'.\nThe dataset is created empty\n\nEOT'
+		expected: 'cat << EOT > notes.txt\nOne can hear a joke.\nAnd laugh.\n\nEOT'
 	},
 	{
 		description: 'with non-regexp prompt, keep lines',
