@@ -1,6 +1,6 @@
-=============
-A deeper page
-=============
+===========================
+A nested page for reference
+===========================
 
 To make sure that the images / svg still works!
 
