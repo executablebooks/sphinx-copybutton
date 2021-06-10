@@ -44,6 +44,8 @@ if( document.documentElement.lang !== undefined
   locale = document.documentElement.lang
 }
 
+const path_static = `${DOCUMENTATION_OPTIONS.URL_ROOT}_static/`;
+
 /**
  * Set up copy/paste for code blocks
  */
@@ -77,6 +79,13 @@ const temporarilyChangeTooltip = (el, oldText, newText) => {
   setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
 }
 
+// Changes the copy button icon for two seconds, then changes it back
+const temporarilyChangeIcon = (el) => {
+  img = el.querySelector("img");
+  img.setAttribute('src', `${path_static}check-solid.svg`)
+  setTimeout(() => img.setAttribute('src', `${path_static}{{ copybutton_image_path }}`), 2000)
+}
+
 const addCopyButtonToCodeCells = () => {
   // If ClipboardJS hasn't loaded, wait a bit and try again. This
   // happens because we load ClipboardJS asynchronously.
@@ -93,9 +102,9 @@ const addCopyButtonToCodeCells = () => {
     const pre_bg = getComputedStyle(codeCell).backgroundColor;
 
     const clipboardButton = id =>
-    `<a class="copybtn o-tooltip--left" style="background-color: ${pre_bg}" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
-      <img src="${DOCUMENTATION_OPTIONS.URL_ROOT}_static/{{ copybutton_image_path }}" alt="${messages[locale]['copy_to_clipboard']}">
-    </a>`
+    `<button class="copybtn o-tooltip--left" style="background-color: ${pre_bg}" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
+      <img src="${path_static}{{ copybutton_image_path }}" alt="${messages[locale]['copy_to_clipboard']}">
+    </button>`
     codeCell.insertAdjacentHTML('afterend', clipboardButton(id))
   })
 
@@ -113,6 +122,7 @@ var copyTargetText = (trigger) => {
   clipboard.on('success', event => {
     clearSelection()
     temporarilyChangeTooltip(event.trigger, messages[locale]['copy'], messages[locale]['copy_success'])
+    temporarilyChangeIcon(event.trigger)
   })
 
   clipboard.on('error', event => {
