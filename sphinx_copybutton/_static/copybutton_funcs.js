@@ -4,15 +4,15 @@ function escapeRegExp(string) {
 
 // Callback when a copy button is clicked. Will be passed the node that was clicked
 // should then grab the text and replace pieces of text that shouldn't be used in output
-export function formatCopyText(textContent, copybuttonPromptText, isRegexp = false, onlyCopyPromptLines = true, removePrompts = true, copyEmptyLines = true, endOfLineChar = "", hereDocDelim = "") {
+export function formatCopyText(textContent, copybuttonPromptText, isRegexp = false, onlyCopyPromptLines = true, removePrompts = true, copyEmptyLines = true, lineContinuationChar = "", hereDocDelim = "") {
 
     var regexp;
     var match;
 
-    // Do we check for end of line characters and "here documents"?
+    // Do we check for line continuation characters and "HERE documents"?
     var useEndOfLine = true
-    if (!endOfLineChar) {
-        endOfLineChar = ''
+    if (!lineContinuationChar) {
+        lineContinuationChar = ''
         useEndOfLine = false
     }
 
@@ -45,7 +45,7 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
             } else {
                 outputLines.push(line)
             }
-            gotEndOfLine = line.endsWith(endOfLineChar) & useEndOfLine
+            gotEndOfLine = line.endsWith(lineContinuationChar) & useEndOfLine
             if (line.includes(hereDocDelim) & useHereDoc)
                 gotHereDoc = !gotHereDoc
         } else if (!onlyCopyPromptLines) {

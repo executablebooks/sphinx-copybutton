@@ -70,7 +70,7 @@ is it?
 		onlyCopyPromptLines: true,
 		removePrompts: false,
 		copyEmptyLines: false,
-		endOfLineChar: '|',
+		lineContinuationChar: '|',
 		expected: '>>> first |\noutput |\nis |\nfine\n>>> second'
 	},
 	{
@@ -86,7 +86,7 @@ $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginne
 		onlyCopyPromptLines: true,
 		removePrompts: true,
 		copyEmptyLines: false,
-		endOfLineChar: '\\',
+		lineContinuationChar: '\\',
 		expected: 'datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\\n--dataset . \\\n-m "add beginners guide on bash" \\\n-O books/bash_guide.pdf'
 	},
 	{
@@ -231,7 +231,7 @@ output
 
 parameters.forEach((p) => {
 	test(p.description, t => {
-		const text = formatCopyText(p.text, p.prompt, p.isRegexp, p.onlyCopyPromptLines, p.removePrompts, p.copyEmptyLines, p.endOfLineChar, p.hereDocDelim);
+		const text = formatCopyText(p.text, p.prompt, p.isRegexp, p.onlyCopyPromptLines, p.removePrompts, p.copyEmptyLines, p.lineContinuationChar, p.hereDocDelim);
 		t.is(text, p.expected)
 	});
 })
