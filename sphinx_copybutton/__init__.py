@@ -31,7 +31,11 @@ def add_to_context(app, config):
         {"copybutton_copy_empty_lines": config.copybutton_copy_empty_lines}
     )
     config.html_context.update(
-        {"copybutton_line_continuation_character": config.copybutton_line_continuation_character}
+        {
+            "copybutton_line_continuation_character": (
+                config.copybutton_line_continuation_character
+            )
+        }
     )
     config.html_context.update(
         {"copybutton_here_doc_delimiter": config.copybutton_here_doc_delimiter}
