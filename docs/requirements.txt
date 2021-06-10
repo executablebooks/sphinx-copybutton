@@ -1,5 +1,6 @@
 sphinx
 ipython
+sphinx-book-theme
 
 # Install ourselves
 .

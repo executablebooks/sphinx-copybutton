@@ -1,2 +1,2 @@
-graft doc/
-prune doc/_build
+graft docs/
+prune docs/_build
