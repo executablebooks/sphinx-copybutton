@@ -61,11 +61,11 @@ jobs:
         python -m pip install --upgrade pip
         git submodule update --init
         pip install -e .
-        pip install -r doc/requirements.txt
+        pip install -r docs/requirements.txt
 
     - name: Build docs
       run: |
-        cd doc
+        cd docs
         make html
 
   publish:

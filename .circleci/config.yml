@@ -18,7 +18,7 @@ jobs:
             - cache-pip
       # Install the packages needed to build our documentation
       # This will depend on your particular package!
-      - run: pip install --user -r doc/requirements.txt
+      - run: pip install --user -r docs/requirements.txt
       - run: pip install --user .
       # Cache some files for a speedup in subsequent builds
       - save_cache:
@@ -33,7 +33,7 @@ jobs:
             make html
       # Tell Circle to store the documentation output in a folder that we can access later
       - store_artifacts:
-          path: doc/_build/html/
+          path: docs/_build/html/
           destination: html
 
 # Tell CircleCI to use this workflow when it builds the site
