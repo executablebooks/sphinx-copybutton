@@ -301,10 +301,18 @@ To copy all lines above, you can use the following configuration:
 
     copybutton_line_continuation_character = "\\"
 
+Note that if we want to define ``\`` as the line continuation character, we have to "escape"
+it with another ``\``, as with any Python string that should carry a literal ``\``.
+
+Next, this configuration will make the code look for lines to copy based on the rules above,
+but if one of the lines to be copied contains a line continuation character,
+then the next line will be automatically copied, regardless of whether it matches the other
+rules.
+
 Honor HERE-document syntax when copying multline-snippets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Here Documents <https://en.wikipedia.org/wiki/Here_document>`_ are a form of multiline string literals
+`HERE-documents <https://en.wikipedia.org/wiki/Here_document>`_ are a form of multiline string literals
 in which line breaks and other whitespace (including indentation) is preserved.
 For example:
 
@@ -322,7 +330,7 @@ text from line two of the codeblock until (but not including) the final line con
 However, assuming that you specified ``$`` as your prompt, sphinx-copybutton will only copy
 the first line by default.
 
-sphinx-copybutton can be configured to copy the whole "here document" by using the following
+sphinx-copybutton can be configured to copy the whole "HERE-document" by using the following
 configuration:
 
 .. code-block:: python
