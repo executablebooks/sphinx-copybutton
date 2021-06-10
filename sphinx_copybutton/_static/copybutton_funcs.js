@@ -9,19 +9,9 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
     var regexp;
     var match;
 
-    // Do we check for line continuation characters and "HERE documents"?
-    var useEndOfLine = true
-    if (!lineContinuationChar) {
-        lineContinuationChar = ''
-        useEndOfLine = false
-    }
-
-    var useHereDoc = true
-    if (!hereDocDelim) {
-        hereDocDelim = ''
-        useHereDoc = false
-    }
-
+    // Do we check for line continuation characters and "HERE-documents"?
+    var useLineCont = !!lineContinuationChar
+    var useHereDoc = !!hereDocDelim
 
     // create regexp to capture prompt and remaining line
     if (isRegexp) {
@@ -32,12 +22,12 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
 
     const outputLines = [];
     var promptFound = false;
-    var gotEndOfLine = false;
+    var gotLineCont = false;
     var gotHereDoc = false;
     const lineGotPrompt = [];
     for (const line of textContent.split('\n')) {
         match = line.match(regexp)
-        if (match || gotEndOfLine || gotHereDoc) {
+        if (match || gotLineCont || gotHereDoc) {
             promptFound = regexp.test(line)
             lineGotPrompt.push(promptFound)
             if (removePrompts && promptFound) {
@@ -45,7 +35,7 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
             } else {
                 outputLines.push(line)
             }
-            gotEndOfLine = line.endsWith(lineContinuationChar) & useEndOfLine
+            gotLineCont = line.endsWith(lineContinuationChar) & useLineCont
             if (line.includes(hereDocDelim) & useHereDoc)
                 gotHereDoc = !gotHereDoc
         } else if (!onlyCopyPromptLines) {

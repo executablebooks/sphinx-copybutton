@@ -90,7 +90,7 @@ $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginne
 		expected: 'datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\\n--dataset . \\\n-m "add beginners guide on bash" \\\n-O books/bash_guide.pdf'
 	},
 	{
-		description: 'multiline with "here document", remove prompt',
+		description: 'multiline with "HERE-document", remove prompt',
 		text: `
 $ cat << EOT > notes.txt
 One can hear a joke.
