@@ -280,8 +280,8 @@ To disable copying empty lines, use the following configuration in ``conf.py``:
 
     copybutton_copy_empty_lines = False
 
-Configure whether to copy across end of line characters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Honor line continuation characters when copying multline-snippets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Sometimes you may wish to copy a code block like this one:
 
@@ -299,10 +299,10 @@ To copy all lines above, you can use the following configuration:
 
 .. code-block:: python
 
-    copybutton_end_of_line_character = "\\"
+    copybutton_line_continuation_character = "\\"
 
-Configure whether to copy across end of line characters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Honor HERE-document syntax when copying multline-snippets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `Here Documents <https://en.wikipedia.org/wiki/Here_document>`_ are a form of multiline string literals
 in which line breaks and other whitespace (including indentation) is preserved.

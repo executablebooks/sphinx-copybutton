@@ -31,7 +31,7 @@ def add_to_context(app, config):
         {"copybutton_copy_empty_lines": config.copybutton_copy_empty_lines}
     )
     config.html_context.update(
-        {"copybutton_end_of_line_character": config.copybutton_end_of_line_character}
+        {"copybutton_line_continuation_character": config.copybutton_line_continuation_character}
     )
     config.html_context.update(
         {"copybutton_here_doc_delimiter": config.copybutton_here_doc_delimiter}
@@ -60,7 +60,7 @@ def setup(app):
     app.add_config_value("copybutton_only_copy_prompt_lines", True, "html")
     app.add_config_value("copybutton_remove_prompts", True, "html")
     app.add_config_value("copybutton_copy_empty_lines", True, "html")
-    app.add_config_value("copybutton_end_of_line_character", "", "html")
+    app.add_config_value("copybutton_line_continuation_character", "", "html")
     app.add_config_value("copybutton_here_doc_delimiter", "", "html")
     app.add_config_value("copybutton_image_path", "copy-button.svg", "html")
     app.add_config_value("copybutton_selector", "div.highlight pre", "html")
