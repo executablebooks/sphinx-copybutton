@@ -24,6 +24,12 @@ const messages = {
     'copy_success': 'Copié !',
     'copy_failure': 'Échec de la copie',
   },
+  'ru': {
+    'copy': 'Скопировать',
+    'copy_to_clipboard': 'Скопировать в буфер',
+    'copy_success': 'Скопировано!',
+    'copy_failure': 'Не удалось скопировать',
+  },
   'zh-CN': {
     'copy': '复制',
     'copy_to_clipboard': '复制到剪贴板',
