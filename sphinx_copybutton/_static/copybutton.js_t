@@ -29,6 +29,12 @@ const messages = {
     'copy_to_clipboard': 'Скопировать в буфер',
     'copy_success': 'Скопировано!',
     'copy_failure': 'Не удалось скопировать',
+  },
+  'zh-CN': {
+    'copy': '复制',
+    'copy_to_clipboard': '复制到剪贴板',
+    'copy_success': '复制成功!',
+    'copy_failure': '复制失败',
   }
 }
 
@@ -97,7 +103,7 @@ const addCopyButtonToCodeCells = () => {
 
 var copyTargetText = (trigger) => {
   var target = document.querySelector(trigger.attributes['data-clipboard-target'].value);
-  return formatCopyText(target.innerText, {{ "{!r}".format(copybutton_prompt_text) }}, {{ copybutton_prompt_is_regexp | lower }}, {{ copybutton_only_copy_prompt_lines | lower }},  {{ copybutton_remove_prompts | lower }})
+  return formatCopyText(target.innerText, {{ "{!r}".format(copybutton_prompt_text) }}, {{ copybutton_prompt_is_regexp | lower }}, {{ copybutton_only_copy_prompt_lines | lower }}, {{ copybutton_remove_prompts | lower }}, {{ copybutton_copy_empty_lines | lower }}, {{ "{!r}".format(copybutton_line_continuation_character) }}, {{ "{!r}".format(copybutton_here_doc_delimiter) }})
 }
 
   // Initialize with a callback so we can modify the text before copy

@@ -18,7 +18,7 @@ if os.path.isdir("clipboard.js") and not os.path.isfile(
         """
     )
 
-with open("./README.md", "r") as ff:
+with open("./README.md") as ff:
     readme_text = ff.read()
 
 # Parse version
@@ -47,9 +47,18 @@ setup(
             "_static/clipboard.min.js",
         ]
     },
-    classifiers=["License :: OSI Approved :: MIT License"],
+    classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3 :: Only",
+    ],
+    python_requires=">=3.6",
     install_requires=["sphinx>=1.8"],
     extras_require={
-        "code_style": ["flake8<3.8.0,>=3.7.0", "black", "pre-commit==1.17.0"],
+        "code_style": ["pre-commit==2.12.1"],
     },
 )
