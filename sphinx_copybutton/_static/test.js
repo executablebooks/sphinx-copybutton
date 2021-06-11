@@ -57,6 +57,56 @@ output
 		expected: '\n>>> first\n>>> second'
 	},
 	{
+		description: 'multiline with |, keep prompt',
+		text: `
+>>> first |
+output |
+is |
+fine
+is it?
+>>> second`,
+		prompt: '>>> ',
+		isRegexp: false,
+		onlyCopyPromptLines: true,
+		removePrompts: false,
+		copyEmptyLines: false,
+		lineContinuationChar: '|',
+		expected: '>>> first |\noutput |\nis |\nfine\n>>> second'
+	},
+	{
+		description: 'multiline with \\, remove prompt',
+		text: `
+$ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\
+--dataset . \\
+-m "add beginners guide on bash" \\
+-O books/bash_guide.pdf
+		`,
+		prompt: '$ ',
+		isRegexp: false,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		copyEmptyLines: false,
+		lineContinuationChar: '\\',
+		expected: 'datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \\\n--dataset . \\\n-m "add beginners guide on bash" \\\n-O books/bash_guide.pdf'
+	},
+	{
+		description: 'multiline with "HERE-document", remove prompt',
+		text: `
+$ cat << EOT > notes.txt
+One can hear a joke.
+And laugh.
+
+EOT
+		`,
+		prompt: '$ ',
+		isRegexp: false,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		copyEmptyLines: false,
+		hereDocDelim: "EOT",
+		expected: 'cat << EOT > notes.txt\nOne can hear a joke.\nAnd laugh.\n\nEOT'
+	},
+	{
 		description: 'with non-regexp prompt, keep lines',
 		text: `
 >>> first
@@ -181,7 +231,7 @@ output
 
 parameters.forEach((p) => {
 	test(p.description, t => {
-		const text = formatCopyText(p.text, p.prompt, p.isRegexp, p.onlyCopyPromptLines, p.removePrompts, p.copyEmptyLines);
+		const text = formatCopyText(p.text, p.prompt, p.isRegexp, p.onlyCopyPromptLines, p.removePrompts, p.copyEmptyLines, p.lineContinuationChar, p.hereDocDelim);
 		t.is(text, p.expected)
 	});
 })

@@ -280,6 +280,68 @@ To disable copying empty lines, use the following configuration in ``conf.py``:
 
     copybutton_copy_empty_lines = False
 
+Honor line continuation characters when copying multline-snippets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Sometimes you may wish to copy a code block like this one:
+
+.. code-block:: bash
+
+    $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+    --dataset . \
+    -m "add beginners guide on bash" \
+    -O books/bash_guide.pdf
+
+Assuming that you specified ``$`` as your prompt, sphinx-copybutton will only copy
+the first line by default.
+
+To copy all lines above, you can use the following configuration:
+
+.. code-block:: python
+
+    copybutton_line_continuation_character = "\\"
+
+Note that if we want to define ``\`` as the line continuation character, we have to "escape"
+it with another ``\``, as with any Python string that should carry a literal ``\``.
+
+Next, this configuration will make the code look for lines to copy based on the rules above,
+but if one of the lines to be copied contains a line continuation character,
+then the next line will be automatically copied, regardless of whether it matches the other
+rules.
+
+Honor HERE-document syntax when copying multline-snippets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`HERE-documents <https://en.wikipedia.org/wiki/Here_document>`_ are a form of multiline string literals
+in which line breaks and other whitespace (including indentation) is preserved.
+For example:
+
+.. code-block:: bash
+
+    $ cat << EOT > notes.txt
+       This is an example sentence.
+           Put some indentation on this line.
+
+      EOT
+
+Executing this codeblock in the terminal will create a file ``notes.txt`` with the exact
+text from line two of the codeblock until (but not including) the final line containing ``EOT``.
+
+However, assuming that you specified ``$`` as your prompt, sphinx-copybutton will only copy
+the first line by default.
+
+sphinx-copybutton can be configured to copy the whole "HERE-document" by using the following
+configuration:
+
+.. code-block:: python
+
+   copybutton_here_doc_delimiter = "EOT"
+
+This will continue to look for lines to copy based on the rules above,
+but if one of the lines to be copied contains the defined delimiter (here: ``EOT``),
+then all following lines will be copied literally until the next delimiter is
+encountered in a line.
+
 Use a different copy button image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
