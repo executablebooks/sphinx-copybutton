@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.3.2 - 2021-06-11
+
+### Enhancements ✨
+* Add line continuation matching and "HERE-documents" [#126](https://github.com/executablebooks/sphinx-copybutton/pull/126) ([@sappelhoff](https://github.com/sappelhoff))
+* Allow copying empty lines [#127](https://github.com/executablebooks/sphinx-copybutton/pull/127) ([@amotl](https://github.com/amotl))
+* ✨ IMPROVE: add a check-mark SVG icon and improve the look of the button
+
+### Translations 🌎
+* Add Russian translations [#120](https://github.com/executablebooks/sphinx-copybutton/pull/120) ([@Nikulinnn](https://github.com/Nikulinnn))
+* Add Simplified Chinese translations [#116](https://github.com/executablebooks/sphinx-copybutton/pull/116) ([@seisman](https://github.com/seisman))
+* French translations added [#114](https://github.com/executablebooks/sphinx-copybutton/pull/114) ([@dbitouze](https://github.com/dbitouze))
+
 ## 0.3.1 - 2020-11-02
 
 - 👌 Improved copy icon (thanks to (@pradyunsg)[https://github.com/pradyunsg])
