@@ -4,8 +4,8 @@ button.copybtn {
     display: flex;
     top: .3em;
     right: .5em;
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 1.7em;
+    height: 1.7em;
 	opacity: 0;
     transition: opacity 0.3s, border .3s, background-color .3s;
     user-select: none;
@@ -59,9 +59,9 @@ div.highlight  {
     visibility: hidden;
     position: absolute;
     content: attr(data-tooltip);
-    padding: .2rem;
-    font-size: .8rem;
-    left: -.2rem;
+    padding: .2em;
+    font-size: .8em;
+    left: -.2em;
     background: grey;
     color: white;
     white-space: nowrap;
