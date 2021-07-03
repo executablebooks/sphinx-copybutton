@@ -61,5 +61,10 @@ setup(
     install_requires=["sphinx>=1.8"],
     extras_require={
         "code_style": ["pre-commit==2.12.1"],
+        "rtd": [
+            "sphinx",
+            "ipython",
+            "sphinx-book-theme",
+        ],
     },
 )
