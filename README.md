@@ -50,3 +50,7 @@ Development should principally adhere to the [EBP Developer Conventions](https:/
 
 Sphinx-Copybutton is [hosted on the pypi repository](https://pypi.org/project/sphinx-copybutton/).
 After a release - following the [EBP release instructions](https://github.com/executablebooks/.github/blob/master/CONTRIBUTING.md#releases-and-change-logs) - confirm that the new version of Sphinx-Copybutton [is posted to pypi](https://pypi.org/project/sphinx-copybutton/).
+
+## Acknowledgements
+
+Many thanks to the excellent [clipboard.js library](https://clipboardjs.com/) for the lightweight javascript code that powers the copy button!
