@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.4.0 - 2021-07-03
+
+### Enhancements ✨
+* The Copy Button UI/UX is now inspired from the recent GitHub copy button updates. [#133](https://github.com/executablebooks/sphinx-copybutton/pull/133)
+
 ## 0.3.2 - 2021-06-11
 
 ### Enhancements ✨
