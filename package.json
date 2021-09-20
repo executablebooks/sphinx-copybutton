@@ -18,5 +18,8 @@
     "require": [
       "esm"
     ]
+  },
+  "dependencies": {
+    "ci": "^2.1.1"
   }
 }

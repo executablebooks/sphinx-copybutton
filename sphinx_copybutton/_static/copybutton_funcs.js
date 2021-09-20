@@ -2,10 +2,54 @@ function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
+function getUnselectable(target) {
+    let unselectable = [];
+
+    // get all unselectable elements of children
+    for (let child of target.children) {
+        unselectable = unselectable.concat(getUnselectable(child));
+    }
+
+    // add self to unselectable if needed
+    if (getComputedStyle(target)["userSelect"] === "none") {
+        unselectable.push( target);
+    }
+
+    return unselectable;
+}
+
+function getFilteredText(target, exclude) {
+    let text = '';
+    for (let child of target.childNodes) {
+        if (exclude.indexOf(child) > -1) {
+            // child should be filtered out
+            continue;
+        }
+
+        if (child.nodeType === Node.TEXT_NODE) {
+            // child is a text node, add its contents
+            text += child.textContent
+        }
+        else {
+            // recurse on non-text nodes
+            text += getFilteredText(child, exclude);
+        }
+    }
+
+    return text;
+}
+
+export function filterUnselectableText(target) {
+    // get unselectable elements
+    const unselectable = getUnselectable(target);
+
+    // get text from selectable elements
+    return getFilteredText(target, unselectable);
+}
+
 // Callback when a copy button is clicked. Will be passed the node that was clicked
 // should then grab the text and replace pieces of text that shouldn't be used in output
 export function formatCopyText(textContent, copybuttonPromptText, isRegexp = false, onlyCopyPromptLines = true, removePrompts = true, copyEmptyLines = true, lineContinuationChar = "", hereDocDelim = "") {
-
     var regexp;
     var match;
 
