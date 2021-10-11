@@ -1,6 +1,8 @@
-===========================
-A nested page for reference
-===========================
+==================
+Reference examples
+==================
+
+This is a page to test the functionality of ``sphinx-copybutton`` in different use-cases.
 
 To make sure that the images / svg still works!
 
