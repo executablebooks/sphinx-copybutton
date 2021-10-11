@@ -384,8 +384,8 @@ By default, ``sphinx-copybutton`` will exclude text that is not selectable by th
 To change this behavior, use the following configuration in ``conf.py``:
 
 .. code-block:: python
-   
-   copybutton_exclude_unselectable = False 
+
+   copybutton_exclude_unselectable = False
 
 
 Development
