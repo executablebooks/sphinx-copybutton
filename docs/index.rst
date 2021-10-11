@@ -372,6 +372,24 @@ In this case, all elements that match ``your.selector`` will have a copy button
 added to them.
 
 
+Exclude unselectable text from copied text
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, ``sphinx-copybutton`` will exclude text that is not selectable by the user. Unselectable text is determined with the CSS style
+
+.. code-block:: css
+
+   user-select: none
+
+To change this behavior, use the following configuration in ``conf.py``:
+
+.. code-block:: python
+
+   copybutton_exclude_unselectable = False
+
+A common example of unselectable text is the line numbers in a code block.
+
+
 Development
 ===========
 
@@ -441,7 +459,7 @@ Then run the docs build:
 
 .. code-block:: console
 
-   $ cd doc
+   $ cd docs
    $ make html
 
 .. toctree::

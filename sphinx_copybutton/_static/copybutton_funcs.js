@@ -2,6 +2,12 @@ function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
+/**
+ * Gets unselectable elements from a node and all its children.
+ * 
+ * @param {Node} target Root node to extract unselectable text nodes from.
+ * @returns {Node[]} List of unselectable nodes.
+ */
 function getUnselectable(target) {
     let unselectable = [];
 
@@ -18,6 +24,14 @@ function getUnselectable(target) {
     return unselectable;
 }
 
+/**
+ * Returns all text in a Node and its children
+ * excluding the text of those Node's who are in exclude.
+ * 
+ * @param {Node} target Root Node to get the text of.
+ * @param {Node[]} exclude Array of Nodes to exclude.
+ * @returns {string} Text of Node's not in `exclude`.
+ */
 function getFilteredText(target, exclude) {
     let text = '';
     for (let child of target.childNodes) {
@@ -39,6 +53,12 @@ function getFilteredText(target, exclude) {
     return text;
 }
 
+/**
+ * Removes unselectable text from a Node.
+ * 
+ * @param {Node} target Node to filter.
+ * @returns {string} Text from `target` with unselectable text removed.
+ */
 export function filterUnselectableText(target) {
     // get unselectable elements
     const unselectable = getUnselectable(target);
