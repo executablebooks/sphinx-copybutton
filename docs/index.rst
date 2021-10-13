@@ -384,7 +384,6 @@ For example, to make the copy button visible by default (not just when a code ce
 2. Add the following rule to it:
 
    .. code-block:: css
-      
       button.copybtn {
          opacity: 1;
       }
