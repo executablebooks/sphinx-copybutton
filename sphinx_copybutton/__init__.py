@@ -71,7 +71,7 @@ def setup(app):
     app.add_config_value("copybutton_here_doc_delimiter", "", "html")
     app.add_config_value("copybutton_image_path", "copy-button.svg", "html")
     app.add_config_value("copybutton_selector", "div.highlight pre", "html")
-    app.add_config_value("copybutton_exclude_unselectable", True, "html")
+    app.add_config_value("copybutton_exclude", "", "html")
 
     # Add configuration value to the template
     app.connect("config-inited", add_to_context)
