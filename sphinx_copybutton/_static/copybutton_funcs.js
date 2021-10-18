@@ -8,20 +8,26 @@ function escapeRegExp(string) {
  * @param {Node} target Root node to extract unselectable text nodes from.
  * @returns {Node[]} List of unselectable nodes.
  */
-function getUnselectable(target) {
-    let unselectable = [];
+function getExcluded(target) {
+    const exclude_selector = {{ copybutton_exclude }}
+    let exclude = [];
 
     // get all unselectable elements of children
     for (let child of target.children) {
-        unselectable = unselectable.concat(getUnselectable(child));
+        exclude = exclude.concat(getExcluded(child));
     }
 
-    // add self to unselectable if needed
+    // add self to exclude if needed
     if (getComputedStyle(target)["userSelect"] === "none") {
-        unselectable.push( target);
+        // self is unselectable
+        exclude.push(target);
+    }
+    else if (exclude_selector && target.matches(exclude_selector)) {
+        // self matches user excluded classes
+        exclude.push(target);
     }
 
-    return unselectable;
+    return exclude;
 }
 
 /**
@@ -54,14 +60,14 @@ function getFilteredText(target, exclude) {
 }
 
 /**
- * Removes unselectable text from a Node.
+ * Removes excluded text from a Node.
  * 
  * @param {Node} target Node to filter.
- * @returns {string} Text from `target` with unselectable text removed.
+ * @returns {string} Text from `target` with text removed.
  */
-export function filterUnselectableText(target) {
+export function filterText(target) {
     // get unselectable elements
-    const unselectable = getUnselectable(target);
+    const unselectable = getExcluded(target);
 
     // get text from selectable elements
     return getFilteredText(target, unselectable);
