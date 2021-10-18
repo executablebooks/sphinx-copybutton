@@ -3,74 +3,16 @@ function escapeRegExp(string) {
 }
 
 /**
- * Gets unselectable elements from a node and all its children.
- * 
- * @param {Node} target Root node to extract unselectable text nodes from.
- * @returns {Node[]} List of unselectable nodes.
- */
-function getExcluded(target) {
-    const exclude_selector = {{ copybutton_exclude }}
-    let exclude = [];
-
-    // get all unselectable elements of children
-    for (let child of target.children) {
-        exclude = exclude.concat(getExcluded(child));
-    }
-
-    // add self to exclude if needed
-    if (getComputedStyle(target)["userSelect"] === "none") {
-        // self is unselectable
-        exclude.push(target);
-    }
-    else if (exclude_selector && target.matches(exclude_selector)) {
-        // self matches user excluded classes
-        exclude.push(target);
-    }
-
-    return exclude;
-}
-
-/**
- * Returns all text in a Node and its children
- * excluding the text of those Node's who are in exclude.
- * 
- * @param {Node} target Root Node to get the text of.
- * @param {Node[]} exclude Array of Nodes to exclude.
- * @returns {string} Text of Node's not in `exclude`.
- */
-function getFilteredText(target, exclude) {
-    let text = '';
-    for (let child of target.childNodes) {
-        if (exclude.indexOf(child) > -1) {
-            // child should be filtered out
-            continue;
-        }
-
-        if (child.nodeType === Node.TEXT_NODE) {
-            // child is a text node, add its contents
-            text += child.textContent
-        }
-        else {
-            // recurse on non-text nodes
-            text += getFilteredText(child, exclude);
-        }
-    }
-
-    return text;
-}
-
-/**
  * Removes excluded text from a Node.
  * 
  * @param {Node} target Node to filter.
- * @returns {string} Text from `target` with text removed.
+ * @param {string} exclude CSS selector of nodes to exclude.
+ * @returns {DOMString} Text from `target` with text removed.
  */
-export function filterText(target) {
-    // get unselectable elements
-    const unselectable = getExcluded(target);
-
-    // get text from selectable elements
-    return getFilteredText(target, unselectable);
+export function filterText(target, exclude) {
+    clone = target.clone(true);  // clone as to not modify the live DOM
+    clone.querySelectorAll(exclude).forEach(node => node.remove());  // remove excluded nodes 
+    return clone.innerText;
 }
 
 // Callback when a copy button is clicked. Will be passed the node that was clicked
