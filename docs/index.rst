@@ -387,11 +387,12 @@ For example, to make the copy button visible by default (not just when a code ce
       button.copybtn {
          opacity: 1;
       }
-3. Add the CSS file to Sphinx by ensuring that ``_static`` is in your ``html_static_path`` variable, and by putting this line in your ``setup(app)`` function:
+3. Add the CSS file to Sphinx by ensuring that the following configuration exists in your ``conf.py`` file (see `the Sphinx documentation for more details <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_css_files>`_):
 
    .. code-block:: python
 
-      app.add_css_file("custom.css")
+      html_static_path = ["_static"]
+      html_css_files = ["custom.css"]
 
 See the `Sphinx documentation on custom CSS for more information <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_static_path>`_.
 
