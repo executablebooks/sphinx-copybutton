@@ -10,7 +10,7 @@ function escapeRegExp(string) {
  * @returns {DOMString} Text from `target` with text removed.
  */
 export function filterText(target, exclude) {
-    clone = target.clone(true);  // clone as to not modify the live DOM
+    clone = target.cloneNode(true);  // clone as to not modify the live DOM
     clone.querySelectorAll(exclude).forEach(node => node.remove());  // remove excluded nodes 
     return clone.innerText;
 }
