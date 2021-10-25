@@ -51,7 +51,7 @@ def add_to_context(app, config):
         }
     )
     config.html_context.update(
-        {"copybutton_exclude_unselectable": config.copybutton_exclude_unselectable}
+        {"copybutton_exclude": config.copybutton_exclude}
     )
 
 
