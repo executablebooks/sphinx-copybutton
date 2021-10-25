@@ -381,6 +381,31 @@ Exclude text
 
    copybutton_exclude = '.exclude_me'
 
+Modify the copy button's CSS
+============================
+
+You can style the CSS of the copy button however you'd like by writing your own CSS with your Sphinx build.
+To do so, add a CSS rule that uses the ``.copybtn`` selector and the CSS that you'd like to apply.
+
+For example, to make the copy button visible by default (not just when a code cell is hovered), do the following:
+
+1. Create a ``custom.css`` file in the ``_static/`` folder of your documentation.
+2. Add the following rule to it:
+
+   .. code-block:: css
+      button.copybtn {
+         opacity: 1;
+      }
+3. Add the CSS file to Sphinx by ensuring that the following configuration exists in your ``conf.py`` file (see `the Sphinx documentation for more details <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_css_files>`_):
+
+   .. code-block:: python
+
+      html_static_path = ["_static"]
+      html_css_files = ["custom.css"]
+
+See the `Sphinx documentation on custom CSS for more information <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_static_path>`_.
+>>>>>>> 6ee971ab8f9c3741d380240c180b1ff47f1d2ddc
+
 
 Development
 ===========
