@@ -62,9 +62,7 @@ def add_to_context(app, config):
             .replace("export function", "function")
         }
     )
-    config.html_context.update(
-        {"copybutton_exclude": config.copybutton_exclude}
-    )
+    config.html_context.update({"copybutton_exclude": config.copybutton_exclude})
 
 
 def setup(app):

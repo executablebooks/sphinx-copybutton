@@ -4,14 +4,14 @@ function escapeRegExp(string) {
 
 /**
  * Removes excluded text from a Node.
- * 
+ *
  * @param {Node} target Node to filter.
  * @param {string} exclude CSS selector of nodes to exclude.
  * @returns {DOMString} Text from `target` with text removed.
  */
 export function filterText(target, exclude) {
     clone = target.cloneNode(true);  // clone as to not modify the live DOM
-    clone.querySelectorAll(exclude).forEach(node => node.remove());  // remove excluded nodes 
+    clone.querySelectorAll(exclude).forEach(node => node.remove());  // remove excluded nodes
     return clone.innerText;
 }
 
