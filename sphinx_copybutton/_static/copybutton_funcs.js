@@ -10,8 +10,11 @@ function escapeRegExp(string) {
  * @returns {DOMString} Text from `target` with text removed.
  */
 export function filterText(target, exclude) {
-    clone = target.cloneNode(true);  // clone as to not modify the live DOM
-    clone.querySelectorAll(exclude).forEach(node => node.remove());  // remove excluded nodes
+    const clone = target.cloneNode(true);  // clone as to not modify the live DOM
+    if (exclude) {
+        // remove excluded nodes
+        clone.querySelectorAll(exclude).forEach(node => node.remove());
+    }
     return clone.innerText;
 }
 

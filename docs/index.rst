@@ -375,11 +375,13 @@ added to them.
 Exclude text
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``sphinx-copybutton`` will always exclude line numbers matching `.linenos` from copied text. You may exclude addtional items matching a custom CSS selector by adding configuration in ``conf.py``:
+You may exclude elements matching CSS selectors from being copied by specifying the `copybutton_exclude` option in ``conf.py``.
 
 .. code-block:: python
 
    copybutton_exclude = '.exclude_me'
+
+By default `.linenos` is excluded. If you specify the `copybutton_exclude` option it will replace the default.
 
 Modify the copy button's CSS
 ============================
@@ -404,7 +406,6 @@ For example, to make the copy button visible by default (not just when a code ce
       html_css_files = ["custom.css"]
 
 See the `Sphinx documentation on custom CSS for more information <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_static_path>`_.
->>>>>>> 6ee971ab8f9c3741d380240c180b1ff47f1d2ddc
 
 
 Development

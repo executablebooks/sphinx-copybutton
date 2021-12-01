@@ -121,10 +121,10 @@ var copyTargetText = (trigger) => {
 
   // get filtered text
   let exclude = '{{ copybutton_exclude }}';
-  if( exclude ) {
-    exclude += ',';  // add separator if needed
-  }
-  exclude += ('.linenos');
+  console.log( exclude );
+  // if( exclude ==  null ) {
+  //   exclude = ('.linenos');
+  // }
 
   let text = filterText(target, exclude);
   return formatCopyText(text, {{ "{!r}".format(copybutton_prompt_text) }}, {{ copybutton_prompt_is_regexp | lower }}, {{ copybutton_only_copy_prompt_lines | lower }}, {{ copybutton_remove_prompts | lower }}, {{ copybutton_copy_empty_lines | lower }}, {{ "{!r}".format(copybutton_line_continuation_character) }}, {{ "{!r}".format(copybutton_here_doc_delimiter) }})
