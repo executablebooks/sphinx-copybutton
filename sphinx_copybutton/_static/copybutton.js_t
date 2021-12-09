@@ -36,6 +36,12 @@ const messages = {
     'copy_success': '复制成功!',
     'copy_failure': '复制失败',
   }
+  'it' : {
+    'copy': 'Copiare',
+    'copy_to_clipboard': 'Copiato negli appunti',
+    'copy_success': 'Copiato!',
+    'copy_failure': 'Errore durante la copia',
+  }
 }
 
 let locale = 'en'
