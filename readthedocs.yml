@@ -7,3 +7,6 @@ python:
       path: .
       extra_requirements:
         - rtd
+
+submodules:
+  include: all
