@@ -1,5 +1,12 @@
-name: sphinx-copybutton
-type: sphinx
-requirements_file: docs/requirements.txt
+version: 2
+
 python:
-  version: 3
+  version: "3"
+  install:
+    - method: pip
+      path: .
+      extra_requirements:
+        - rtd
+
+submodules:
+  include: all
