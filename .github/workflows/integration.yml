@@ -60,8 +60,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         git submodule update --init
-        pip install -e .
-        pip install -r docs/requirements.txt
+        pip install -e .[rtd]
 
     - name: Build docs
       run: |

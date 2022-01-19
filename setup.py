@@ -64,6 +64,7 @@ setup(
         "rtd": [
             "sphinx",
             "ipython",
+            "myst-nb",
             "sphinx-book-theme",
         ],
     },

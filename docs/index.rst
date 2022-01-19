@@ -472,4 +472,4 @@ Then run the docs build:
 .. toctree::
    :maxdepth: 1
 
-   second/second_page
+   reference/example
