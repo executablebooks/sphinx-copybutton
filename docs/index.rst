@@ -352,6 +352,33 @@ To use a different image for your copy buttons, do the following:
    path to your image file, **relative to** ``_static/``.
 
 
+For example, if you wanted to use a **clipboard icon** instead of the default copy button icon, do the following:
+
+1. Copy the ``Clipboard Icon SVG`` from `the Tabular icons pack <https://tablericons.com/>`_.
+   Here is the SVG for reference:
+
+   .. code-block:: svg
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+         <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+         <rect x="9" y="3" width="6" height="4" rx="2" />
+      </svg>
+
+2. Create a file at ``_static/clipboard.svg`` from your documentation root.
+   Paste in the SVG above into that file.
+
+3. Ensure that your ``_static`` folder is added to your ``html_static_paths`` configuration in Sphinx.
+4. Configure ``sphinx_copybutton`` to use this icon instead, via the following configuration:
+
+   .. code-block:: python
+
+      # Note that we do not include `_static`
+      # because the path should be *relative* to the static folder.
+      copybutton_image_path = "clipboard.svg"
+
+When you re-build your documentation, you should see this new icon in your copy buttons.
+
 Configure the CSS selector used to add copy buttons
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

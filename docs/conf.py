@@ -108,7 +108,7 @@ copybutton_here_doc_delimiter = "EOT"
 # Switches for testing but shouldn't be activated in the live docs
 # copybutton_only_copy_prompt_lines = False
 # copybutton_remove_prompts = False
-# copybutton_image_path = "test/TEST_COPYBUTTON.png"
+# copybutton_image_path = "clipboard.svg"
 # copybutton_selector = "div"
 
 
