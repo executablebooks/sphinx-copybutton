@@ -6,7 +6,7 @@ A small sphinx extension to add a "copy" button to code blocks.
 
 See [the sphinx-copybutton documentation](https://sphinx-copybutton.readthedocs.io/en/latest/) for more details!
 
-![](docs/_static/copybutton.gif)
+![Copy Button Demo](https://user-images.githubusercontent.com/1839645/150200219-73663c59-08fd-4185-b157-62f3769c02ac.gif)
 
 ## Installation
 

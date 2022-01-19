@@ -21,7 +21,9 @@ excellent (and also lightweight) Javascript library
 
 **Here's an example**
 
-.. image:: _static/copybutton.gif
+.. This is stored in this issue: https://github.com/executablebooks/sphinx-copybutton/issues/157
+.. image:: https://user-images.githubusercontent.com/1839645/150200219-73663c59-08fd-4185-b157-62f3769c02ac.gif
+   :alt: Copy Button Demo
    :width: 500px
 
 And here's a code block, note the copy button to the right!
