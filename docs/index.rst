@@ -411,9 +411,11 @@ For example, to make the copy button visible by default (not just when a code ce
 2. Add the following rule to it:
 
    .. code-block:: css
+
       button.copybtn {
          opacity: 1;
       }
+
 3. Add the CSS file to Sphinx by ensuring that the following configuration exists in your ``conf.py`` file (see `the Sphinx documentation for more details <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_css_files>`_):
 
    .. code-block:: python
