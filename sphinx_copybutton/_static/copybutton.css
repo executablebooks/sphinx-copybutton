@@ -3,7 +3,7 @@ button.copybtn {
     position: absolute;
     display: flex;
     top: .3em;
-    right: .5em;
+    right: .3em;
     width: 1.7em;
     height: 1.7em;
 	opacity: 0;

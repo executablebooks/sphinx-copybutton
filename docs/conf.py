@@ -100,6 +100,8 @@ html_title = "Sphinx Copybutton"
 #
 # html_sidebars = {}
 
+myst_enable_extensions = ["colon_fence"]
+
 # CopyButton configuration
 copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
 copybutton_prompt_is_regexp = True
