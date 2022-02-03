@@ -53,12 +53,6 @@ Sphinx Copybutton works with [MyST Notebooks](https://myst-nb.readthedocs.io) as
 
 A regular cell:
 
-% Note: I'm only including these sidebars to test that the copybutton stays within the code cell.
-
-```{sidebar} Placeholder sidebar
-This is a placeholder sidebar text to display!
-```
-
 ```python
 print("hi")
 ```
@@ -67,10 +61,25 @@ print("hi")
 
 Next we'll demo notebook cells to see if these are rendered correctly.
 
-```{sidebar} Placeholder sidebar
-This is a placeholder sidebar text to display!
+```{code-cell}
+print("hi")
 ```
 
-```{code-cell}
+## Rough edges
+
+This section displays UI behavior that we know is incorrect.
+Consider this a wish-list for contributions if somebody knows how to fix these issues!
+
+### Float-right content doesn't move the copy button
+
+If there is content floated to the right, the code block will shrink, but not the copy button.
+For example. hover over the code block below, the copy button will float to the right, over the sidebar.
+
+```{sidebar} Placeholder sidebar
+This is a placeholder sidebar text to display!
+It will push the code block to the left, but not the copy button
+```
+
+```python
 print("hi")
 ```
