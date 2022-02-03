@@ -40,7 +40,7 @@ def add_to_context(app, config):
     config.html_context.update(
         {"copybutton_here_doc_delimiter": config.copybutton_here_doc_delimiter}
     )
-    config.html_context.update({"copybutton_image_path": config.copybutton_image_path})
+    config.html_context.update({"copybutton_image_svg": config.copybutton_image_svg})
     config.html_context.update({"copybutton_selector": config.copybutton_selector})
     config.html_context.update(
         {
@@ -66,7 +66,7 @@ def setup(app):
     app.add_config_value("copybutton_copy_empty_lines", True, "html")
     app.add_config_value("copybutton_line_continuation_character", "", "html")
     app.add_config_value("copybutton_here_doc_delimiter", "", "html")
-    app.add_config_value("copybutton_image_path", "copy-button.svg", "html")
+    app.add_config_value("copybutton_image_svg", "", "html")
     app.add_config_value("copybutton_selector", "div.highlight pre", "html")
 
     # Add configuration value to the template

@@ -19,11 +19,14 @@ button.copybtn {
 
 button.copybtn.success {
     border-color: #22863a;
+    color: #22863a;
 }
 
-button.copybtn img {
-    width: 100%;
-    padding: .2em;
+button.copybtn svg {
+    stroke: currentColor;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0.1em;
 }
 
 div.highlight  {

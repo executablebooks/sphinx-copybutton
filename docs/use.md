@@ -235,9 +235,9 @@ encountered in a line.
 
 To use a different image for your copy buttons, do the following:
 
-1. Place the image in the `_static/` folder of your site.
-2. Set the `copybutton_image_path` variable in your `conf.py` to be the
-   path to your image file, **relative to** `_static/`.
+1. Find the `<svg>` code for the image that you'd like to use.
+   For example, find an SVG from [Font Awesome](https://fontawesome.com/), [Tabler](https://tablericons.com/), or [Octicons](https://primer.style/octicons/).
+2. Set the `copybutton_image_svg` variable in your `conf.py` to the SVG that you'd like to use.
 
 For example, if you wanted to use a **clipboard icon** instead of the default copy button icon, do the following:
 
@@ -252,17 +252,18 @@ For example, if you wanted to use a **clipboard icon** instead of the default co
    </svg>
    ```
 
-2. Create a file at `_static/clipboard.svg` from your documentation root.
-   Paste in the SVG above into that file.
-
-3. Ensure that your `_static` folder is added to your `html_static_paths` configuration in Sphinx.
-
-4. Configure `sphinx_copybutton` to use this icon instead, via the following configuration:
+2. Configure `sphinx_copybutton` to use this icon instead, via the following configuration:
 
    ```python
    # Note that we do not include `_static`
    # because the path should be *relative* to the static folder.
-   copybutton_image_path = "clipboard.svg"
+   copybutton_image_svg = """
+   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+      <rect x="9" y="3" width="6" height="4" rx="2" />
+   </svg>
+   """
    ```
 
 When you re-build your documentation, you should see this new icon in your copy buttons.
@@ -288,26 +289,36 @@ added to them.
 ## Modify the copy button's CSS
 
 You can style the CSS of the copy button however you'd like by writing your own CSS with your Sphinx build.
-To do so, add a CSS rule that uses the `.copybtn` selector and the CSS that you'd like to apply.
-
-For example, to make the copy button visible by default (not just when a code cell is hovered), do the following:
+To do so, first create a custom CSS file and add it to your Sphinx build:
 
 1. Create a `custom.css` file in the `_static/` folder of your documentation.
-
-2. Add the following rule to it:
-
-   ```css
-   button.copybtn {
-      opacity: 1;
-   }
-   ```
-
-3. Add the CSS file to Sphinx by ensuring that the following configuration exists in your `conf.py` file (see [the Sphinx documentation for more details](https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_css_files)):
+2. Add the CSS file to Sphinx by ensuring that the following configuration exists in your `conf.py` file (see [the Sphinx documentation for more details](https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_css_files)):
 
    ```python
    html_static_path = ["_static"]
    html_css_files = ["custom.css"]
    ```
+
+Next you can add CSS rules that use the `.copybtn` selector to modify the behavior of the button.
+
+:::{admonition} example: button visibility
+:class: tip
+To make the copy button visible by default (not just when a code cell is hovered):
+
+```css
+button.copybtn {
+   opacity: 1;
+}
+```
+:::
+
+:::{admonition} example: style the color of the button
+```css
+button.copybtn {
+   color: red;
+}
+```
+:::
 
 See the [Sphinx documentation on custom CSS for more information](https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_static_path).
 
