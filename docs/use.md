@@ -244,7 +244,7 @@ For example, if you wanted to use a **clipboard icon** instead of the default co
 1. Copy the `Clipboard Icon SVG` from [the Tabular icons pack](https://tablericons.com/).
    Here is the SVG for reference:
 
-   ```svg
+   ```
    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />

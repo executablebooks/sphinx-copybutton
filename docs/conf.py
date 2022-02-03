@@ -110,6 +110,7 @@ copybutton_here_doc_delimiter = "EOT"
 # Switches for testing but shouldn't be activated in the live docs
 # copybutton_only_copy_prompt_lines = False
 # copybutton_remove_prompts = False
+# copybutton_image_path = "_static/clipboard.svg"  # DEPRECATED: remove after next release  # noqa: E501
 # copybutton_image_svg = """
 # <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">  # noqa: E501
 #    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

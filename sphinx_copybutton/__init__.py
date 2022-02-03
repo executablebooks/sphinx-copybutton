@@ -40,6 +40,18 @@ def add_to_context(app, config):
     config.html_context.update(
         {"copybutton_here_doc_delimiter": config.copybutton_here_doc_delimiter}
     )
+
+    # Old image path deprecation
+    # REMOVE after next release
+    if config.copybutton_image_path:
+        path = Path(app.srcdir) / config.copybutton_image_path
+        logger.warning("copybutton_image_path is deprecated, use copybutton_image_svg")
+        if not path.exists():
+            raise ValueError("copybutton_img_path does not exist")
+        if not path.suffix == ".svg":
+            raise ValueError("copybutton_img_path must be an SVG")
+        config.copybutton_image_svg = path.read_text()
+
     config.html_context.update({"copybutton_image_svg": config.copybutton_image_svg})
     config.html_context.update({"copybutton_selector": config.copybutton_selector})
     config.html_context.update(
@@ -68,6 +80,9 @@ def setup(app):
     app.add_config_value("copybutton_here_doc_delimiter", "", "html")
     app.add_config_value("copybutton_image_svg", "", "html")
     app.add_config_value("copybutton_selector", "div.highlight pre", "html")
+
+    # DEPRECATE THIS AFTER THE NEXT RELEASE
+    app.add_config_value("copybutton_image_path", "", "html")
 
     # Add configuration value to the template
     app.connect("config-inited", add_to_context)
