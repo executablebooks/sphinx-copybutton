@@ -84,3 +84,10 @@ div.highlight  {
     transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
     transition-delay: .5s;
 }
+
+/* By default the copy button shouldn't show up when printing a page */
+@media print {
+    button.copybtn {
+        display: none;
+    }
+}
