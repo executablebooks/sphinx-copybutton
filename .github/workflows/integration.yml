@@ -76,15 +76,15 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v2
-      - name: Set up Python 3.7
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: "3.8"
       - name: Build package
         run: |
-          pip install wheel
+          pip install build
           git submodule update --init
-          python setup.py sdist bdist_wheel
+          python -m build
       - name: Publish
         uses: pypa/gh-action-pypi-publish@v1.4.2
         with:
