@@ -102,6 +102,7 @@ See [](use.md) for more information about how to use `sphinx-copybutton`.
 use
 contribute/index
 reference/example
+changelog
 ```
 
 ## Inspiration

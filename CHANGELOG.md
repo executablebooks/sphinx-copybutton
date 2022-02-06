@@ -1,4 +1,16 @@
-# CHANGELOG
+# Changelog
+
+## 0.5.0 - 2022-02-05
+
+([full changelog](https://github.com/executablebooks/sphinx-copybutton/compare/v0.4.0...915aa4cf0b06f7b781bc4edfc204c62f2ce7cdb6))
+
+This release updates the copy button design and behavior to match GitHub's design guide and button behavior. It also directly inserts the SVG instead of linking it via an `<img>` tag so that it can be styled more flexibly.
+
+### Enhancements
+
+- ENH: Directly add SVG instead of linking via IMG [#161](https://github.com/executablebooks/sphinx-copybutton/pull/161) ([@choldgraf](https://github.com/choldgraf))
+- ENH: Update copybutton image to match GitHub [#155](https://github.com/executablebooks/sphinx-copybutton/pull/155) ([@choldgraf](https://github.com/choldgraf))
+
 
 ## 0.4.0 - 2021-07-03
 
