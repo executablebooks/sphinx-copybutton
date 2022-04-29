@@ -66,6 +66,7 @@ setup(
             "ipython",
             "myst-nb",
             "sphinx-book-theme",
+            "sphinx-examples",
         ],
     },
 )

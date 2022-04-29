@@ -125,7 +125,8 @@ const addCopyButtonToCodeCells = () => {
   }
 
   // Add copybuttons to all of our code cells
-  const codeCells = document.querySelectorAll('{{ copybutton_selector }}')
+  const COPYBUTTON_SELECTOR = '{{ copybutton_selector }}';
+  const codeCells = document.querySelectorAll(COPYBUTTON_SELECTOR)
   codeCells.forEach((codeCell, index) => {
     const id = codeCellId(index)
     codeCell.setAttribute('id', id)

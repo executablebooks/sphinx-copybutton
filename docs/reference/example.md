@@ -45,6 +45,22 @@ Copy text with literalincludes!
 :language: python
 ```
 
+## Tables
+
+````{list-table}
+- * ```
+    cell one
+    ```
+  * ```
+    cell two
+    ```
+- * ```
+    cell three
+    ```
+  * ```
+    cell four
+    ```
+````
 ## MyST Notebook Cells
 
 Sphinx Copybutton works with [MyST Notebooks](https://myst-nb.readthedocs.io) as well. See below for the code inputs and outputs:
