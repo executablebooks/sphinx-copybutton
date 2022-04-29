@@ -293,7 +293,7 @@ You can prevent copybuttons from being added to code blocks by using [the `:not(
 For example, you can define a copybutton_selector like so:
 
 ```python
-copybutton_selector = "div.highlight:not(.no-copybutton) pre"
+copybutton_selector = "div:not(.no-copybutton) > div.highlight > pre"
 ```
 
 Then add a `no-copybutton` to any code blocks you don't want copied:
