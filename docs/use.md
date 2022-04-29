@@ -289,17 +289,18 @@ added to them.
 ### Remove copybuttons using a CSS selector
 
 You can prevent copybuttons from being added to code blocks by using [the `:not()` CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:not).
+
 For example, you can define a copybutton_selector like so:
 
 ```python
-copybutton_selector = "div.highlight:not(.dontcopy) pre"
+copybutton_selector = "div.highlight:not(.no-copybutton) pre"
 ```
 
-Then add a `dontcopy` to any code blocks you don't want copied:
+Then add a `no-copybutton` to any code blocks you don't want copied:
 
 ````{example}
 ```{code-block}
-:class: dontcopy
+:class: no-copybutton
 print("This won't have a copy button!")
 ```
 ````
