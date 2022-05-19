@@ -61,10 +61,6 @@ wow
 
 ## Install
 
-:::{note}
-`sphinx-copybutton` only works on Python >= 3.6
-:::
-
 You can install `sphinx-copybutton` with `pip`:
 
 ```bash
