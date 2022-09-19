@@ -1,6 +1,5 @@
 import test from 'ava';
-import { formatCopyText } from "./copybutton_funcs";
-import { filterText } from "./copybutton_funcs";
+import { formatCopyText, filterText } from "./copybutton_funcs";
 
 const parameters = [
 	{
