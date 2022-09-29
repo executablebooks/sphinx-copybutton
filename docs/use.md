@@ -366,3 +366,22 @@ button.copybtn {
 See the [Sphinx documentation on custom CSS for more information](https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_static_path).
 
 [regex101]: https://regex101.com
+
+
+## Exclude text from being copied
+
+You may exclude elements matching CSS selectors from being copied by
+specifying the `copybutton_exclude` option in ``conf.py``.  For
+example, a viewer usually doesn't want to copy the line numbers, and
+CSS provides a way to exclude this.  This option implements that
+option for sphinx-copybutton as well.
+
+
+```{code-block} python
+copybutton_exclude = '.exclude_me'
+```
+By default `.linenos, .gp` are excluded. If you specify the
+`copybutton_exclude` option it will replace the default.  `.linenos`
+is the Sphinx default for line numbers, and `.gp` is Pygments (the
+default highlighter of Sphinx) for "prompt", e.g. `$` in a
+shell-session. `.gp` is excluded in upstream Sphinx by default.

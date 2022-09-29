@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "ava": "^3.7.1",
+    "browser-env": "^3.3.0",
     "esm": "^3.2.25"
   },
   "scripts": {
@@ -16,7 +17,11 @@
       "sphinx_copybutton/_static/test.js"
     ],
     "require": [
-      "esm"
+      "esm",
+      "./sphinx_copybutton/_static/setup-browser-env.js"
     ]
+  },
+  "dependencies": {
+    "ci": "^2.1.1"
   }
 }

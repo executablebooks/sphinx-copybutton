@@ -62,6 +62,7 @@ def add_to_context(app, config):
             .replace("export function", "function")
         }
     )
+    config.html_context.update({"copybutton_exclude": config.copybutton_exclude})
 
 
 def setup(app):
@@ -80,6 +81,7 @@ def setup(app):
     app.add_config_value("copybutton_here_doc_delimiter", "", "html")
     app.add_config_value("copybutton_image_svg", "", "html")
     app.add_config_value("copybutton_selector", "div.highlight pre", "html")
+    app.add_config_value("copybutton_exclude", ".linenos, .gp", "html")
 
     # DEPRECATE THIS AFTER THE NEXT RELEASE
     app.add_config_value("copybutton_image_path", "", "html")

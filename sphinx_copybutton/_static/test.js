@@ -1,5 +1,5 @@
 import test from 'ava';
-import { formatCopyText } from "./copybutton_funcs";
+import { formatCopyText, filterText } from "./copybutton_funcs";
 
 const parameters = [
 	{
@@ -235,3 +235,68 @@ parameters.forEach((p) => {
 		t.is(text, p.expected)
 	});
 })
+
+
+//
+
+/**
+ * From https://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro/35385518#35385518
+ *
+ * @param {String} HTML representing a single element
+ * @return {Element}
+ */
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    html = html.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
+
+const defaultTarget = htmlToElement(`
+<pre id="codecell0">
+	<span class="linenos"> 1</span><span class="c1"># import packages</span>
+	<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre>
+`);
+
+const filterParameters = [
+	{
+		description: 'with default exclude text (.linenos)',
+		target: defaultTarget,
+		exclude: '.linenos',
+		expected: `
+<span class="c1"># import packages</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+`
+	},
+	{
+		description: 'with empty exclude text',
+		target: defaultTarget,
+		exclude: '',
+		expected: `
+<span class="linenos"> 1</span><span class="c1"># import packages</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+`
+	},
+	{
+		description: 'with exclude comments (.c1) and line numbers (.linenos)',
+		target: defaultTarget,
+		exclude: '.linenos, .c1',
+		expected: `
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+`
+	}
+]
+
+/**
+ * Issues with tests because #filterText uses `.innerText`
+ * See https://github.com/jsdom/jsdom/issues/1245.
+ */
+/**
+filterParameters.forEach((p) => {
+	test( p.description, t => {
+		const text = filterText(p.target, p.exclude);
+		t.is(text, p.expected.trim())
+	});
+})
+*/
