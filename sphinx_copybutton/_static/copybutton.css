@@ -37,10 +37,12 @@ div.highlight  {
 
 .highlight:hover button.copybtn {
 	opacity: 1;
+    cursor: pointer;
 }
 
 .highlight button.copybtn:hover {
     background-color: rgb(235, 235, 235);
+    cursor: pointer;
 }
 
 .highlight button.copybtn:active {
@@ -83,6 +85,7 @@ div.highlight  {
     transform: translateX(-100%) translateY(0);
     transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
     transition-delay: .5s;
+    cursor: pointer;
 }
 
 /* By default the copy button shouldn't show up when printing a page */
