@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.5.1 - 2022-11-15
+
+([full changelog](https://github.com/executablebooks/sphinx-copybutton/compare/v0.5.0...e529aa0c7c0bf6ad880904f7a8876f33040e5c09))
+
+- ENH: Unselectable text is now also not highlighted when you manually highlight a code cell. Exclude unselectable text from being copied (update) [#178](https://github.com/executablebooks/sphinx-copybutton/pull/178) ([@rkdarst](https://github.com/rkdarst))
+- ENH: After copying, the copybutton will disappear _before_ the icon changes back if you are no longer hovering on the code cell. FIX: Make copybutton remain for a second during success [#176](https://github.com/executablebooks/sphinx-copybutton/pull/176) ([@choldgraf](https://github.com/choldgraf))
+- MAINT: Add support for Python 3.10 [#174](https://github.com/executablebooks/sphinx-copybutton/pull/174) ([@hugovk](https://github.com/hugovk))
+
 ## 0.5.0 - 2022-02-05
 
 ([full changelog](https://github.com/executablebooks/sphinx-copybutton/compare/v0.4.0...915aa4cf0b06f7b781bc4edfc204c62f2ce7cdb6))
