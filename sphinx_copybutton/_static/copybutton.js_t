@@ -102,18 +102,25 @@ const clearSelection = () => {
   }
 }
 
-// Changes tooltip text for two seconds, then changes it back
+// Changes tooltip text for a moment, then changes it back
+// We want the timeout of our `success` class to be a bit shorter than the
+// tooltip and icon change, so that we can hide the icon before changing back.
+var timeoutIcon = 2000;
+var timeoutSuccessClass = 1500;
+
 const temporarilyChangeTooltip = (el, oldText, newText) => {
   el.setAttribute('data-tooltip', newText)
   el.classList.add('success')
-  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
-  setTimeout(() => el.classList.remove('success'), 2000)
+  // Remove success a little bit sooner than we change the tooltip
+  // So that we can use CSS to hide the copybutton first
+  setTimeout(() => el.classList.remove('success'), timeoutSuccessClass)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), timeoutIcon)
 }
 
 // Changes the copy button icon for two seconds, then changes it back
 const temporarilyChangeIcon = (el) => {
   el.innerHTML = iconCheck;
-  setTimeout(() => {el.innerHTML = iconCopy}, 2000)
+  setTimeout(() => {el.innerHTML = iconCopy}, timeoutIcon)
 }
 
 const addCopyButtonToCodeCells = () => {
