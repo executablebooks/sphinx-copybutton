@@ -5,7 +5,7 @@
     "node": ">=0.12"
   },
   "devDependencies": {
-    "ava": "^3.7.1",
+    "ava": "^5.1.0",
     "browser-env": "^3.3.0",
     "esm": "^3.2.25"
   },
