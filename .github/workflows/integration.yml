@@ -1,9 +1,9 @@
 name: continuous-integration
 
 on:
-  - push:
-  - pull_request:
-  - workflow_call:
+  push:
+  pull_request:
+  workflow_call:
 
 jobs:
 
