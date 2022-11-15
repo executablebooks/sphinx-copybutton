@@ -66,27 +66,3 @@ jobs:
       run: |
         cd docs
         make html
-
-  publish:
-
-    name: Publish to PyPI
-    needs: [pre-commit, docs]
-    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.x"
-      - name: Build package
-        run: |
-          pip install build
-          git submodule update --init
-          python -m build
-      - name: Publish
-        uses: pypa/gh-action-pypi-publish@v1.5.1
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_KEY }}
