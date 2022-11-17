@@ -88,7 +88,7 @@ An example usage would be the `ipython`-directive:
 ```restructuredtext
 ``ipython`` and ``qtconsole`` style:
 
-.. code-block:: ipython
+.. code-block:: ipythonconsole
 
    In [1]: first
       ...: continuation
@@ -97,7 +97,7 @@ An example usage would be the `ipython`-directive:
 
 ``jupyter`` style:
 
-.. code-block:: ipython
+.. code-block:: ipythonconsole
 
    In [1]: first
          : continuation
@@ -107,7 +107,7 @@ An example usage would be the `ipython`-directive:
 
 `ipython` and `qtconsole` style:
 
-```ipython
+```ipythonconsole
 In [1]: first
    ...: continuation
 output
@@ -116,7 +116,7 @@ In [2]: second
 
 `jupyter` style:
 
-```ipython
+```ipythonconsole
 In [1]: first
       : continuation
 output
@@ -175,7 +175,7 @@ See below for how to control this.
 
 Sometimes you may wish to copy a code block like this one:
 
-```bash
+```console
 $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
 --dataset . \
 -m "add beginners guide on bash" \
@@ -205,7 +205,7 @@ rules.
 in which line breaks and other whitespace (including indentation) is preserved.
 For example:
 
-```bash
+```console
 $ cat << EOT > notes.txt
    This is an example sentence.
        Put some indentation on this line.

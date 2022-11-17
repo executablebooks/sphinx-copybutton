@@ -42,7 +42,9 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
     const lineGotPrompt = [];
     for (const line of textContent.split('\n')) {
         match = line.match(regexp)
-        if (match || gotLineCont || gotHereDoc) {
+        if (!copyEmptyLines && line.trim() === '') {
+            // do nothing
+	} else if (match || gotLineCont || gotHereDoc) {
             promptFound = regexp.test(line)
             lineGotPrompt.push(promptFound)
             if (removePrompts && promptFound) {
@@ -55,9 +57,7 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
                 gotHereDoc = !gotHereDoc
         } else if (!onlyCopyPromptLines) {
             outputLines.push(line)
-        } else if (copyEmptyLines && line.trim() === '') {
-            outputLines.push(line)
-        }
+	}
     }
 
     // If no lines with the prompt were found then just use original lines

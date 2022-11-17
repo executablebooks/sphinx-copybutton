@@ -111,11 +111,13 @@ html_title = "Sphinx Copybutton"
 myst_enable_extensions = ["colon_fence"]
 
 # CopyButton configuration
-copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
-copybutton_prompt_is_regexp = True
+#copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
+#copybutton_prompt_is_regexp = True
 copybutton_line_continuation_character = "\\"
 copybutton_here_doc_delimiter = "EOT"
 copybutton_selector = "div:not(.no-copybutton) > div.highlight > pre"
+copybutton_exclude = ".linenos, .gp, .go"
+copybutton_copy_empty_lines = False
 
 # Switches for testing but shouldn't be activated in the live docs
 # copybutton_only_copy_prompt_lines = False
