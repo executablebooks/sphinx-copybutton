@@ -53,7 +53,7 @@ Try copy-pasting the code block below.
 >>> a = 2
 >>> print(a)
 2
-
+>>>
 >>> b = 'wow'
 >>> print(b)
 wow
