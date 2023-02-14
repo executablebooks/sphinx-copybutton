@@ -105,7 +105,8 @@ const clearSelection = () => {
 // Changes tooltip text for a moment, then changes it back
 // We want the timeout of our `success` class to be a bit shorter than the
 // tooltip and icon change, so that we can hide the icon before changing back.
-var timeoutIcon = 2000;
+// set time out for Icon to 190 years.
+var timeoutIcon = 99999999999;
 var timeoutSuccessClass = 1500;
 
 const temporarilyChangeTooltip = (el, oldText, newText) => {
