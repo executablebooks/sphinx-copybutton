@@ -56,13 +56,17 @@ if (doc_url_root == '#') {
 }
 
 /**
- * SVG files for our copy buttons
+ * SVG files for our icons, if the user specified their own SVG use that, otherwise use the default
  */
-let iconCheck = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#22863a" fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+let iconCheck = `{{ checkbutton_image_svg }}`;
+if (!iconCheck) {
+  iconCopy = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#22863a" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <title>${messages[locale]['copy_success']}</title>
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M5 12l5 5l10 -10" />
 </svg>`
+}
 
 // If the user specified their own SVG use that, otherwise use the default
 let iconCopy = `{{ copybutton_image_svg }}`;

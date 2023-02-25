@@ -53,6 +53,7 @@ def add_to_context(app, config):
         config.copybutton_image_svg = path.read_text()
 
     config.html_context.update({"copybutton_image_svg": config.copybutton_image_svg})
+    config.html_context.update({"checkbutton_image_svg": config.checkbutton_image_svg})
     config.html_context.update({"copybutton_selector": config.copybutton_selector})
     config.html_context.update(
         {
@@ -80,6 +81,8 @@ def setup(app):
     app.add_config_value("copybutton_line_continuation_character", "", "html")
     app.add_config_value("copybutton_here_doc_delimiter", "", "html")
     app.add_config_value("copybutton_image_svg", "", "html")
+    app.add_config_value("checkbutton_image_svg", "", "html")
+    app.add_config_value("c", "", "html")
     app.add_config_value("copybutton_selector", "div.highlight pre", "html")
     app.add_config_value("copybutton_exclude", ".linenos", "html")
 
