@@ -56,7 +56,8 @@ if (doc_url_root == '#') {
 }
 
 /**
- * SVG files for our icons, if the user specified their own SVG use that, otherwise use the default
+ * SVG file contents for our icons, if the user specified their own SVG use that, otherwise use the default.
+   Note that value of `checkbutton_image_svg` or `copybutton_image_svg` is the full SVG content, NOT a path to an SVG file.
  */
 
 let iconCheck = `{{ checkbutton_image_svg }}`;
@@ -68,7 +69,6 @@ if (!iconCheck) {
 </svg>`
 }
 
-// If the user specified their own SVG use that, otherwise use the default
 let iconCopy = `{{ copybutton_image_svg }}`;
 if (!iconCopy) {
   iconCopy = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
