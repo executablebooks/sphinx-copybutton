@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.5.2 - 2022-11-15
+
+([full changelog](https://github.com/executablebooks/sphinx-copybutton/compare/v0.5.0...TODO))
+
+
+- BUG: Don't exclude `.gp` class by default.  This made excluding prompts more automatic, but broke the existing pattern-based prompt exclusion.  [#188](https://github.com/executablebooks/sphinx-copybutton/pull/188) ([@rkdarst](https://github.com/rkdarst))
+- MAINT: Add Sphinx Extension classifier (#189)  [#189](https://github.com/executablebooks/sphinx-copybutton/pull/189) ([@jdillard](https://github.com/jdillard ))
+- DOCS: Improve docs related to text exclusion [#187](https://github.com/executablebooks/sphinx-copybutton/pull/187) ([@rkdarst](https://github.com/rkdarst))
+
 ## v0.5.1 - 2022-11-15
 
 ([full changelog](https://github.com/executablebooks/sphinx-copybutton/compare/v0.5.0...e529aa0c7c0bf6ad880904f7a8876f33040e5c09))
