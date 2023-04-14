@@ -23,7 +23,6 @@ jobs:
       - name: Build package
         run: |
           pip install build
-          git submodule update --init
           python -m build
       - name: Publish
         uses: pypa/gh-action-pypi-publish@v1.5.1

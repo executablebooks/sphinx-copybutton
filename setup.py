@@ -1,22 +1,6 @@
-import os
 from pathlib import Path
 
 from setuptools import setup, find_packages
-
-if os.path.isdir("clipboard.js") and not os.path.islink(
-    "sphinx_copybutton/_static/clipboard.min.js"
-):
-    raise SystemExit("Error: Support for symbolic links is required")
-
-if os.path.isdir("clipboard.js") and not os.path.isfile(
-    "clipboard.js/dist/clipboard.min.js"
-):
-    raise SystemExit(
-        """Error: clipboard.js submodule not available, run
-
-        git submodule update --init
-        """
-    )
 
 with open("./README.md") as ff:
     readme_text = ff.read()
@@ -45,7 +29,6 @@ setup(
             "_static/copybutton.js_t",
             "_static/copy-button.svg",
             "_static/check-solid.svg",
-            "_static/clipboard.min.js",
         ]
     },
     classifiers=[
