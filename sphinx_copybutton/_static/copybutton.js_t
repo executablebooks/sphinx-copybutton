@@ -20,7 +20,7 @@ const messages = {
   },
   'fr' : {
     'copy': 'Copier',
-    'copy_to_clipboard': 'Copié dans le presse-papier',
+    'copy_to_clipboard': 'Copier dans le presse-papier',
     'copy_success': 'Copié !',
     'copy_failure': 'Échec de la copie',
   },

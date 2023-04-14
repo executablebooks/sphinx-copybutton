@@ -46,14 +46,14 @@ You can configure `sphinx-copybutton` to detect *input prompts* in code
 cells, and then both remove these prompts before copying, as well as skip
 lines that *don't* start with prompts (in case they are output lines).
 
-For example, this site has been configured to strip Python prompts (">>> ").
+For example, this site has been configured to strip Python prompts (">>> ") and output lines.
 Try copy-pasting the code block below.
 
 ```python
 >>> a = 2
 >>> print(a)
 2
-
+>>>
 >>> b = 'wow'
 >>> print(b)
 wow
