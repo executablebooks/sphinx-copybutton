@@ -66,7 +66,6 @@ def add_to_context(app, config):
 
 
 def setup(app):
-
     logger.verbose("Adding copy buttons to code blocks...")
     # Add our static path
     app.connect("builder-inited", scb_static_path)
