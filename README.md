@@ -53,4 +53,4 @@ After a release - following the [EBP release instructions](https://github.com/ex
 
 ## Acknowledgements
 
-Many thanks to the excellent [clipboard.js library](https://clipboardjs.com/) for the lightweight javascript code that powers the copy button!
+Many thanks to the excellent [clipboard.js library](https://clipboardjs.com/) for the lightweight javascript code that used to power the copy button!

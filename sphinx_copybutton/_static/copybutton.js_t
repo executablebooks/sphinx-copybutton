@@ -93,15 +93,6 @@ const runWhenDOMLoaded = cb => {
 
 const codeCellId = index => `codecell${index}`
 
-// Clears selected text since ClipboardJS will select the text when copying
-const clearSelection = () => {
-  if (window.getSelection) {
-    window.getSelection().removeAllRanges()
-  } else if (document.selection) {
-    document.selection.empty()
-  }
-}
-
 // Changes tooltip text for a moment, then changes it back
 // We want the timeout of our `success` class to be a bit shorter than the
 // tooltip and icon change, so that we can hide the icon before changing back.
@@ -124,13 +115,6 @@ const temporarilyChangeIcon = (el) => {
 }
 
 const addCopyButtonToCodeCells = () => {
-  // If ClipboardJS hasn't loaded, wait a bit and try again. This
-  // happens because we load ClipboardJS asynchronously.
-  if (window.ClipboardJS === undefined) {
-    setTimeout(addCopyButtonToCodeCells, 250)
-    return
-  }
-
   // Add copybuttons to all of our code cells
   const COPYBUTTON_SELECTOR = '{{ copybutton_selector }}';
   const codeCells = document.querySelectorAll(COPYBUTTON_SELECTOR)
@@ -157,19 +141,23 @@ var copyTargetText = (trigger) => {
   return formatCopyText(text, {{ "{!r}".format(copybutton_prompt_text) }}, {{ copybutton_prompt_is_regexp | lower }}, {{ copybutton_only_copy_prompt_lines | lower }}, {{ copybutton_remove_prompts | lower }}, {{ copybutton_copy_empty_lines | lower }}, {{ "{!r}".format(copybutton_line_continuation_character) }}, {{ "{!r}".format(copybutton_here_doc_delimiter) }})
 }
 
-  // Initialize with a callback so we can modify the text before copy
-  const clipboard = new ClipboardJS('.copybtn', {text: copyTargetText})
-
-  // Update UI with error/success messages
-  clipboard.on('success', event => {
-    clearSelection()
-    temporarilyChangeTooltip(event.trigger, messages[locale]['copy'], messages[locale]['copy_success'])
-    temporarilyChangeIcon(event.trigger)
-  })
-
-  clipboard.on('error', event => {
-    temporarilyChangeTooltip(event.trigger, messages[locale]['copy'], messages[locale]['copy_failure'])
-  })
+  document.querySelectorAll(".copybtn").forEach((element) => {
+    element.addEventListener("click", (e) => {
+      navigator.clipboard
+        .writeText(copyTargetText(element))
+        .then(
+          () => {
+            // Update UI with error/success messages
+            e.preventDefault();
+            temporarilyChangeTooltip(element, messages[locale]['copy'], messages[locale]['copy_success'])
+            temporarilyChangeIcon(element)
+          },
+          () => {
+            temporarilyChangeTooltip(element, messages[locale]['copy'], messages[locale]['copy_failure'])
+          },
+        );
+    });
+  });
 }
 
 runWhenDOMLoaded(addCopyButtonToCodeCells)
