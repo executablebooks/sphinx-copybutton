@@ -16,7 +16,7 @@ pip install -e /path/to/sphinx_copybutton
 
 The package is tested for three things (see `.github/workflows/integration.yml`):
 
-## code style
+## Code style
 
 To adhere to this code style install the package with [pre-commit](https://pre-commit.com/):
 
@@ -59,7 +59,7 @@ NodeJS >= 12 is required
 Install the package:
 
 ```console
-$ pip install .
+$ pip install .[rtd]
 ```
 
 Then run the docs build:

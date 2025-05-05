@@ -261,7 +261,7 @@ but if one of the lines to be copied contains the defined delimiter (here: `EOT`
 then all following lines will be copied literally until the next delimiter is
 encountered in a line.
 
-## Change the copy button image
+## Change the icons
 
 To use a different image for your copy buttons, do the following:
 
@@ -296,7 +296,7 @@ For example, if you wanted to use a **clipboard icon** instead of the default co
    """
    ```
 
-When you re-build your documentation, you should see this new icon in your copy buttons.
+When you re-build your documentation, you should see this new icon in your copy buttons. Similarly, you could change the check icon's image by setting the `checkbutton_image_svg` variable in your `conf.py`. Note that `checkbutton_image_svg` and `copybutton_image_svg` expect the full SVG content, **NOT** a path to an SVG file.
 
 ## Add or remove copy buttons to any element with a CSS selector
 
