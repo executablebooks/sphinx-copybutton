@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.5.2 - 2022-11-15
+## v0.5.2 - 2023-04-14
 
 ([full changelog](https://github.com/executablebooks/sphinx-copybutton/compare/v0.5.0...TODO))
 
