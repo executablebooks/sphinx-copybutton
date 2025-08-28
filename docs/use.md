@@ -335,6 +335,12 @@ print("This won't have a copy button!")
 ```
 ````
 
+If you wish to remove the copybutton for one or more languages you can use:
+
+```python
+copybutton_selector = "div:not(.highlight-diff, .highlight-python) > div.highlight > pre"
+```
+
 ### A typical code cell HTML structure in Sphinx
 
 Using CSS to modify the copy button requires you to know what kind of HTML structure code cells have in your documentation.
