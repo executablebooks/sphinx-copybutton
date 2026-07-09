@@ -36,6 +36,15 @@ extensions = [
 ]
 ```
 
+In your `requirements.txt` file, add `sphinx-copybutton==x.x.x` to your list, where x.x.x is the latest release version.
+E.g.:
+
+```
+    ...
+    sphinx-copybutton==0.5.2
+    ...
+```
+
 When you build your site, your code blocks should now have little copy buttons to their
 right. Clicking the button will copy the code inside!
 
