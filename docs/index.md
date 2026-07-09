@@ -104,4 +104,4 @@ changelog
 ## Inspiration
 
 The UI and design elements of `sphinx-copybutton` are heavily inspired by [GitHub's design choices](https://primer.style).
-The icon we use is from [Tabler's icons set](https://tablericons.com/).
+The icon we use is from [Tabler Icons set](https://tabler.io/icons/).
