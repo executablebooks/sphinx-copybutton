@@ -11,12 +11,10 @@ if os.path.isdir("clipboard.js") and not os.path.islink(
 if os.path.isdir("clipboard.js") and not os.path.isfile(
     "clipboard.js/dist/clipboard.min.js"
 ):
-    raise SystemExit(
-        """Error: clipboard.js submodule not available, run
+    raise SystemExit("""Error: clipboard.js submodule not available, run
 
         git submodule update --init
-        """
-    )
+        """)
 
 with open("./README.md") as ff:
     readme_text = ff.read()
