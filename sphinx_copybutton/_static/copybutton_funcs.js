@@ -42,8 +42,15 @@ export function formatCopyText(textContent, copybuttonPromptText, isRegexp = fal
     const lineGotPrompt = [];
     for (const line of textContent.split('\n')) {
         match = line.match(regexp)
+        if (!match) {
+            // Blank REPL lines are often ">>>" without the trailing space in ">>> ".
+            const padded = (line + ' ').match(regexp)
+            if (padded && padded[2] === '') {
+                match = padded
+            }
+        }
         if (match || gotLineCont || gotHereDoc) {
-            promptFound = regexp.test(line)
+            promptFound = !!match
             lineGotPrompt.push(promptFound)
             if (removePrompts && promptFound) {
                 outputLines.push(match[2])
