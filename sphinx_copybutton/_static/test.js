@@ -33,6 +33,31 @@ output
 		expected: '\nfirst\nsecond'
 	},
 	{
+		description: 'with non-regexp python prompt and blank REPL line',
+		text: `
+>>> first
+>>>
+>>> second`,
+		prompt: '>>> ',
+		isRegexp: false,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		expected: '\nfirst\n\nsecond'
+	},
+	{
+		description: 'with regexp python prompt and blank REPL line',
+		text: `
+>>> first
+>>>
+>>> second`,
+		prompt: '>>> ',
+		isRegexp: true,
+		onlyCopyPromptLines: true,
+		removePrompts: true,
+		copyEmptyLines: true,
+		expected: '\nfirst\n\nsecond'
+	},
+	{
 		description: 'with non-regexp console prompt',
 		text: `
 $ first
