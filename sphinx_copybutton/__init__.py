@@ -1,4 +1,5 @@
 """A small sphinx extension to add "copy" buttons to code blocks."""
+
 from pathlib import Path
 from sphinx.util import logging
 
