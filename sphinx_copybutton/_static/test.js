@@ -1,4 +1,6 @@
 import test from 'ava';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { formatCopyText, filterText } from "./copybutton_funcs";
 
 const parameters = [
@@ -300,3 +302,21 @@ filterParameters.forEach((p) => {
 	});
 })
 */
+
+
+// Exercise the configuration that readers copy and the documentation itself uses.
+const docsConfig = readFileSync(join(__dirname, '../../docs/conf.py'), 'utf8');
+const documentedPrompt = docsConfig.match(/^copybutton_prompt_text = r"(.*)"$/m)[1];
+const usage = readFileSync(join(__dirname, '../../docs/use.md'), 'utf8');
+test('documented prompt matches the documentation configuration', t => {
+    t.true(usage.includes(`copybutton_prompt_text = r"${documentedPrompt}"`));
+});
+
+[1, 10, 100, 1000].forEach(count => {
+    test(`documented prompt copies IPython cell ${count} continuations`, t => {
+        // IPython's Sphinx directive uses two more dots than counter digits.
+        const continuation = '   ' + '.'.repeat(String(count).length + 2) + ': ';
+        const text = `In [${count}]: for value in [1, 2]:\n${continuation}    print(value)\n1\n2`;
+        t.is(formatCopyText(text, documentedPrompt, true), 'for value in [1, 2]:\n    print(value)');
+    });
+});

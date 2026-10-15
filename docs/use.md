@@ -85,7 +85,7 @@ i.e. at [RegEx101].
 For example this documentation uses the following configuration:
 
 ```python
-copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
+copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.{3,}: | {5,8}: "
 copybutton_prompt_is_regexp = True
 ```
 
@@ -106,12 +106,15 @@ Which matches the following prompts and their continuations if they exist:
      - ``r'\$ '``
      - ``'$ '``
    * - ``ipython`` and ``qtconsole`` + continuation
-     - ``r'In \[\d*\]: | {2,5}\.\.\.: '``
-     - ``'In []: '``, ``'In [999]: '``, ``'  ...: '``, ``'     ...: '``
+     - ``r'In \[\d*\]: | {2,5}\.{3,}: '``
+     - ``'In []: '``, ``'In [999]: '``, ``'  ...: '``, ``'   ....: '``, ``'   .....: '``, ``'     ...: '``
    * - ``jupyter-console`` + continuation
      - ``r'In \[\d*\]: | {5,8}: '``
      - ``'In []: '``, ``'In [999]: '``, ``'  ...: '``, ``'     ...: '``
 ```
+
+The IPython Sphinx directive adds continuation dots as the cell number grows (for example, `In [10]:` uses `   ....: `).
+The `\.{3,}` pattern matches these longer prompts as well as the three-dot prompts used by interactive IPython and QtConsole.
 
 An example usage would be the `ipython`-directive:
 
@@ -123,7 +126,10 @@ An example usage would be the `ipython`-directive:
    In [1]: first
       ...: continuation
    output
-   In [2]: second
+   In [10]: first
+      ....: continuation
+   output
+   In [11]: second
 
 ``jupyter`` style:
 
@@ -141,7 +147,10 @@ An example usage would be the `ipython`-directive:
 In [1]: first
    ...: continuation
 output
-In [2]: second
+In [10]: first
+   ....: continuation
+output
+In [11]: second
 ```
 
 `jupyter` style:
